@@ -1,579 +1,641 @@
-<div>
-  Jon Atack
-</div>
+<!--
 
-<div>
-  Here is what I have been working on and future plans, beginning with a brief
-  overview, followed by a more detailed version and references.
-</div>
+jon atack bitcoin core developer software engineer
 
-<br><br>
+-->
+<html>
+  <head>
+    <title>jon atack - bitcoin core developer</title>
+    <meta charset="utf-8">
+    <base target="_blank">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="application-name" content="jon atack - bitcoin core developer"/>
+    <meta name="description" content="jon atack - bitcoin core developer"/>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+  </head>
 
-<section>
-  <div>
-    <u><i>Overview</i></u>
-  </div>
-
-  <br>
-
-  <div>
-    <b>What I have been working on:</b>
-    <br>
-    <div>
-      <ol>
-        <li>
-          Bitcoin Core code review and testing, bug discovery and fixes, and
-          improvements in the following areas:
-          <br>
+  <body>
+    <div id="content">
+      <div id="right">
+        <div class="list">
           <ul>
             <li>
-              <a href="https://github.com/bitcoin/bitcoin/pull/15687"
-                 target="_blank">test</a>
-              <a href="https://github.com/bitcoin/bitcoin/commit/2f7eb772f6250442d4a0071318047cb2deeb31fa"
-                 target="_blank">coverage</a>,
-              including integrating
-              <a href="https://github.com/bitcoin/bitcoin/pull/16645"
-                 target="_blank">property-based testing into Bitcoin Core</a>
+              <a href="https://github.com/jonatack" target="_blank">github</a>
             </li>
             <li>
-              improvements to the Bitcoin Core
-              <a href="https://github.com/bitcoin/bitcoin/pull/15607" target="_blank">release process</a>
-              and
-              <a href="https://github.com/bitcoin/bitcoin/pull/15626" target="_blank">review process</a>
+              <a href="https://www.twitter.com/jonatack"
+                 target="_blank">twitter</a>
             </li>
             <li>
-              build
-              <a href="https://github.com/bitcoin/bitcoin/pull/16080" target="_blank">fixes</a>
-              and
-              <a href="https://github.com/bitcoin/bitcoin/pull/16654" target="_blank">improvements</a>
+              <a href="https://x0f.org/@jon" target="_blank">fediverse</a>
             </li>
             <li>
-              RPC
-              <a href="https://github.com/bitcoin/bitcoin/pull/16873" target="_blank">fixes</a>
-              and
-              <a href="https://github.com/bitcoin/bitcoin/pull/16489" target="_blank">improvements</a>
+              <a href="https://keybase.io/jonatack" target="_blank">keybase</a>
             </li>
             <li>
-              UI/UX and GUI wallet
-              <a href="https://github.com/bitcoin/bitcoin/pull/16822" target="_blank">improvements</a>:
-              regressions found and fixes made
+              <a href="/donate" target="_blank">donate</a>
             </li>
+
+            <style scoped>
+              @media (max-width: 600px) { .rc-scout { float: none !important;
+                                                      display: inline-block
+                                                      !important; } }
+            </style>
             <li>
-              <a href="https://github.com/bitcoin/bitcoin/commits?author=jonatack"
-                 target="_blank">37 commits merged so far into Bitcoin Core</a>
-              and well over 100 pull requests reviewed
-            </li>
-            <li>
-              Currently
-              <a href="https://github.com/bitcoin/bitcoin/graphs/contributors"
-                 target="_blank">ranked #37 of the Bitcoin Core all-time
-                contributors</a> after 8 months of part-time activity
-            </li>
-            <li>
-              Nearly every commit made to Bitcoin Core has been merged
-            </li>
-            <li>
-              Currently
-              <a href="https://twitter.com/jonatack/status/1195712941011677184"
-                 target="_blank">Top 10 (ranked #9)</a> among Bitcoin Core
-              committers since I began contributing
+              <div class="rc-scout"
+                   style="height:1.2em;width:1.2em;float:right;"></div>
             </li>
           </ul>
-        </li>
-
-        <br>
-
-        <li>
-          Weekly review
-          at <a href="https://github.com/bitcoinops/bitcoinops.github.io"
-                target="_blank">Bitcoin Optech</a> of its industry newsletter.
-        </li>
-
-        <br>
-
-        <li>
-          <a href="https://bitcoincore.reviews" target="_blank">Bitcoin Core PR Review Club</a>
-          as a contributor, meeting host
-          <a href="https://bitcoincore.reviews/16401.html" target="_blank">(example)</a>,
-          and creating and running the
-          <a href="https://twitter.com/BitcoinCorePRs"
-             target="_blank">BitcoinCorePRs</a> twitter account.
-        </li>
-
-        <br>
-
-        <li>
-          Compiling Bitcoin Core technical and social process information at
-          <a href="https://github.com/jonatack/bitcoin-development"
-             target="_blank">https://github.com/jonatack/bitcoin-development</a>. This
-          has been relayed in this
-          <a href="https://twitter.com/BitcoinMagazine/status/1177251272560394240"
-             target="_blank">Bitcoin Magazine</a>
-          <a href="https://bitcoinmagazine.com/articles/op-ed-want-to-learn-about-bitcoin-try-the-bitcoin-core-pr-review-club" target="_blank">September 2019 article</a>.
-        </li>
-      </ol>
-    </div>
-  </div>
-
-  <br>
-
-  <div>
-    <b>Future work:</b>
-    <br><br>
-    <ol>
-      <li>
-        Strengthening Bitcoin Core's <b>decentralisation</b>, <b>censorship
-          resistance</b> and <b>privacy</b> by working to improve
-        the <b>peer-to-peer network privacy</b> and resistance to surveillance and
-        attacks
-      </li>
-      <li>
-        Increasing Bitcoin Core's <b>robustness</b>: finding and fixing
-        regressions and bugs, and adding missing test coverage and better testing
-        in areas like the P2P network, fuzzing, and
-        <a href="https://github.com/bitcoin/bitcoin/pull/16645"
-           target="_blank">property-based testing (which I've
-          helped introduce into Bitcoin Core)</a>
-      </li>
-      <li>
-        Continuing and deeper <b>code review</b>, notably of the difficult and
-        important PRs; this sounds unexciting but is the most-needed work and
-        bottleneck in Bitcoin Core
-      </li>
-      <li>
-        Improving the Bitcoin Core <b>wallet</b> features, RPC interface, and
-        GUI user interface
-      </li>
-      <li>
-        Investing in <b>developer education</b> via the Bitcoin Core PR Review
-        Club and possibly continued review or work with Bitcoin Optech
-      </li>
-      <li>
-        Regularly presenting the results of the above work at conferences and
-        meetups, providing training, and where feasible, ethically adding value
-        for my sponsor or employer
-      </li>
-      <li>
-        Possibly future <b>general maintainership</b> after a few years<br>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<br><br>
-
-<section>
-  <div>
-    <u><i>Background</i></u>
-  </div>
-  <br>
-  <div>
-    I began programming at age 9 in BASIC and assembly language. Since age 15, I
-    have been a freelance software engineer for companies like Electronic Arts,
-    L'Oreal, Group SEB/Moulinex, the Paris Airports, and France Electricity, and
-    have been an open source contributor
-
-    (<a href="https://contributors.rubyonrails.org/contributors/"
-        target="_blank">Ruby on Rails Top 100</a>) and author/maintainer,
-    <a href="https://github.com/activerecord-hackery/ransack/graphs/contributors"
-       target="_blank">notably</a>
-
-    of
-
-    <a href="https://github.com/activerecord-hackery/ransack/" target="_blank">Ransack</a>,
-
-    the leading Ruby search engine, but also
-
-    <a href="https://github.com/jonatack/kraken_ruby_client" target="_blank">Kraken Ruby Client</a>,
-
-    an API client for the Kraken cryptocurrency exchange featured in the
-
-    <a href="https://www.kraken.com/features/api#example-api-code"
-       target="_blank">Kraken API documentation</a>.
-
-    I studied Computer Science at Harvey Mudd College in the US, followed by an
-    MBA at INSEAD in France. I also have 2 years of marketing brand management
-    experience in consumer products at L'Oreal and speak English, French, and
-    German.
-  </div>
-
-  <br>
-
-  <div>
-    In March 2019, I began learning to contribute to Bitcoin Core. I started by
-    studying the repository and the social process and specific technical
-    details of contributing to the project. I've been compiling and curating
-    this knowledge at
-    <a href="https://github.com/jonatack/bitcoin-development"
-       target="_= blank">https://github.com/jonatack/bitcoin-development</a>,
-    which is frequently recommended to other developers like in this
-    <a href="https://twitter.com/BitcoinMagazine/status/1177251272560394240"
-       target="_blank">Bitcoin Magazine</a>
-    <a href="https://bitcoinmagazine.com/articles/op-ed-want-to-learn-about-bitcoin-try-the-bitcoin-core-pr-review-club"
-       target="_blank">September 2019 article</a>
-    and is becoming an educational resource.
-  </div>
-
-  <br>
-
-  <div>
-    It became clear that what is most needed and useful, and paradoxically the
-    least done by new Bitcoin Core contributors, is review and testing of PRs
-    and issues. Roughly 300 pull requests and 700 issues are open at any given
-    moment in Bitcoin Core waiting for experienced review and testing.
-  </div>
-
-  <br>
-
-  <div>
-    I rapidly became one of the most active new contributors and
-    reviewers on Bitcoin Core, as well as on
-    <a href="https://github.com/bitcoi= nops/bitcoinops.github.io"
-       target="_blank">Bitcoin Optech</a>,
-
-    reviewing each week's newsletter by Dave Harding with John Newbery, Mike
-    Schmidt, Steve Hall, and Adam Jonas, and for the
-
-    <a href="https://github.com/bitcoin-core-review-club/bitcoin-core-review-club.github.io" target="_blank">Bitcoin Core PR Review Club</a>,
-    helping John Newbery with
-    <a href="https://github.com/bitcoin-core-review-club/bitcoin-core-review-club.github.io/graphs/contributors"
-       target="_blank">improving the codebase and website</a>,
-    <a href="https://bitcoincore.reviews/16401.html"
-       target="_blank">hosting meetings</a>,
-    and creating and running the
-    <a href="https://twitter.= com/BitcoinCorePRs"
-       target="_blank">BitcoinCorePRs twitter account</a>.
-  </div>
-
-  <br>
-
-  <div>
-    In early June, Adam Jonas and John Newbery invited me to attend the
-    Chaincode Labs residency seminars. I spent 2 weeks in the Chaincode Labs
-    Manhattan office learning about Bitcoin and meeting core developers and the
-    summer residents. Since then, I have been contributing part-time in the
-    evenings and weekends. Bitcoin Core maintainers and developers frequently
-    ask me for review, testing or a fix as if I were full-time on Bitcoin Core.
-  </div>
-
-  <br>
-
-  <div>
-    Opening pull requests has not been a priority of mine. Yet, by reviewing
-    and understanding what needs to be done and how to make contributions easy
-    to review, I have had
-    <a href="https://github.com/bitcoin/bitcoin/commits=?author=jonatack"
-       target="_blank">33 commits merged into Bitcoin Core</a>
-
-    -- more than any other new contributor this year to Bitcoin Core. I am
-    currently
-
-    <a href="https://github.com/bitcoin/bitcoin/graphs/contributors"
-       target="_blank">#40 of the Bitcoin Core all-time
-      contributors</a>
-
-    and in the top 10-15 among the currently active contributors. Every
-    Bitcoin Core commit I have made has been merged -- a merge rate of
-    100%. This shows effectiveness in having improvements merged.
-  </div>
-
-  <br>
-  <div>
-    While reviewing, I found and fixed several Bitcoin Core bugs and
-    regressions. Here's the most recent example (I can pick on John since he
-    is incredibly well-respected and a great guy): The
-    <a href="https://github.com/bitcoin/bitcoin/pull/16866"
-       target="_blank">regression</a>,
-    and
-    <a href="https://github.com/bitcoin/bitcoin/pull/16873" target="_blank">my fix</a>.
-  </div>
-
-  <br>
-
-  <div>
-    I regularly attend the weekly Bitcoin Core IRC meetings and bi-weekly
-    wallet team IRC meetings, and hosted my first Bitcoin Core wallet team IRC
-    meeting recently; here are links to the
-    <a href="http://www.erisian.com.au/meetbot/bitcoin-core-dev/2019/bitcoin-core-dev.2019-09-27-19.03.html"
-       target="_blank">minutes</a>
-    and the
-    <a href="http://www.erisian.com.au/meetbot/bitcoin-core-dev/2019/bitcoin-core-dev.2019-09-27-19.03.log.html"
-       target="_blank">meeting log</a>.
-  </div>
-</section>
-
-
-<br>
-<br>
-
-<section>
-  <div>
-    <b>Future work in more detail:</b>
-  </div>
-
-  <br>
-
-  <div>
-    I plan to prioritise my time to Bitcoin roughly as follows:<br>
-    <br>
-    Robustness > Privacy > Features > Scaling > UI.<br>
-    <br>
-    Thus <b>robustness, censorship resistance, and privacy</b> are my highest
-    priorities.
-  </div>
-
-  <br><br>
-
-  <div>
-    Goals:
-  </div>
-
-  <br>
-
-  <div>
-    <ol>
-      <li>
-        Strengthening Bitcoin Core's <b>decentralisation</b>, <b>censorship
-          resistance</b> and <b>privacy</b> by working to improve
-        the <b>peer-to-peer network privacy</b> and resistance to surveillance
-        and attacks, working with and helping Jonas Schnelli, Suhas Daftuar,
-        Gleb Naumenko, and other people like the Chaincode residents I met this
-        summer, particularly James Chiang and Antoine Riard who have some good
-        ideas.
-        <br><br>
-        Examples:
-        <ul>
-          <li>
-            V2 P2P message protocol with opportunistic encryption (BIP 324, BIP
-            150) by Jonas Schnelli, which was the subject of a
-            <a href="https://drive.google.com/file/d/1o6PaA-vAWXhpCHHbBkUGZJ-6bmde6gEY/view"
-               target="_blank">presentation I made at Chaincode Labs</a>
-            and a Bitcoin Core PR Review meeting
-            <a href="https://bitcoin-core-review-club.github.io/16202.html"
-               target="_blank">I hosted with Bitcoin Core maintainer Jonas Schnelli</a>.
-          </li>
-          <li>
-            Multiple P2P networks instead of just one.
-          </li>
-          <li>
-            Possibly different IP buckets per peer; each IP would have its own
-            AddrMan table and would confer to ensure they don' have the same peer
-            IPs, to avoid IP poisoning e.g. flooding by attacker peers.
-          </li>
-          <li>
-            Package Relay, separating block relay from transaction relay into 2
-            networks. Suhas Daftuar is working on this; it will need extensive
-            review and improvements/counter-proposals.
-          </li>
-          <li>
-            Improve our p2p simulation/network testing frameworks to better
-            understand the multi-order effects of proposed improvements.
-          </li>
-          <li>
-            A better framework for systematically thinking about privacy.
-          </li>
-          <li>
-            Better simulations needed for evaluating proposals like
-            Dandelion/++/Lite and others.
-          </li>
-        </ul>
-      </li>
-
-      <br>
-
-      <li>
-        Increasing Bitcoin Core's <b>robustness</b>: finding and fixing
-        regressions and bugs, and adding missing test coverage and better
-        testing in under-utilised areas like the P2P network, fuzzing, and
-        <a href="https://github.com/bitcoin/bitcoin/pull/16645"
-           target="_blank">property-based testing (which I've
-          helped introduce into Bitcoin Core)</a>.
-
-        Robustness can also mean working on codebase performance, modularity and
-        multiprocess.
-      </li>
-
-      <br>
-
-      <li>
-        The number one bottleneck in Bitcoin Core is <b>experienced
-          review</b> of difficult PRs. I would dedicate more time to <b>deep
-          review</b> of the important PRs that often sit for months without
-        enough review to be merged and have to go through multiple painful
-        rebases, which blocks vital progress and demotivates experienced
-        long-term contributors from working on Bitcoin Core.
-        <ul>
-          <li>
-            I would unblock these critical PRs by reviewing them and
-            by <b>coordinating</b> with the maintainers and other contributors to
-            ensure timely review where it is most needed and difficult.
-          </li>
-          <li>
-            Reviewing also means continuing to find and fix regressions and bugs
-            throughout Bitcoin Core and making it more <b>robust</b>.
-          </li>
-        </ul>
-      </li>
-
-      <br>
-
-      <li>
-        Improving the Bitcoin Core <b>wallet</b> features, user (GUI)
-        interface, RPC interface, connectivity with hardware wallets, and
-        security.
-      </li>
-
-      <br>
-
-      <li>
-        Investing in <b>developer education</b> and awareness of code review
-        via the Bitcoin Core PR Review Club, and possibly continued review or
-        work with Bitcoin Optech:
-        <ul>
-          <li>
-            Develop the Bitcoin Core PR Review Club website and promotion with John
-            Newbery
-          </li>
-          <li>
-            Host Bitcoin Core PR Review Club meetings, like
-            <a href="https://bitcoincore.reviews/16202.html"
-               target="_blank">here</a>,
-            and
-            <a href="https://bitcoincore.reviews/16401.html"
-               target="_blank">here</a>
-          </li>
-          <li>
-            Develop a backend for the
-            <a href="https://twitter.com/BitcoinCorePRs"
-               target="_blank">BitcoinCorePRs twitter account</a>
-            to live-tweet Bitcoin Core reviews, high-priority PR
-            updates, and publish monthly rankings of the most
-            active Bitcoin Core reviewers
-          </li>
-          <li>
-            Continue reviewing the <a href="https://bitcoinops.org/en/newsletters/"
-                                      target="_blank">Bitcoin Optech newsletters</a> and perhaps other actions
-            to help Dave Harding, John Newbery, and Mike Schmidt.
-          </li>
-        </ul>
-      </li>
-
-      <br>
-
-      <li>
-        Regularly presenting the results of the above work at conferences and
-        meetups, providing training, and where feasible, ethically adding value
-        for my sponsor or employer.
-      </li>
-
-      <br>
-
-      <li>
-        Longer term, possibly evolving towards a <b>maintainer role</b> in
-        Bitcoin Core. It fits my profile and experience, there will always be a
-        need, and it takes years to cultivate a maintainer in a project like
-        this.
-      </li>
-    </ol>
-  </div>
-</section>
-
-<br><br>
-
-<section>
-  <div>
-    <b>References</b><br>
-    <br>
-    <p>
-      Don't hesitate to ask any of the following people about me,
-      particularly John Newbery and the Bitcoin Core maintainers below:
-    </p>
-    <br>
-    <div>
-      <ul>
-        <li>
-          John Newbery, Chaincode Labs and Bitcoin Optech
-        </li>
-        <li>
-          Wladimir van der Laan, Bitcoin Core maintainer
-        </li>
-        <li>
-          Jonas Schnelli, Bitcoin Core maintainer
-        </li>
-        <li>
-          Samuel Dobson (meshcollider), Bitcoin Core maintainer
-        </li>
-        <li>
-          Michael Ford (fanquake), Bitcoin Core maintainer
-        </li>
-        <li>
-          Dave Harding, Bitcoin Optech
-        </li>
-        <li>
-          Mike Schmidt, Blockstream, Bitcoin Optech
-        </li>
-        <li>
-          Andrew Chow, Blockstream
-        </li>
-        <li>
-          Gregory Sanders (instagibbs), Blockstream
-        </li>
-        <li>
-          João Barbosa (promag), independent Bitcoin Core developer
-        </li>
-        <li>
-          Chris Stewart, Bitcoin Core developer, founder of Suredbits
-        </li>
-        <li>
-          Michael Folkson, London Bitcoin Devs organiser, r/lightningdevs moderator
-        </li>
-      </ul>
-    </div>
-    <br>
-    <div>
-      Feel free to reach out for more details on anything I've described above
-      or to chat.
-    </div>
-  </div>
-
-  <br>
-
-  <div>
-    Cheers,
-    <br><br>
-    Jon
-  </div>
-
-  <br><br>
-
-  <div>
-    <div>
-      <span>
-        <font color="#888888">
-          Jon Atack
-        </font>
-      </span>
-    </div>
-    <span>
-      <font color="#888888">
-        <div>
-          Bitcoin Core developer and contributor
-        </div>Mastodon: <a href="https://x0f.org/@jon"
-                           target="_blank">https://x0f.org/@jon</a>
-        <div>
-          GitHub:
-          <a href="https://github.com/jonatack"
-             target="_blank">https://github.com/jonatack</a></div>
-        <div>Twitter:
-          <a href="https://twitter.com/jonatack"
-             target="_blank">https://twitter.com/jonatack</a>
         </div>
-        <div>
-          Keybase:
-          <a href="https://keybase.io/jonatack"
-             target="_blank">https://keybase.io/jonatack</a>
+        <div class="namecap">
+          <a href="#"
+             target="_self">jon~~~~~~<br>atack~~~~<br>bitcoin~~<br>core~~~~~<br>developer</a>
         </div>
-      </font>
-    </span>
-  </div>
-</section>
+      </div>
+
+      <div id="entry_block">
+        <div class="entry">
+          <div class="date">Last updated: 17 November 2019</div>
+          <div class="body">
+            <div>
+              I’m a contributor to Bitcoin Core. I also work on various other
+              projects in the Bitcoin space. Here is what I have been working on
+              and future plans.
+            </div>
+
+            <div class="title">What I have been working on</div>
+
+            <section>
+              <h2>
+                <u><i>Overview</i></u>
+              </h2>
+
+              <h3>What I have been working on:</h3>
+              <p>
+                <ol>
+                  <li>
+                    Bitcoin Core code review and testing, bug discovery and
+                    fixes, and improvements in the following areas:
+                    <p>
+                      <ul>
+                        <li>
+                          <a href="https://github.com/bitcoin/bitcoin/pull/15687"
+                             target="_blank">test</a>
+                          <a href="https://github.com/bitcoin/bitcoin/commit/2f7eb772f6250442d4a0071318047cb2deeb31fa"
+                             target="_blank">coverage</a>, including integrating
+                          <a href="https://github.com/bitcoin/bitcoin/pull/16645"
+                             target="_blank">property-based testing into Bitcoin
+                             Core</a>
+                        </li>
+                        <li>
+                          improvements to the Bitcoin Core
+                          <a href="https://github.com/bitcoin/bitcoin/pull/15607"
+                             target="_blank">release process</a> and
+                          <a href="https://github.com/bitcoin/bitcoin/pull/15626"
+                             target="_blank">review process</a>
+                        </li>
+                        <li>
+                          build
+                          <a href="https://github.com/bitcoin/bitcoin/pull/16080"
+                             target="_blank">fixes</a> and
+                          <a href="https://github.com/bitcoin/bitcoin/pull/16654"
+                             target="_blank">improvements</a>
+                        </li>
+                        <li>
+                          RPC
+                          <a href="https://github.com/bitcoin/bitcoin/pull/16873"
+                             target="_blank">fixes</a> and
+                          <a href="https://github.com/bitcoin/bitcoin/pull/16489"
+                             target="_blank">improvements</a>
+                        </li>
+                        <li>
+                          UI/UX and GUI wallet
+                          <a href="https://github.com/bitcoin/bitcoin/pull/16822"
+                             target="_blank">improvements</a>: regressions found
+                             and fixes made
+                        </li>
+                        <li>
+                          <a href="https://github.com/bitcoin/bitcoin/commits?author=jonatack"
+                             target="_blank">37 commits merged so far into
+                             Bitcoin Core</a> and well over 100 pull requests
+                             reviewed
+                        </li>
+                        <li>
+                          Currently
+                          <a href="https://github.com/bitcoin/bitcoin/graphs/contributors"
+                             target="_blank">ranked #37 of the Bitcoin Core
+                             all-time contributors</a> after 8 months of
+                             part-time activity
+                        </li>
+                        <li>
+                          Nearly every commit made to Bitcoin Core has been
+                          merged
+                        </li>
+                        <li>
+                          Currently
+                          <a href="https://twitter.com/jonatack/status/1195712941011677184"
+                             target="_blank">Top 10 (ranked #9)</a> among
+                             Bitcoin Core committers since I began contributing
+                        </li>
+                      </ul>
+                    </p>
+                  </li>
+
+                  <li>
+                    Weekly review
+                    at <a href="https://github.com/bitcoinops/bitcoinops.github.io"
+                    target="_blank">Bitcoin Optech</a> of its industry
+                    newsletter.
+                  </li>
+
+                  <li>
+                    <a href="https://bitcoincore.reviews"
+                       target="_blank">Bitcoin Core PR Review Club</a> as a
+                       contributor, meeting host
+                    <a href="https://bitcoincore.reviews/16401.html"
+                       target="_blank">(example)</a>, and creating and running
+                       the
+                    <a href="https://twitter.com/BitcoinCorePRs"
+                       target="_blank">BitcoinCorePRs</a> twitter account.
+                  </li>
+
+                  <li>
+                    Compiling Bitcoin Core technical and social process
+                    information at
+                    <a href="https://github.com/jonatack/bitcoin-development"
+                       target="_blank">https://github.com/jonatack/bitcoin-development</a>. This
+                       has been relayed in this
+                    <a href="https://twitter.com/BitcoinMagazine/status/1177251272560394240"
+                       target="_blank">Bitcoin Magazine</a>
+                    <a href="https://bitcoinmagazine.com/articles/op-ed-want-to-learn-about-bitcoin-try-the-bitcoin-core-pr-review-club"
+                       target="_blank">September 2019 article</a>.
+                  </li>
+                </ol>
+              </p>
+
+              <h3>Future work:</h3>
+              <p>
+                <ol>
+                  <li>
+                    Strengthening Bitcoin
+                    Core's <b>decentralisation</b>, <b>censorship resistance</b>
+                    and <b>privacy</b> by working to improve the <b>peer-to-peer
+                    network privacy</b> and resistance to surveillance and
+                    attacks
+                  </li>
+                  <li>
+                    Increasing Bitcoin Core's <b>robustness</b>: finding and
+                    fixing regressions and bugs, and adding missing test
+                    coverage and better testing in areas like the P2P network,
+                    fuzzing, and
+                    <a href="https://github.com/bitcoin/bitcoin/pull/16645"
+                       target="_blank">property-based testing (which I've helped
+                       introduce into Bitcoin Core)</a>
+                  </li>
+                  <li>
+                    Continuing and deeper <b>code review</b>, notably of the
+                    difficult and important PRs; this sounds unexciting but is
+                    the most-needed work and bottleneck in Bitcoin Core
+                  </li>
+                  <li>
+                    Improving the Bitcoin Core <b>wallet</b> features, RPC
+                    interface, and GUI user interface
+                  </li>
+                  <li>
+                    Investing in <b>developer education</b> via the Bitcoin Core
+                    PR Review Club and possibly continued review or work with
+                    Bitcoin Optech
+                  </li>
+                  <li>
+                    Regularly presenting the results of the above work at
+                    conferences and meetups, providing training, and where
+                    feasible, ethically adding value for my sponsor or employer
+                  </li>
+                  <li>
+                    Possibly future <b>general maintainership</b> after a few
+                    years<br>
+                  </li>
+                </ol>
+              </p>
+            </section>
+
+            <section>
+              <div class="title">Background</div>
+              <p>
+                I began programming at age 9 in BASIC and assembly
+                language. Since age 15, I have been a freelance software
+                engineer for companies like Electronic Arts, L'Oreal, Group
+                SEB/Moulinex, the Paris Airports, and France Electricity, and
+                have been an open source contributor
+
+                (<a href="https://contributors.rubyonrails.org/contributors/"
+                    target="_blank">Ruby on Rails Top 100</a>) and
+                    author/maintainer,
+                <a href="https://github.com/activerecord-hackery/ransack/graphs/contributors"
+                   target="_blank">notably</a>
+
+                of
+
+                <a href="https://github.com/activerecord-hackery/ransack/"
+                   target="_blank">Ransack</a>,
+
+                the leading Ruby search engine, but also
+
+                <a href="https://github.com/jonatack/kraken_ruby_client"
+                   target="_blank">Kraken Ruby Client</a>,
+
+                an API client for the Kraken cryptocurrency exchange featured in
+                the
+
+                <a href="https://www.kraken.com/features/api#example-api-code"
+                   target="_blank">Kraken API documentation</a>.
+
+                I studied Computer Science at Harvey Mudd College in the US,
+                followed by an MBA at INSEAD in France. I also have 2 years of
+                marketing brand management experience in consumer products at
+                L'Oreal and speak English, French, and German.
+              </p>
+              <p>
+                In March 2019, I began learning to contribute to Bitcoin Core. I
+                started by studying the repository and the social process and
+                specific technical details of contributing to the project. I've
+                been compiling and curating this knowledge at
+                <a href="https://github.com/jonatack/bitcoin-development"
+                   target="_=
+                   blank">https://github.com/jonatack/bitcoin-development</a>,
+                   which is frequently recommended to other developers like in
+                   this
+                <a href="https://twitter.com/BitcoinMagazine/status/1177251272560394240"
+                   target="_blank">Bitcoin Magazine</a>
+                <a href="https://bitcoinmagazine.com/articles/op-ed-want-to-learn-about-bitcoin-try-the-bitcoin-core-pr-review-club"
+                   target="_blank">September 2019 article</a> and is becoming an
+                   educational resource.
+              </p>
+              <p>
+                It became clear that what is most needed and useful, and
+                paradoxically the least done by new Bitcoin Core contributors,
+                is review and testing of PRs and issues. Roughly 300 pull
+                requests and 700 issues are open at any given moment in Bitcoin
+                Core waiting for experienced review and testing.
+              </p>
+              <p>
+                I rapidly became one of the most active new contributors and
+                reviewers on Bitcoin Core, as well as on
+                <a href="https://github.com/bitcoi= nops/bitcoinops.github.io"
+                   target="_blank">Bitcoin Optech</a>,
+
+                reviewing each week's newsletter by Dave Harding with John
+                Newbery, Mike Schmidt, Steve Hall, and Adam Jonas, and for the
+
+                <a href="https://github.com/bitcoin-core-review-club/bitcoin-core-review-club.github.io"
+                   target="_blank">Bitcoin Core PR Review Club</a>, helping John
+                   Newbery with
+                <a href="https://github.com/bitcoin-core-review-club/bitcoin-core-review-club.github.io/graphs/contributors"
+                   target="_blank">improving the codebase and website</a>,
+                <a href="https://bitcoincore.reviews/16401.html"
+                   target="_blank">hosting meetings</a>, and creating and
+                   running the
+                <a href="https://twitter.= com/BitcoinCorePRs"
+                   target="_blank">BitcoinCorePRs twitter account</a>.
+              </p>
+              <p>
+                In early June, Adam Jonas and John Newbery invited me to attend
+                the Chaincode Labs residency seminars. I spent 2 weeks in the
+                Chaincode Labs Manhattan office learning about Bitcoin and
+                meeting core developers and the summer residents. Since then, I
+                have been contributing part-time in the evenings and
+                weekends. Bitcoin Core maintainers and developers frequently ask
+                me for review, testing or a fix as if I were full-time on
+                Bitcoin Core.
+              </p>
+              <p>
+                Opening pull requests has not been a priority of mine. Yet, by
+                reviewing and understanding what needs to be done and how to
+                make contributions easy to review, I have had
+                <a href="https://github.com/bitcoin/bitcoin/commits=?author=jonatack"
+                   target="_blank">33 commits merged into Bitcoin Core</a>
+
+                -- more than any other new contributor this year to Bitcoin
+                Core. I am currently
+
+                <a href="https://github.com/bitcoin/bitcoin/graphs/contributors"
+                   target="_blank">#40 of the Bitcoin Core all-time
+                   contributors</a>
+
+                and in the top 10-15 among the currently active
+                contributors. Every Bitcoin Core commit I have made has been
+                merged -- a merge rate of 100%. This shows effectiveness in
+                having improvements merged.
+              </p>
+              <p>
+                While reviewing, I found and fixed several Bitcoin Core bugs and
+                regressions. Here's the most recent example (I can pick on John
+                since he is incredibly well-respected and a great guy): The
+                <a href="https://github.com/bitcoin/bitcoin/pull/16866"
+                   target="_blank">regression</a>, and
+                <a href="https://github.com/bitcoin/bitcoin/pull/16873"
+                   target="_blank">my fix</a>.
+              </p>
+              <p>
+                I regularly attend the weekly Bitcoin Core IRC meetings and
+                bi-weekly wallet team IRC meetings, and hosted my first Bitcoin
+                Core wallet team IRC meeting recently; here are links to the
+                <a href="http://www.erisian.com.au/meetbot/bitcoin-core-dev/2019/bitcoin-core-dev.2019-09-27-19.03.html"
+                   target="_blank">minutes</a> and the
+                <a href="http://www.erisian.com.au/meetbot/bitcoin-core-dev/2019/bitcoin-core-dev.2019-09-27-19.03.log.html"
+                   target="_blank">meeting log</a>.
+              </p>
+            </section>
+
+            <h2>Future work in more detail:</h2>
+            <div class="title">Future work in more detail:</div>
+            <p>
+              I plan to prioritise my time to Bitcoin roughly as follows:
+            </p>
+            <h3>
+              Robustness > Privacy > Features > Scaling > UI
+            </h3>
+            <p>
+              Thus <b>robustness, censorship resistance, and privacy</b> are my
+              highest priorities.
+            </p>
+
+            <section>
+              <h3>Goals</h3>
+              <p>
+                <ol>
+                  <li>
+                    <p>
+                      Strengthening Bitcoin
+                      Core's <b>decentralisation</b>, <b>censorship
+                      resistance</b> and <b>privacy</b> by working to improve
+                      the <b>peer-to-peer network privacy</b> and resistance to
+                      surveillance and attacks, working with and helping Jonas
+                      Schnelli, Suhas Daftuar, Gleb Naumenko, and other people
+                      like the Chaincode residents I met this summer,
+                      particularly James Chiang and Antoine Riard who have some
+                      good ideas.
+                    </p>
+                    <p>
+                      Examples:
+                    </p>
+                    <p>
+                      <ul>
+                        <li>
+                          <p>
+                            V2 P2P message protocol with opportunistic
+                            encryption (BIP 324, BIP 150) by Jonas Schnelli,
+                            which was the subject of a
+                            <a href="https://drive.google.com/file/d/1o6PaA-vAWXhpCHHbBkUGZJ-6bmde6gEY/view"
+                               target="_blank">presentation I made at Chaincode
+                               Labs</a> and a Bitcoin Core PR Review meeting
+                            <a href="https://bitcoin-core-review-club.github.io/16202.html"
+                               target="_blank">I hosted with Bitcoin Core
+                               maintainer Jonas Schnelli</a>.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            Multiple P2P networks instead of just one.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            Possibly different IP buckets per peer; each IP
+                            would have its own AddrMan table and would confer to
+                            ensure they don' have the same peer IPs, to avoid IP
+                            poisoning e.g. flooding by attacker peers.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            Package Relay, separating block relay from
+                            transaction relay into 2 networks. Suhas Daftuar is
+                            working on this; it will need extensive review and
+                            improvements/counter-proposals.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            Improve our p2p simulation/network testing
+                            frameworks to better understand the multi-order
+                            effects of proposed improvements.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            A better framework for systematically thinking about
+                            privacy.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            Better simulations needed for evaluating proposals
+                            like Dandelion/++/Lite and others.
+                          </p>
+                        </li>
+                      </ul>
+                    </p>
+                  </li>
+
+                  <li>
+                    <p>
+                      Increasing Bitcoin Core's <b>robustness</b>: finding and
+                      fixing regressions and bugs, and adding missing test
+                      coverage and better testing in under-utilised areas like
+                      the P2P network, fuzzing, and
+                      <a href="https://github.com/bitcoin/bitcoin/pull/16645"
+                         target="_blank">property-based testing (which I've
+                         helped introduce into Bitcoin Core)</a>.
+
+                      Robustness can also mean working on codebase performance,
+                      modularity and multiprocess.
+                    </p>
+                  </li>
+
+                  <li>
+                    <p>
+                      The number one bottleneck in Bitcoin Core
+                      is <b>experienced review</b> of difficult PRs. I would
+                      dedicate more time to <b>deep review</b> of the important
+                      PRs that often sit for months without enough review to be
+                      merged and have to go through multiple painful rebases,
+                      which blocks vital progress and demotivates experienced
+                      long-term contributors from working on Bitcoin Core.
+                      <ul>
+                        <li>
+                          <p>
+                            I would unblock these critical PRs by reviewing them
+                            and by <b>coordinating</b> with the maintainers and
+                            other contributors to ensure timely review where it
+                            is most needed and difficult.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            Reviewing also means continuing to find and fix
+                            regressions and bugs throughout Bitcoin Core and
+                            making it more <b>robust</b>.
+                          </p>
+                        </li>
+                      </ul>
+                    </p>
+                  </li>
+
+                  <li>
+                    <p>
+                      Improving the Bitcoin Core <b>wallet</b> features, user
+                      (GUI) interface, RPC interface, connectivity with hardware
+                      wallets, and security.
+                    </p>
+                  </li>
+
+                  <li>
+                    <p>
+                      Investing in <b>developer education</b> and awareness of
+                      code review via the Bitcoin Core PR Review Club, and
+                      possibly continued review or work with Bitcoin Optech:
+                      <ul>
+                        <li>
+                          Develop the Bitcoin Core PR Review Club website and
+                          promotion with John Newbery
+                        </li>
+                        <li>
+                          Host Bitcoin Core PR Review Club meetings, like
+                          <a href="https://bitcoincore.reviews/16202.html"
+                             target="_blank">here</a>, and
+                          <a href="https://bitcoincore.reviews/16401.html"
+                             target="_blank">here</a>
+                        </li>
+                        <li>
+                          Develop a backend for the
+                          <a href="https://twitter.com/BitcoinCorePRs"
+                             target="_blank">BitcoinCorePRs twitter account</a>
+                             to live-tweet Bitcoin Core reviews, high-priority
+                             PR updates, and publish monthly rankings of the
+                             most active Bitcoin Core reviewers
+                        </li>
+                        <li>
+                          Continue reviewing
+                          the <a href="https://bitcoinops.org/en/newsletters/"
+                          target="_blank">Bitcoin Optech newsletters</a> and
+                          perhaps other actions to help Dave Harding, John
+                          Newbery, and Mike Schmidt.
+                        </li>
+                      </ul>
+                    </p>
+                  </li>
+
+                  <li>
+                    <p>
+                      Regularly presenting the results of the above work at
+                      conferences and meetups, providing training, and where
+                      feasible, ethically adding value for my sponsor or
+                      employer.
+                    </p>
+                  </li>
+
+                  <li>
+                    <p>
+                      Longer term, possibly evolving towards a <b>maintainer
+                        role</b> in Bitcoin Core. It fits my profile and
+                        experience, there will always be a need, and it takes
+                        years to cultivate a maintainer in a project like this.
+                    </p>
+                  </li>
+                </ol>
+              </p>
+            </section>
+
+            <section>
+              <div class="title">References</div>
+              <p>
+                Don't hesitate to ask any of the following people about me,
+                particularly John Newbery and the Bitcoin Core maintainers
+                below:
+              </p>
+              <p>
+                <ul>
+                  <li>
+                    John Newbery, Chaincode Labs and Bitcoin Optech
+                  </li>
+                  <li>
+                    Wladimir van der Laan, Bitcoin Core maintainer
+                  </li>
+                  <li>
+                    Jonas Schnelli, Bitcoin Core maintainer
+                  </li>
+                  <li>
+                    Samuel Dobson (meshcollider), Bitcoin Core maintainer
+                  </li>
+                  <li>
+                    Michael Ford (fanquake), Bitcoin Core maintainer
+                  </li>
+                  <li>
+                    Dave Harding, Bitcoin Optech
+                  </li>
+                  <li>
+                    Mike Schmidt, Blockstream, Bitcoin Optech
+                  </li>
+                  <li>
+                    Andrew Chow, Blockstream
+                  </li>
+                  <li>
+                    Gregory Sanders (instagibbs), Blockstream
+                  </li>
+                  <li>
+                    João Barbosa (promag), independent Bitcoin Core developer
+                  </li>
+                  <li>
+                    Chris Stewart, Bitcoin Core developer, founder of Suredbits
+                  </li>
+                  <li>
+                    Michael Folkson, London Bitcoin Devs organiser,
+                    r/lightningdevs moderator
+                  </li>
+                </ul>
+              </p>
+              <p>
+                Feel free to reach out for more details on anything I've
+                described above or to chat.
+              </p>
+
+              <div>
+                Cheers,<br> Jon
+              </div>
+
+              <div>
+                <span>
+                  <font color="#888888">
+                    <div>
+                      Jon Atack Bitcoin Core developer and contributor
+                    </div>
+                    <div>
+                      Twitter:
+                      <a href="https://twitter.com/jonatack"
+                         target="_blank">https://twitter.com/jonatack</a>
+                    </div>
+                    <div>
+                      Mastodon: <a href="https://x0f.org/@jon"
+                                   target="_blank">https://x0f.org/@jon</a>
+                    </div>
+                    <div>
+                      GitHub:
+                      <a href="https://github.com/jonatack"
+                         target="_blank">https://github.com/jonatack</a>
+                    </div>
+                    <div>
+                      Keybase:
+                      <a href="https://keybase.io/jonatack"
+                         target="_blank">https://keybase.io/jonatack</a>
+                    </div>
+                  </font>
+                </span>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
