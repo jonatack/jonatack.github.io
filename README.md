@@ -1,5 +1,5 @@
 # https://jonatack.github.io
 
-## jon atack, bitcoin core developer
+### jon atack, bitcoin core developer
 
 ## website and blog
