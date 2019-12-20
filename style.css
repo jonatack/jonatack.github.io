@@ -101,6 +101,13 @@ div.body, div.title {
 }
 
 .body p {
+  padding: 0;
+  overflow-wrap: break-word;
+}
+
+ol, ul, li {
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .body ol, .body ul {
@@ -112,16 +119,18 @@ div.body, div.title {
   list-style-type: circle;
 }
 
-.body p code {
-  background-color: #FAFAFA;
-  padding: 4px;
+code {
+  color=#888888;
+  font-size: 0.84em;
+  line-height: 1.6em;
+  padding-top: 12px;
+  padding-bottom: 12px;
   overflow-wrap: break-word;
 }
 
 .body pre {
   margin-left: 1em;
   font-size: 1.2em;
-  background-color: #FAFAFA;
   padding: .5em;
   overflow-wrap: break-word;
   overflow-x: scroll;
