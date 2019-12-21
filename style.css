@@ -120,19 +120,12 @@ ol, ul, li {
 }
 
 code {
-  color=#888888;
   font-size: 0.84em;
   line-height: 1.6em;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  overflow-wrap: break-word;
 }
 
 .body pre {
-  margin-left: 1em;
-  font-size: 1.2em;
-  padding: .5em;
-  overflow-wrap: break-word;
+  padding-bottom: .5em;
   overflow-x: scroll;
 }
 
