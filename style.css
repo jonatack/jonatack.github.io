@@ -120,6 +120,10 @@ ol, ul, li {
 }
 
 code {
+  color: #666;
+}
+
+pre {
   font-size: 0.84em;
   line-height: 1.6em;
 }
