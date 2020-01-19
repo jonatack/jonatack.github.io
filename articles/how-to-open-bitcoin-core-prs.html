@@ -65,8 +65,8 @@ jon atack bitcoin core developer and protocol researcher
 
               <p>
                 This guide builds on the foundation laid by
-                <a href="how-to-review-bitcoin-core-prs">How to Review Bitcoin
-                  Core PRs.</a>.
+                <a href="how-to-review-bitcoin-core-prs" target="_self">How to
+                  Review Bitcoin Core PRs</a>.
               </p>
               <p>
                 Remember that reviewing is the most effective way you can
@@ -93,6 +93,8 @@ jon atack bitcoin core developer and protocol researcher
                 Read and know the Bitcoin Core
                 <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/developer-notes.md">developer notes</a>.
               </p>
+
+              <h4 id="what-to-do">What to do</h4>
               <p>
                 Choose your contribution carefully to be sure it is desired by
                 the maintainers and reviewers; without their approval, you risk
@@ -122,10 +124,6 @@ jon atack bitcoin core developer and protocol researcher
                 date.
               </p>
               <p>
-                I find it useful to keep a list of PR ideas in the form of
-                <a href="/jonatack/bitcoin-development/blob/master/observed-todos.txt">observed todos</a>.
-              </p>
-              <p>
                 Focus on user problems, actual bugs, and "used, but untested"
                 methods that affect outcomes and need tests.
               </p>
@@ -147,6 +145,8 @@ jon atack bitcoin core developer and protocol researcher
                 the correct consensus on the Bitcoin network -- all else is
                 secondary.
               </p>
+
+              <h4 id="gather-information">Gather information</h4>
               <p>
                 Gather context about the change you have in mind. Has it already
                 been proposed in the past? Do issues or PRs about it already
@@ -162,6 +162,12 @@ jon atack bitcoin core developer and protocol researcher
                 way, or one that has already been tried and turned out to be a
                 dead end for reasons that may not be apparent to you.
               </p>
+              <p>
+                I sometimes seek Concept ACKs for larger changes during IRC
+                meetings as a topic request and discussion.
+              </p>
+
+              <h4 id="write-test-coverage">Write test coverage</h4>
               <p>
                 Test coverage is essential; don't hesitate to write any missing
                 <a href="https://github.com/bitcoin/bitcoin/tree/master/src/test">unit</a>,
@@ -181,6 +187,8 @@ jon atack bitcoin core developer and protocol researcher
                 right</em> detectors if constructed more in terms of invariants
                 instead of strict behaviour."
               </p>
+
+              <h4 id="write-documentation">Write documentation</h4>
               <p>
                 Documentation is important, e.g. high-level documentation of how
                 things work and interact, clear and accurate code docs, whether
@@ -191,9 +199,25 @@ jon atack bitcoin core developer and protocol researcher
                 and so on.
               </p>
               <p>
+                Add
+                <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/developer-notes.md#release-notes">release notes</a>
+                when appropriate. RPC-related release notes should refer to the
+                RPC help for details instead of substituting for full
+                documentation, for example: "Please refer to the RPC help
+                of <code>getbalances</code> for details."
+               </p>
+              <p>
+                Release notes should be added in a separate file in
+                the <code>doc/release-notes/</code> directory, not directly
+                in <code>doc/release-notes.md</code>, to avoid merge conflicts.
+              </p>
+
+              <p>
                 In general, PRs that intelligently improve documentation and
                 tests in a well thought-out way tend to be well-received.
               </p>
+
+              <h4 id="do-it-well">Do it well</h4>
               <p>
                 Don't rush. Give your work time to mature, revisit it with fresh
                 perspective, and iterate on it a few times before putting it out
@@ -334,15 +358,6 @@ idea seen in practice</a>
                 with.
               </p>
               <p>
-                Add
-                <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/developer-notes.md#release-notes">release notes</a>
-
-                when appropriate. RPC-related release notes should refer to the
-                RPC help for details instead of substituting for full
-                documentation, for example: "Please refer to the RPC help
-                of <code>getbalances</code> for details."
-              </p>
-              <p>
                 Ask yourself how others will see your PR. Try to only file PRs
                 that people will be motivated to review and that are worth
                 merging, for both Bitcoin and your track record. Your PRs will
@@ -353,16 +368,21 @@ idea seen in practice</a>
                 Scale up your PR contributions gradually in line with your
                 ability and understanding of the project, process, and codebase.
               </p>
+
+              <h4 id="keep-reviewing">Keep reviewing</h4>
               <p>
                 Continue to do more reviewing and testing than adding PRs to the
-                backlog.  Reviewing 5 to 15 PRs for every PR you open is a good
+                backlog. Reviewing 5 to 15 PRs for every PR you open is a good
                 range.
               </p>
               <p>
                 If you are a good reviewer and begin building a reputation and
                 appreciation for your help in moving the project forward,
                 maintainers and other contributors may reciprocate by reviewing
-                your work more quickly as well!
+                your work more quickly as well.
+              </p>
+              <p>
+                Happy contributing!
               </p>
               <p>Cheers,</p>
               <p>Jon Atack</p>
