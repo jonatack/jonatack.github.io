@@ -1,0 +1,243 @@
+<!--
+
+jon atack bitcoin core developer and protocol researcher
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>jon atack - How to Compile Bitcoin Core and Run the Tests</title>
+    <meta charset="utf-8">
+    <base target="_blank">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+  </head>
+
+  <body>
+    <div id="content">
+      <div id="right">
+        <div class="list">
+          <ul>
+            <li>
+              <a href="/" target="_self">home</a>
+            </li>
+            <li>
+              <a href="/articles" target="_self">articles</a>
+            </li>
+            <li>
+              <a href="/presentations" target="_self">presentations</a>
+            </li>
+            <li>
+              <a href="/sponsors" target="_self">sponsors</a>
+            </li>
+            <li>
+              <a href="/contact" target="_self">contact</a>
+            </li>
+            <li>
+              <a href="/donate" target="_self">donate</a>
+            </li>
+
+            <style scoped>
+              @media (max-width: 600px) { .rc-scout { float: none !important;
+                                                      display: inline-block
+                                                                 !important; } }
+            </style>
+            <li>
+              <div class="rc-scout"
+                   style="height:1.2em;width:1.2em;float:right;"></div>
+            </li>
+          </ul>
+        </div>
+        <div class="namecap">
+          <a href="/"
+             target="_self">jon~~~~<br>atack~~<br>bitcoin<br>core~~~<br>dev~~~~</a>
+        </div>
+      </div>
+
+      <div id="entry_block">
+        <div class="entry">
+          <div class="date">Last updated: 19 January 2020</div>
+          <div class="body">
+            <article>
+              <div class="title">
+                How to compile Bitcoin Core and run the unit and functional tests
+              </div>
+
+              <p>
+                This is a simplified summary of the various docs in
+                <a href="https://github.com/bitcoin/bitcoin/tree/master/doc"
+                   target="_blank">https://github.com/bitcoin/bitcoin/tree/master/doc</a>.
+              </p>
+              <p>
+                Don't hesitate to read them for more information.
+              </p>
+              <p>
+                All steps are to be run from your terminal emulator, i.e. the
+                command line.
+              </p>
+
+              <ol>
+                <li>
+                  Ensure the dependencies are installed:
+                  <ul>
+                    <li>
+                      Linux:
+                      <code>
+                        sudo apt-get install build-essential libtool
+                        autotools-dev automake pkg-config bsdmainutils python3
+                        libssl-dev libevent-dev libboost-system-dev
+                        libboost-filesystem-dev libboost-chrono-dev
+                        libboost-test-dev libboost-thread-dev libminiupnpc-dev
+                        libzmq3-dev libqt5gui5 libqt5core5a libqt5dbus5
+                        qttools5-dev qttools5-dev-tools libprotobuf-dev
+                        protobuf-compiler git ccache
+                      </code>
+                    </li>
+                    <li>
+                      macOS (with command line tools and Homebrew already
+                      installed):
+                      <code>
+                        brew install automake berkeley-db4 libtool boost
+                        miniupnpc openssl pkg-config protobuf python qt libevent
+                        qrencode ccache
+                      </code>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Download the Bitcoin source files by git cloning the
+                  repository.
+                  <ul>
+                    <li>
+                      <code>git clone https://github.com/bitcoin/bitcoin.git</code>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Install Berkeley DB (BDB) v4.8, a backward-compatible
+                  version needed for the wallet, using the script in
+                  <code>/contrib</code>.
+                  <ul>
+                    <li>
+                      Enter your local copy of the bitcoin repository:
+                      <code>cd bitcoin</code>
+                    </li>
+                    <li>
+                      Now that you are in the root of the bitcoin repository,
+                      run <code>./contrib/install_db4.sh `pwd`</code>
+                    </li>
+                    <li>
+                      Take note of the instructions displayed in the terminal at
+                      the end of the BDB installation process:
+                      <br>
+                      <pre>db4 build complete.
+When compiling bitcoind, run `./configure` in the following way:
+export BDB_PREFIX='&lt;PATH-TO&gt;/db4'
+./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include" ...</pre>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Compile from a tagged release branch instead of master, unless
+                  you want to test the bleeding edge.
+                  <ul>
+                    <li>
+                      <code>git tag -n | sort -V</code> to see tags and
+                      descriptions ordered by most recent last
+                    </li>
+                    <li>
+                      <code>git checkout &lt;TAG&gt;</code> to use a tagged
+                      release, for example: <code>git checkout v0.19.0.1</code>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Compile Bitcoin from source.
+                  <ul>
+                    <li>
+                      <code>./autogen.sh</code>
+                    </li>
+                    <li>
+                      <code>export BDB_PREFIX='&lt;PATH-TO&gt;/db4'</code>
+                      (you can use the output from the BDB build above)
+                    </li>
+                    <li>
+                      <code>
+                        ./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8"
+                        BDB_CFLAGS="-I${BDB_PREFIX}/include"
+                      </code>
+                    </li>
+                    <li>
+                      <code>make</code>, or if you have multiple threads on your
+                      machine, you can tell
+                      <code>make</code> to use all of them and reduce compile
+                      time significantly with
+                    </li>
+                    <li>
+                      <code>make -j"$(($(nproc)+1))"</code> on Linux, or
+                    </li>
+                    <li>
+                      <code>make -j"$(($(sysctl -n hw.physicalcpu)+1))"</code>
+                      on macOS
+                    </li>
+                  </ul>
+                  <p>
+                    You can run <code>./configure --help</code> to see the
+                    various configuration options.
+                  </p>
+                  <p>
+                    If you build frequently from source (e.g. for testing pull
+                    requests), as long as you don't need to change the
+                    configuration options you can skip directly to
+                    the <code>make</code> step for subsequent builds.
+                  </p>
+                  <p>
+                    Be sure to use <code>ccache</code> to speed up your builds. You can also gain time by
+                    building only what you need. See the Bitcoin Core
+                    <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/productivity.md">productivity
+                    notes</a>
+                    for more.
+                  </p>
+                </li>
+                <li>
+                  Run the unit tests.
+                  <ul>
+                    <li><code>make check</code>, or</li>
+                    <li>
+                      <code>make -j"$(($(nproc)+1))" check</code> to use
+                      multithreading on Linux, or
+                    </li>
+                    <li>
+                      <code>make -j"$(($(sysctl -n hw.physicalcpu)+1))"
+                        check</code>
+                      on macOS
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Run the functional tests. From the repository root:
+                  <ul>
+                    <li>
+                      <code>test/functional/test_runner.py</code>
+                      to run the standard test suite
+                    </li>
+                    <li>
+                      <code>test/functional/test_runner.py --extended</code>
+                      to run the extended test suite
+                    </li>
+                    <li>
+                      <code>test/functional/test_runner.py --help</code>
+                      to see the various options for running tests
+                    </li>
+                  </ul>
+                </li>
+              </ol>
+              <p>Cheers,</p>
+              <p>Jon Atack</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
