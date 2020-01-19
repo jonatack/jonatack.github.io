@@ -1,0 +1,656 @@
+<!--
+
+jon atack bitcoin core developer and protocol researcher
+
+-->
+<html>
+  <head>
+    <title>jon atack - How to Review Bitcoin Core PRs</title>
+    <meta charset="utf-8">
+    <base target="_blank">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+  </head>
+
+  <body>
+    <div id="content">
+      <div id="right">
+        <div class="list">
+          <ul>
+            <li>
+              <a href="/" target="_self">home</a>
+            </li>
+            <li>
+              <a href="/articles" target="_self">articles</a>
+            </li>
+            <li>
+              <a href="/presentations" target="_self">presentations</a>
+            </li>
+            <li>
+              <a href="/sponsors" target="_self">sponsors</a>
+            </li>
+            <li>
+              <a href="/contact" target="_self">contact</a>
+            </li>
+            <li>
+              <a href="/donate" target="_self">donate</a>
+            </li>
+
+            <style scoped>
+              @media (max-width: 600px) { .rc-scout { float: none !important;
+                                                      display: inline-block
+                                                                 !important; } }
+            </style>
+            <li>
+              <div class="rc-scout"
+                   style="height:1.2em;width:1.2em;float:right;"></div>
+            </li>
+          </ul>
+        </div>
+        <div class="namecap">
+          <a href="/"
+             target="_self">jon~~~~<br>atack~~<br>bitcoin<br>core~~~<br>dev~~~~</a>
+        </div>
+      </div>
+
+      <div id="entry_block">
+        <div class="entry">
+          <div class="date">Last updated: 19 January 2020</div>
+          <div class="body">
+            <article>
+              <div class="title">How to Review Bitcoin Core PRs</div>
+
+              <h3 id="before-you-begin">BEFORE YOU BEGIN</h3>
+
+              <p>This guide builds on the foundation laid by these
+                presentations:</p>
+
+              <ol>
+                <li>
+                  <p><a href="https://bitcointechtalk.com/a-gentle-introduction-to-bitcoin-core-development-fdc95eaee6b8"
+                        rel="nofollow">A Gentle Introduction to Bitcoin Core
+                      Development</a> by <a href="https://twitter.com/jimmysong"
+                                            rel="nofollow">Jimmy Song</a> (2017)</p>
+                </li>
+                <li>
+                  <p><a href="https://bitcointechtalk.com/contributing-to-bitcoin-core-a-personal-account-35f3a594340b"
+                        rel="nofollow">Contributing to Bitcoin Core, a personal
+                      account</a> by <a href="https://twitter.com/jfnewbery"
+                                        rel="nofollow">John Newbery</a> (2017)</p>
+                </li>
+                <li>
+                  <p><a href="https://medium.com/@pierre_rochard/understanding-the-technical-side-of-bitcoin-2c212dd65c09"
+                        rel="nofollow">Understanding the Technical Side of Bitcoin</a>
+                    by <a href="https://twitter.com/pierre_rochard"
+                          rel="nofollow">Pierre Rochard</a> (2018)</p>
+                </li>
+                <li>
+                  <p><a href="https://www.youtube.com/watch?v=MJBhZg0ytiw"
+                        rel="nofollow">A hardCORE workout</a> /
+                    <a href="http://diyhpl.us/wiki/transcripts/sf-bitcoin-meetup/2018-04-23-jeremy-rubin-bitcoin-core/"
+                       rel="nofollow">transcript</a> /
+                    <a href="https://drive.google.com/file/d/149Ta1WRXL5WEvnBdlL-HxmsFDXUbvFDy/view"
+                       rel="nofollow">slides</a>
+                    by <a href="https://twitter.com/JeremyRubin"
+                          rel="nofollow">Jeremy Rubin</a> (2018)</p>
+                </li>
+              </ol>
+
+              <h3 id="introduction">INTRODUCTION</h3>
+
+              <p><em>"Reviewing is the most effective way you can contribute as a
+                  new contributor (and also will teach you much more about the
+                  code than opening PRs)."</em></p>
+              <p>— John Newbery, Bitcoin Core PR Review Club meeting, 5 September
+                2019</p>
+              <p>Reviewing and testing can be the best ways to begin contributing
+                to Bitcoin Core.</p>
+              <p>Experienced review and testing are regularly cited by long-term
+                Bitcoin Core developers as both</p>
+              <ul>
+                <li>
+                  <p>resource bottlenecks, and</p>
+                </li>
+                <li>
+                  <p>the best and most helpful way to begin contributing and
+                    earning reputation in the community.</p>
+                </li>
+              </ul>
+              <p>Yet the process and learning curve can seem intimidating and in
+                practice very few new contributors do it.</p>
+              <p>As a newcomer, this article represents my current understanding
+                after a few months, a few dozen PR reviews, a few issues tested or
+                handled, and a handful of commits.</p>
+              <p>Some of this understanding was gained from</p>
+              <ul>
+                <li>
+                  <p>contributing to a large open source project,
+                    <a href="https://github.com/rails/rails">Ruby on Rails</a>,
+                    and co-editing its blog and
+                    newsletter, <a href="https://rails-weekly.ongoodbits.com/archive"
+                                   rel="nofollow">This Week in Rails</a></p>
+                </li>
+                <li>
+                  <p>development and lead maintainership of
+                    <a href="https://github.com/activerecord-hackery/ransack">Ransack</a>,
+                    a popular Ruby search engine</p>
+                </li>
+                <li>
+                  <p>daily discussions on this topic of mutual interest with my
+                    good friend and
+                    colleague, <a href="https://twitter.com/kaspth"
+                                  rel="nofollow">Kasper Timm Hansen</a>, a developer at
+                    <a href="https://basecamp.com/about/team"
+                       rel="nofollow">Basecamp</a> and since 2016 a member of the
+                    <a href="https://rubyonrails.org/community/"
+                       rel="nofollow">Ruby on Rails Core Team</a>.</p>
+                </li>
+              </ul>
+              <p>Yet much of it is unique to Bitcoin Core and came only with
+                time. I would have preferred to know these things from the
+                start. So here we are. This is foremost a self-study exercise, but
+                perhaps it can be useful for others.</p>
+
+              <h3 id="terminology">TERMINOLOGY</h3>
+
+              <p><a href="https://help.github.com/en/articles/about-pull-requests">PR</a>:
+                An acronym for
+                <em>pull request</em>, sometimes called a merge request. A
+                proposed change to the code or documentation in the source code
+                repository.</p>
+              <p><a href="https://en.wikipedia.org/wiki/Work_in_process"
+                    rel="nofollow">WIP</a>: An acronym for <em>work in
+                  progress</em>.</p>
+              <p><a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review">ACK,
+                  NACK, nit</a>:
+                Defined <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review">here</a>.</p>
+
+              <h3 id="general">GENERAL</h3>
+
+              <p>As a newcomer, the goal is to try to add value, with friendliness
+                and humility, while learning as much as possible.</p>
+              <p>A good approach is to make it not about you, but rather "How can
+                I best serve?"</p>
+              <p>One of the most challenging aspects facing new contributors is
+                the breadth of the codebase and the complexities of the
+                technologies surrounding it.</p>
+              <p>Be aware of what you don’t know; long-term contributors have
+                years of experience and context. The community has built up a deep
+                collective wealth of knowledge and experience. Keep in mind that
+                your new ideas may have already been proposed or considered
+                several times in the past.</p>
+              <p>Remember that contributor and maintainer resources are limited --
+                ask for them carefully and respectfully. The goal is to try to
+                give more than you take, to help more than hinder, while getting
+                up to speed.</p>
+              <p>Try to figure things out on your own, at least sufficiently to
+                respect others' time.</p>
+              <p>Follow the
+                <a href="https://webchat.freenode.net/?channels=bitcoin-core-dev"
+                   rel="nofollow">#bitcoin-core-dev</a> IRC channel and the
+                <a href="https://lists.linuxfoundation.org/mailman/listinfo/bitcoin-dev"
+                   rel="nofollow">bitcoin-dev</a> mailing list.</p>
+              <p>More IRC channels to follow can be found
+                <a href="https://github.com/jonatack/bitcoin-development/blob/master/irc-channels.txt">here</a>.</p>
+
+              <p>Before jumping in, take plenty of time to:</p>
+
+              <ul>
+                <li>
+                  <p>understand the contribution process and guidelines, not only
+                    by reading the documentation in
+                    the <a href="https://github.com/bitcoin/bitcoin">repository</a>,
+                    notably
+                    <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md">Contributing
+                      to Bitcoin Core</a> and everything in the
+                    <a href="https://github.com/bitcoin/bitcoin/tree/master/doc">doc</a>
+                    and
+                    <a href="https://github.com/bitcoin/bitcoin/tree/master/test">test</a>
+                    <a href="https://github.com/bitcoin/bitcoin/tree/master/src/test">directories</a>,
+                    but also by observing interactions on the
+                    <a href="https://webchat.freenode.net/?channels=bitcoin-core-dev"
+                       rel="nofollow">#bitcoin-core-dev</a> IRC channel and the
+                    ongoing
+                    <a href="https://github.com/bitcoin/bitcoin/pulls">code review
+                      in the repository</a></p>
+                </li>
+                <li>
+                  <p>get to know the maintainers and regular contributors: what
+                    they do, what they like and want, how they give feedback</p>
+                </li>
+              </ul>
+
+              <p>Participate in the
+                excellent <a href="https://bitcoincore.reviews"
+                             rel="nofollow">Bitcoin Core PR Review Club</a> weekly meetings
+                on IRC. The club was launched in May 2019
+                by <a href="https://twitter.com/jfnewbery" rel="nofollow">John
+                  Newbery</a>. You'll benefit the most if you prepare for each
+                meeting in advance by studying, building, and testing the PR
+                under review -- and then actually reviewing it! Go through the
+                notes, questions, and logs of the previous meetings; there is
+                gold in there.</p>
+              <p>Many newcomers begin by filing pull requests that add to the
+                hundreds already awaiting valuable review. In many cases, it may
+                be better to begin by reviewing the existing pull requests and
+                starting to understand what kind of pull requests and review are
+                most helpful, while slowly gaining the big picture.</p>
+
+              <h4 id="the-big-picture">The Big Picture</h4>
+
+              <p>The big picture is more important than nits, spelling, or code
+                style.</p>
+
+              <p>Steps to improve understanding of the big picture:</p>
+              <ul>
+                <li>
+                  <p>do
+                    the <a href="https://github.com/chaincodelabs/study-groups">Chaincode
+                      Labs study guide</a></p>
+                </li>
+                <li>
+                  <p>read and
+                    do <a href="https://github.com/jimmysong/programmingbitcoin">Programming
+                      Bitcoin</a></p>
+                </li>
+                <li>
+                  <p>study the <a href="https://github.com/bitcoin/bips/">Bitcoin
+                      Improvement Proposals</a> (often referred to in singular form
+                    by the acronym "BIP"), and return to them frequently</p>
+                </li>
+                <li>
+                  <p>subscribe to the <a href="https://bitcoinops.org/"
+                                         rel="nofollow">Bitcoin Optech newsletters</a> and read
+                    their <a href="https://github.com/bitcoinops/scaling-book">Scaling
+                      Book</a></p>
+                </li>
+                <li>
+                  <p>do <a href="https://github.com/ChristopherA/Learning-Bitcoin-from-the-Command-Line">Learning
+                      Bitcoin from the Command Line</a></p>
+                </li>
+              </ul>
+              <p>Aim for quality over quantity and a balance between deep work and
+                quick wins.</p>
+              <p>Documentation is important, e.g. high-level documentation of how
+                things work and interact, clear and accurate code docs, whether a
+                function has a good description
+                and <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/developer-notes.md#coding-style-doxygen-compatible-comments">Doxygen
+                  documentation</a>, test logging (both <code>info</code>
+                and <code>debug</code>), and so on.</p>
+              <p>Test coverage is essential; don't hesitate to improve or write
+                any missing
+                <a href="https://github.com/bitcoin/bitcoin/blob/master/src/test/">unit</a>
+                or
+                <a href="https://github.com/bitcoin/bitcoin/tree/master/test/functional/">functional</a>
+                tests.</p>
+              <p>Be a contributor. Help PRs move forward by
+                reviewing, <a href="https://github.com/bitcoin/bitcoin/pull/15996#issuecomment-491740946">proposing
+                  tests</a> or fixes in a helpful way, proposing to rebase, or
+                even offering to take over the PR after months of silence. In
+                short, help each other!</p>
+
+              <h4 id="nits">Nits</h4>
+
+              <p>Try to avoid overly commenting in PRs about nits, minutia and
+                code style, particularly with PRs labeled as WIP, or when a PR has
+                just been filed and the PR author is mainly looking for Concept
+                ACKs and Approach ACKs, e.g. general consensus, not
+                nitpicking.</p>
+              <p>Long-term contributors report that activity like this repels
+                them, and it can diminish your social capital on the project. Try
+                to understand what kind of review is needed and when to do
+                what.</p>
+              <p>The best time for any nit comments is after the Concept/Approach
+                ACKs and consensus on the PR, and before the PR is finalised and
+                has tested ACKs.</p>
+              <p>Give nits and style advice in a friendly, light, enabling way --
+                as in, feel free to ignore, feel free to adjust if you happen to
+                rebase, etc.</p>
+              <p>Keep in mind that no one is forced to take your review comments
+                into account; it's perfectly fine for the author to reply that
+                they don't want to do something if they feel it is outside the
+                scope of the change, especially if your comment is nitpicky.</p>
+
+              <h4 id="scale-up"></a>Scale Up</h4>
+
+              <p>When you can, scale up the difficulty and priority of the PRs you
+                review.</p>
+              <p>You can add more value and learn more by taking the time to do
+                deep, quality review of
+                the <a href="https://github.com/bitcoin/bitcoin/projects/8">high-priority
+                  PRs</a> and the more difficult PRs. These PRs tend to intimidate
+                people and can stagnate for months, killing their author's
+                motivation with death by a thousand cuts from lack of quality
+                review, nitpicking/code style bikeshedding, and rebase hell.
+                Reviewing them well provides a true service to Bitcoin.</p>
+              <p>The process of ramping up takes time; nothing can substitute for
+                months and years invested in gathering context and understanding
+                from following the
+                <a href="https://github.com/bitcoin/bitcoin">code</a>,
+                <a href="https://github.com/bitcoin/bitcoin/issues">issues</a>,
+                <a href="https://github.com/bitcoin/bitcoin/pulls">pull
+                  requests</a>,
+                <a href="https://webchat.freenode.net/?channels=bitcoin-core-dev"
+                   rel="nofollow">#bitcoin-core-dev</a> IRC channel, and the
+                <a href="https://lists.linuxfoundation.org/mailman/listinfo/bitcoin-dev"
+                   rel="nofollow">bitcoin-dev</a> mailing list.</p>
+
+              <h4 a id="step-by-step"></a>Step by Step</h4>
+
+              <p>Keep ego and hopes out of the process. Don't take things
+                personally and keep moving forward.</p>
+              <p>When in doubt, assume good intentions.</p>
+              <p>Be patient with people and outcomes.</p>
+              <p>Persistence helps. Work on it every day.</p>
+              <p>These are all much easier said than done. Be forgiving with
+                yourself and others.</p>
+              <p>John Newbery:</p>
+              <ul>
+                <li>A good rule of thumb is to review 5-15 PRs for each PR you
+                  make</li>
+                <li>Start small</li>
+                <li>Have a plan, don't spread yourself too thin</li>
+                <li>Sharpen your tools</li>
+                <li>Ask for and offer help, like rebasing for people or adding
+                  test cases</li>
+                <li>People are generous with their time because they care</li>
+                <li>Contribute by understanding what others want and being
+                  respectful</li>
+              </ul>
+
+              <h3 id="technical-specifics">TECHNICAL SPECIFICS</h3>
+
+              <p><em>Don't trust, verify.</em> Minimise dependance on GitHub in
+                your review process. Use the GitHub website only for the GitHub
+                metadata, e.g. reading comments and adding your own comments --
+                not for reviewing the commits and code, which you should do in
+                your local environment.</p>
+              <p>Therefore, a review begins by pulling the PR branch down to your
+                computer to build and review locally. There are several ways to do
+                it:</p>
+              <ul>
+                <li>Bitcoin Core documentation
+                  for <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/productivity.md#reference-prs-easily-with-refspecs">referencing
+                    PRs easily with refspecs</a></li>
+                <li>Pulling down remote PRs with <code>git checkout
+                    pr/&lt;number&gt;</code> <a href="https://gist.github.com/piscisaureus/3342247">as
+                    described in this nice little gist</a></li>
+                <li>GitHub
+                  now <a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally">exposes
+                    PRs</a> as branches on the upstream repository with <code>git
+                    pull/&lt;number&gt;/head</code> (contributor branch)
+                  and <code>git pull/&lt;number&gt;/merge</code> (merged into
+                  master), e.g. <code>git fetch origin pull/17283/head
+                    &amp;&amp; git checkout FETCH_HEAD</code></li>
+              </ul>
+              <p>You can test a PR either on the contributor's branch or with the
+                changes merged on top of master. Testing the latter can be useful
+                to see if anything merged into master since the last PR commit
+                breaks the changes.</p>
+              <p>Next, launch the build and tests while you begin reading the code
+                locally. You'll need to become comfortable
+                with <a href="https://github.com/jonatack/bitcoin-development/blob/master/how-to-compile-bitcoin-core-from-source-on-linux-and-macOS.md">compiling
+                  Bitcoin Core from source</a> and running
+                the <a href="https://github.com/bitcoin/bitcoin/tree/master/src/test/README.md">unit
+                  tests</a> and
+                <a href="https://github.com/bitcoin/bitcoin/blob/master/test/README.md">functional
+                  tests</a> since you will need to do it for most of the PRs you
+                test. For this, the Bitcoin Core
+                <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/productivity.md">productivity
+                  notes</a> are indispensable.</p>
+              <p>While the build and tests are running, begin reviewing each
+                commit separately in your local environment using a difftool like
+                <a href="https://git-scm.com/docs/gitk"
+                   rel="nofollow">gitk</a>, <a href="https://meldmerge.org/"
+                                               rel="nofollow">meld</a>, <a href="https://yousseb.github.io/meld/"
+                                                                           rel="nofollow">meld for macOS</a>,
+                <a href="https://www.gnu.org/software/emacs/manual/html_node/ediff/index.html"
+                   rel="nofollow">GNU</a>
+                <a href="https://www.emacswiki.org/emacs/EdiffMode"
+                   rel="nofollow">ediff</a>,
+                <a href="https://vim.fandom.com/wiki/A_better_Vimdiff_Git_mergetool"
+                   rel="nofollow">vimdiff</a>, or opendiff on macOS. If you use gitk
+                and like dark mode, I
+                recommend <a href="https://github.com/dracula/gitk">Dracula for
+                  gitk</a>.</p>
+              <p>Become adept at searching the repository with <code>git
+                  grep</code>. You'll use it constantly. Run <code>git grep
+                  --help</code> on the command line for help or information.</p>
+              <p>Read and know the Bitcoin
+                Core <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/developer-notes.md">developer
+                  notes</a>.</p>
+
+              <h4 id="if-youre-not-sure-where-to-start">If You're Not Sure Where to Start</h4>
+
+              <p>Read the code, read the PR comments, then re-read both. Find
+                something that doesn't make sense and try to figure it
+                out. Repeat.</p>
+              <p>Once it all starts to make sense, run bitcoind on testnet (or on
+                mainnet with very small amounts), and tail or search through the
+                relevant logs (run
+                <code>bitcoin-cli help logging</code> for the various bitcoind
+                logging categories and how to toggle them on/off).</p>
+              <p>Maybe add some custom logging, LogPrintfs, or asserts; it's
+                always a privilege to add these into other people's code (to see
+                how, run <code>git grep -ni logprintf</code> or <code>git grep
+                  assert</code> in the repository).</p>
+              <p>Run the relevant functional tests and look through the debug
+                logs. Verify that they fail in the expected way on master. Back in
+                the PR branch, inverse or change the new tests to make them break
+                and understand why.</p>
+              <p>Maybe add C++ gdb or Python pdb breakpoints. Examine values. Run
+                RPC commands.</p>
+              <p>Check if any call sites, headers or declarations have been
+                overlooked in the PR.</p>
+              <p>Try refactoring the code to be better or prettier, and discover
+                why that doesn't work. Expect it to take twice as long as you
+                planned it to. Yes, it's work.</p>
+
+              <h4 id="add-missing-tests">Add missing tests</h4>
+
+              <p>While you're reviewing, writing tests yourself can help you
+                understand the behaviour and verify the changes, and if they add
+                useful coverage you can propose them to the author for inclusion
+                in the PR. Proposing automated tests is a really helpful way to
+                start contributing. Authors appreciate it when someone reviews
+                their PR and provides additional
+                tests. <a href="https://github.com/bitcoin/bitcoin/pull/15996#issuecomment-491740946">Here's
+                  an example.</a></p>
+
+              <h4 id="big-picture-more-important-than-nits">Big picture &gt; nits</h4>
+
+              <p>Remember, the big picture is much more important than nits,
+                spelling, or code style. Re-read the
+                <a href="#nits" target="_self">Nits</a>
+                section above. Try to avoid commenting on these while reviewing,
+                even if you have no other comments to make. I know, it's hard --
+                I've done it too many times -- but there's a better
+                alternative:</p>
+
+              <h4 id="ask-questions">Ask Questions</h4>
+
+              <p>A good thing you can do as a reviewer without specialised
+                knowledge of the code is <em>ask questions</em>. A PR author is
+                usually happy to discuss their work or see interest in it. So,
+                spend 20 minutes or so looking at a change, find the thing that
+                seems most confusing or surprising, and ask about it politely in
+                the PR comments or on the
+                <a href="https://webchat.freenode.net/?channels=bitcoin-core-dev"
+                   rel="nofollow">#bitcoin-core-dev</a> IRC channel. Chances are
+                other people wonder about the same thing and it could be clarified
+                or documented better. In this way you can learn and help make the
+                project more accessible, too. (Credit for this
+                paragraph: <a href="https://github.com/bitcoin/bitcoin/pull/15934#issuecomment-547095024">Russell
+                  Yanofsky</a>).</p>
+
+              <h4 id="peer-review"></a>Peer Review</h4>
+
+              <p>Be sure to learn and understand the Bitcoin Core
+                <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review">peer
+                  review process</a>.
+                The process is
+                <a href="https://github.com/bitcoin/bitcoin/pull/15626">often</a>
+                <a href="https://github.com/bitcoin/bitcoin/pull/16149">updated</a>,
+                so refer back to it frequently.</p>
+              <p>Concept ACK means the reviewer acknowledges and agrees with the
+                goal of the change, but is not (yet) confirming they've looked at
+                the code or tested it.  This can be a valuable signal to a PR
+                author to let them know that the PR has merit and is headed in the
+                right direction. As a corollary, a Concept NACK would indicate
+                disagreement with the goal.</p>
+              <p>Approach ACK is a step further than Concept ACK and means
+                agreement with both the goal and the approach used in implementing
+                the change. Approach NACK would therefore indicate agreement with
+                the goal but not the approach.</p>
+              <p>Manual testing of new features and reported issues is always
+                welcome. A comment that is really helpful in review: "Here's what
+                I tested and my methodology", particularly to back up an ACK.</p>
+              <p>Some PRs can be difficult to test or ACK due to complexity,
+                context, or possibly a lack of tests or simulation framework. That
+                shouldn't discourage you from reviewing. For example, if you've
+                reviewed the code thoroughly, a comment like "the code looks
+                correct to me, but I don't feel confident enough about behaviour
+                to give an ACK" is a perfectly helpful contribution.</p>
+              <p>When giving an ACK, specify the commits reviewed by appending the
+                commit hash of the <code>HEAD</code> commit. The trustless way to
+                do this is to use the hash from your
+                <em>local</em> checkout of the branch and not from the GitHub web
+                page. That way, unless your local tools are compromised, you
+                ensure you are ACKing the exact changes. This is also useful when
+                a force push happens and links to old commits are lost on
+                GitHub.</p>
+              <p>A full ACK could look like: "ACK <code>fa2f991</code>, I built,
+                ran tests, tested manually by doing X/Y/Z and reviewed the code
+                and it looks OK, I agree it can be merged."</p>
+              <p>The Bitcoin Core merge script currently copies into the merge
+                commit all ACK comments pertaining to the <code>HEAD</code> commit
+                at the time of merge. Keep in mind that anything you write in an
+                ACK comment that is copied by the merge script will be in git
+                history forever.</p>
+              <p>Some Bitcoin Core contributors sign and OpenTimestamp their
+                ACKs. While that is beyond the scope of this document, it is
+                surprisingly trivial to sign your commits using
+                the <a href="https://github.com/opentimestamps/opentimestamps-client/blob/master/doc/git-integration.md">OpenTimestamps
+                  Git Integration</a>.</p>
+              <p>Bitcoin Core reviewers frequently use
+                the <a href="https://www.apache.org/foundation/voting.html#expressing-votes-1-0-1-and-fractions"
+                       rel="nofollow">Apache voting system</a> in their comments. Here
+                is an
+                <a href="https://github.com/bitcoin/bitcoin/pull/11426#issuecomment-334091207">example</a>.</p>
+              <p>As a new contributor, be cautious with giving a NACK. Assume by
+                default that you might lack understanding or context. If you do
+                NACK, provide good reasoning.
+                <a href="https://github.com/bitcoin/bitcoin/pull/12360#issuecomment-383342462">Here's
+                  one example.</a></p>
+              <p>When you disagree, state your point of view once and move
+                on. Don't flood the comments section, browbeat others or
+                overreact. Remember that the most important thing is probably not
+                the issue being discussed, but your relationship with the other
+                contributors.</p>
+              <p>A complex PR usually requires at least 3-4 experienced ACKs
+                before merging.</p>
+
+              <h3 id="books">BOOKS</h3>
+
+              <h4 id="cpp-books">C++ Books</h4>
+
+              <p>Bitcoin Core is currently written in C++ 11. Here are some C++
+                book recommendations:</p>
+              <p>The Reference</p>
+              <ul>
+                <li><a href="https://www.amazon.com/Programming-Language-hardcover-4th/dp/0321958322"
+                       rel="nofollow">The C++ Programming Language, 4th Edition</a></li>
+              </ul>
+              <p>Learning C++</p>
+              <ul>
+                <li><a href="https://www.amazon.com/Primer-5th-Stanley-B-Lippman/dp/0321714113/"
+                       rel="nofollow">C++ Primer, 5th Edition</a> (more gentle, longer,
+                  not to be confused with the knock-off, "C++ Primer Plus")</li>
+                <li><a href="https://www.amazon.com/Accelerated-C-Practical-Programming-Example/dp/020170353X/"
+                       rel="nofollow">Accelerated C++</a> (condensed, faster, a bit out
+                  of date but excellent,
+                  <a href="https://github.com/bitsai/book-exercises/tree/master/Accelerated%20C%2B%2B">exercise
+                    solutions here</a>)</li>
+              </ul>
+              <p>Intermediate/advanced</p>
+              <ul>
+                <li><a href="https://www.amazon.com/Effective-Specific-Improve-Programs-Designs/dp/0321334876/"
+                       rel="nofollow">Effective C++</a></li>
+                <li><a href="https://www.amazon.com/Effective-Modern-Specific-Ways-Improve/dp/1491903996/"
+                       rel="nofollow">Effective Modern C++</a></li>
+                <li><a href="https://www.amazon.com/Effective-STL-Specific-Standard-Template/dp/0201749629/"
+                       rel="nofollow">Effective STL</a></li>
+                <li><a href="https://www.amazon.com/Exceptional-Engineering-Programming-Problems-Solutions/dp/0201615622/"
+                       rel="nofollow">Exceptional C++</a></li>
+                <li><a href="https://www.amazon.com/More-Exceptional-Engineering-Programming-Solutions/dp/020170434X/"
+                       rel="nofollow">More Exceptional C++</a></li>
+                <li><a href="https://www.amazon.com/Templates-Complete-Guide-David-Vandevoorde/dp/0201734842/"
+                       rel="nofollow">C++ Templates: The Complete Guide (1st
+                    Edition)</a></li>
+                <li><a href="https://www.amazon.com/C-Templates-Complete-Guide-2nd/dp/0321714121/"
+                       rel="nofollow">C++ Templates: The Complete Guide (2nd
+                    Edition)</a></li>
+                <li><a href="https://www.amazon.com/C-Concurrency-Action-Anthony-Williams/dp/1617294691/"
+                       rel="nofollow">C++ Concurrency in Action, 2nd Edition</a></li>
+              </ul>
+
+              <h4 id="cryptography">Cryptography</h4>
+
+              <ul>
+                <li><a href="https://www.amazon.com/Foundations-Cryptography-Basic-Tools-Vol-dp-0521791723/dp/0521791723/"
+                       rel="nofollow">Foundations of Cryptography</a></li>
+                <li><a href="https://joinmarket.me/blog" rel="nofollow">Waxwing's
+                    blog</a> by the JoinMarket creator and
+                  cryptographer <a href="https://mastodon.social/@waxwing"
+                                   rel="nofollow">Andrew Gibson</a></li>
+                <li><a href="https://crypto.stanford.edu/~dabo/cryptobook/BonehShoup_0_4.pdf"
+                       rel="nofollow">A Graduate Course in Applied Cryptography</a>
+                  by <a href="https://en.wikipedia.org/wiki/Dan_Boneh"
+                        rel="nofollow">Dan Boneh</a></li>
+                <li><a href="https://www.cryptopals.com/"
+                       rel="nofollow">Cryptopals</a> - A set of cryptographic code
+                  challenges</li>
+              </ul>
+
+              <h3 id="credits">CREDITS</h3>
+
+              <p>A special thank you to <a href="https://twitter.com/jfnewbery"
+                                           rel="nofollow">John Newbery</a> for launching
+                the <a href="https://bitcoincore.reviews" rel="nofollow">Bitcoin
+                  Core PR Reviews Club</a> and to the long-term contributors who
+                participated so far: <a href="https://hash.social/users/harding"
+                                        rel="nofollow">Dave Harding</a>, Anthony Towns, Gregory Sanders,
+                Michael Ford, Andrew Chow, Pieter Wuille, Bryan Bishop, Mike
+                Schmidt, Marco Falke, and Wladimir van der Laan.</p>
+              <p>Thanks to <a href="https://twitter.com/moneyball"
+                              rel="nofollow">Steve Lee</a> (moneyball) for reviewing this
+                write-up and his suggestions.</p>
+              <p>This article includes observed comments on GitHub and IRC by the
+                following Bitcoin Core contributors/maintainers who deserve to be
+                credited: Wladimir van der Laan, Marco Falke, Pieter Wuille,
+                Gregory Maxwell, Anthony Towns, and Russell Yanofsky.</p>
+              <p>Over the years I had become disillusioned by the central
+                influence of BDFLs in programming languages and open source
+                projects. Wladimir van der Laan's
+                <a href="https://twitter.com/orionwl/status/1131564038444453889"
+                   rel="nofollow">long-standing</a>
+                <a href="https://twitter.com/orionwl/status/1131827793908645888"
+                   rel="nofollow">humble</a>
+                <a href="https://twitter.com/orionwl/status/1131924832071880705"
+                   rel="nofollow">service</a> to Bitcoin sparked the possibility to
+                me of perhaps doing the same.</p>
+              <p>Finally, a big thank you to the Bitcoin Core contributors for
+                their patience with my review attempts so far, notably John
+                Newbery, Marco Falke, João Barbosa, practicalswift, Gregory
+                Sanders, Jonas Schnelli, Pieter Wuille and Wladimir van der Laan,
+                and to Adam Jonas and John Newbery for their guidance and advice
+                from the start.</p>
+              <p>Cheers,</p>
+              <p>Jon Atack</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
