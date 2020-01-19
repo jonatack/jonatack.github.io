@@ -70,14 +70,23 @@ jon atack bitcoin core developer and protocol researcher
               </p>
               <p>
                 Remember that reviewing is the most effective way you can
-                contribute as a new contributor and will teach you more about
-                the codebase than opening PRs.
+                contribute as a new contributor (and will teach you more about
+                the codebase than opening PRs).
               </p>
               <p>
-                Don't be in a hurry to add to the pile of open PRs.
+                As
+                <a href="https://twitter.com/moneyball" target="_blank">Steve Lee</a>
+                of
+                <a href="https://twitter.com/sqcrypto" target="_blank">Square Crypto</a>
+                wrote to me recently: "If literally all a developer did was
+                review hard but important PRs it'd be incredibly valuable."
               </p>
               <p>
-                A good rule of thumb is to review 5-15 PRs for each PR you make.
+                Don't be in a hurry to add to the growing pile of open PRs.
+              </p>
+              <p>
+                A good rule of thumb is to review 5-15 PRs (or solve or test
+                5-15 open issues) for every PR you make.
               </p>
 
               <h3 id="how-to-contribute-pull-requests-to-bitcoin-core">HOW TO CONTRIBUTE PULL REQUESTS TO BITCOIN CORE</h3>
@@ -142,7 +151,7 @@ jon atack bitcoin core developer and protocol researcher
               <p>
                 Do not begin by trying to change consensus code; it is difficult
                 and dangerous territory. The goal of Bitcoin Core is to maintain
-                the correct consensus on the Bitcoin network -- all else is
+                the correct consensus on the Bitcoin network — all else is
                 secondary.
               </p>
 
@@ -163,8 +172,10 @@ jon atack bitcoin core developer and protocol researcher
                 dead end for reasons that may not be apparent to you.
               </p>
               <p>
-                I sometimes seek Concept ACKs for larger changes during IRC
-                meetings as a topic request and discussion.
+                I sometimes seek Concept ACKs for larger changes at IRC meetings
+                (<a href="http://www.erisian.com.au/meetbot/bitcoin-core-dev/2020/bitcoin-core-dev.2020-01-17-19.00.log.html"
+                    target="_blank">example</a>)
+                as a topic request and discussion.
               </p>
 
               <h4 id="write-test-coverage">Write test coverage</h4>
@@ -207,9 +218,12 @@ jon atack bitcoin core developer and protocol researcher
                 of <code>getbalances</code> for details."
                </p>
               <p>
-                Release notes should be added in a separate file in
-                the <code>doc/release-notes/</code> directory, not directly
-                in <code>doc/release-notes.md</code>, to avoid merge conflicts.
+                To avoid potential merge conflicts, release notes are usually
+                added in a separate markdown file in the <code>/doc</code>
+                directory named <code>release-notes-PR_NUMBER.md</code>, not
+                directly in
+                <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes.md"
+                   target="_blank">doc/release-notes.md</a>.
               </p>
 
               <p>
@@ -253,7 +267,7 @@ jon atack bitcoin core developer and protocol researcher
                 and become comfortable with frequently rebasing your commits to
                 squash them. Rebasing is also frequently done to keep your
                 commits logical, separate, and easier to review. Even better,
-                hygienic -- each standing on their own without introducing
+                hygienic — each standing on their own without introducing
                 regressions.
               </p>
               <p>
@@ -282,7 +296,7 @@ jon atack bitcoin core developer and protocol researcher
 
               <h4 id="say-why">Say why</h4>
               <p>
-                PR descriptions need to explain <em>why</em>.  Summarizing
+                PR descriptions need to explain <em>why</em>. Summarizing
                 "what" can be good too, but "why" is essential to review because
                 if the why doesn't make sense then the what probably doesn't
                 matter. Sometimes things seem self-apparent, but when in doubt
@@ -336,16 +350,16 @@ jon atack bitcoin core developer and protocol researcher
                 <a href="https://github.com/bitcoin/bitcoin/pull/16060">third
                   try</a>
                 if the first ones didn't see enough review and if there are
-valid reasons to continue.
+                valid reasons to continue.
               </p>
               <p>
                 In this case,
                 <a href="https://github.com/bitcoin/bitcoin/pull/16060#issuecomment-494142593">one
-idea seen in practice</a>
+                  idea seen in practice</a>
                 is to recap various ACKs from the previous PRs, with GitHub
                 usernames, to rope in support for the new PR. If you do, be sure
-                to do it in a comment -- not in a commit message and not in the --
-                -- PR description.
+                to do it in a comment — not in a commit message and not in the
+                PR description.
               </p>
               <p>
                 Never put GitHub @-prefixed usernames in commits and PR
