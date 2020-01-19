@@ -55,15 +55,12 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 12 January 2020</div>
+          <div class="date">Last updated: 19 January 2020</div>
           <div class="body">
             <article>
+              <div class="title">How to Review Bitcoin Core PRs</div>
 
-              <h2>How to Review Bitcoin Core PRs - A work-in-progress guide</h2>
-
-              <h3>
-                <a class="anchor" href="#before-you-begin"></a>BEFORE YOU BEGIN
-              </h3>
+              <h3 id="before-you-begin">BEFORE YOU BEGIN</h3>
 
               <p>This guide builds on the foundation laid by these
                 presentations:</p>
@@ -99,8 +96,7 @@ jon atack bitcoin core developer and protocol researcher
                 </li>
               </ol>
 
-              <h3><a id="user-content-introduction" class="anchor"
-                     aria-hidden="true" href="#introduction"></a>INTRODUCTION</h3>
+              <h3 id="introduction">INTRODUCTION</h3>
 
               <p><em>"Reviewing is the most effective way you can contribute as a
                   new contributor (and also will teach you much more about the
@@ -155,8 +151,7 @@ jon atack bitcoin core developer and protocol researcher
                 start. So here we are. This is foremost a self-study exercise, but
                 perhaps it can be useful for others.</p>
 
-              <h3><a id="user-content-terminology" class="anchor"
-                     aria-hidden="true" href="#terminology"></a>TERMINOLOGY</h3>
+              <h3 id="terminology">TERMINOLOGY</h3>
 
               <p><a href="https://help.github.com/en/articles/about-pull-requests">PR</a>:
                 An acronym for
@@ -170,8 +165,7 @@ jon atack bitcoin core developer and protocol researcher
                   NACK, nit</a>:
                 Defined <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review">here</a>.</p>
 
-              <h3><a id="user-content-general" class="anchor" aria-hidden="true"
-                     href="#general"></a>GENERAL</h3>
+              <h3 id="general">GENERAL</h3>
 
               <p>As a newcomer, the goal is to try to add value, with friendliness
                 and humility, while learning as much as possible.</p>
@@ -242,8 +236,7 @@ jon atack bitcoin core developer and protocol researcher
                 starting to understand what kind of pull requests and review are
                 most helpful, while slowly gaining the big picture.</p>
 
-              <h4><a id="user-content-the-big-picture" class="anchor"
-                     aria-hidden="true" href="#the-big-picture"></a>The Big Picture</h4>
+              <h4 id="the-big-picture">The Big Picture</h4>
 
               <p>The big picture is more important than nits, spelling, or code
                 style.</p>
@@ -296,8 +289,7 @@ jon atack bitcoin core developer and protocol researcher
                 even offering to take over the PR after months of silence. In
                 short, help each other!</p>
 
-              <h4><a id="user-content-nits" class="anchor" aria-hidden="true"
-                     href="#nits"></a>Nits</h4>
+              <h4 id="nits">Nits</h4>
 
               <p>Try to avoid overly commenting in PRs about nits, minutia and
                 code style, particularly with PRs labeled as WIP, or when a PR has
@@ -319,8 +311,7 @@ jon atack bitcoin core developer and protocol researcher
                 they don't want to do something if they feel it is outside the
                 scope of the change, especially if your comment is nitpicky.</p>
 
-              <h4><a id="user-content-scale-up" class="anchor" aria-hidden="true"
-                     href="#scale-up"></a>Scale Up</h4>
+              <h4 id="scale-up"></a>Scale Up</h4>
 
               <p>When you can, scale up the difficulty and priority of the PRs you
                 review.</p>
@@ -344,8 +335,7 @@ jon atack bitcoin core developer and protocol researcher
                 <a href="https://lists.linuxfoundation.org/mailman/listinfo/bitcoin-dev"
                    rel="nofollow">bitcoin-dev</a> mailing list.</p>
 
-              <h4><a id="user-content-step-by-step" class="anchor"
-                     aria-hidden="true" href="#step-by-step"></a>Step by Step</h4>
+              <h4 a id="step-by-step"></a>Step by Step</h4>
 
               <p>Keep ego and hopes out of the process. Don't take things
                 personally and keep moving forward.</p>
@@ -368,9 +358,7 @@ jon atack bitcoin core developer and protocol researcher
                   respectful</li>
               </ul>
 
-              <h3><a id="user-content-technical-specifics" class="anchor"
-                     aria-hidden="true" href="#technical-specifics"></a>TECHNICAL
-                SPECIFICS</h3>
+              <h3 id="technical-specifics">TECHNICAL SPECIFICS</h3>
 
               <p><em>Don't trust, verify.</em> Minimise dependance on GitHub in
                 your review process. Use the GitHub website only for the GitHub
@@ -432,10 +420,7 @@ jon atack bitcoin core developer and protocol researcher
                 Core <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/developer-notes.md">developer
                   notes</a>.</p>
 
-              <h4><a id="user-content-if-youre-not-sure-where-to-start"
-                     class="anchor" aria-hidden="true"
-                     href="#if-youre-not-sure-where-to-start"></a>If You're Not Sure
-                Where to Start</h4>
+              <h4 id="if-youre-not-sure-where-to-start">If You're Not Sure Where to Start</h4>
 
               <p>Read the code, read the PR comments, then re-read both. Find
                 something that doesn't make sense and try to figure it
@@ -461,9 +446,7 @@ jon atack bitcoin core developer and protocol researcher
                 why that doesn't work. Expect it to take twice as long as you
                 planned it to. Yes, it's work.</p>
 
-              <h4><a id="user-content-add-missing-tests" class="anchor"
-                     aria-hidden="true" href="#add-missing-tests"></a>Add missing
-                tests</h4>
+              <h4 id="add-missing-tests">Add missing tests</h4>
 
               <p>While you're reviewing, writing tests yourself can help you
                 understand the behaviour and verify the changes, and if they add
@@ -474,19 +457,17 @@ jon atack bitcoin core developer and protocol researcher
                 tests. <a href="https://github.com/bitcoin/bitcoin/pull/15996#issuecomment-491740946">Here's
                   an example.</a></p>
 
-              <h4><a id="user-content-big-picture--nits" class="anchor"
-                     aria-hidden="true" href="#big-picture--nits"></a>Big picture &gt;
-                nits</h4>
+              <h4 id="big-picture-more-important-than-nits">Big picture &gt; nits</h4>
 
               <p>Remember, the big picture is much more important than nits,
-                spelling, or code style. Re-read the <a href="#nits">Nits</a>
+                spelling, or code style. Re-read the
+                <a href="#nits" target="_self">Nits</a>
                 section above. Try to avoid commenting on these while reviewing,
                 even if you have no other comments to make. I know, it's hard --
                 I've done it too many times -- but there's a better
                 alternative:</p>
 
-              <h4><a id="user-content-ask-questions" class="anchor"
-                     aria-hidden="true" href="#ask-questions"></a>Ask Questions</h4>
+              <h4 id="ask-questions">Ask Questions</h4>
 
               <p>A good thing you can do as a reviewer without specialised
                 knowledge of the code is <em>ask questions</em>. A PR author is
@@ -502,13 +483,13 @@ jon atack bitcoin core developer and protocol researcher
                 paragraph: <a href="https://github.com/bitcoin/bitcoin/pull/15934#issuecomment-547095024">Russell
                   Yanofsky</a>).</p>
 
-              <h4><a id="user-content-peer-review" class="anchor"
-                     aria-hidden="true" href="#peer-review"></a>Peer Review</h4>
+              <h4 id="peer-review"></a>Peer Review</h4>
 
-              <p>Be sure to learn and understand the Bitcoin
-                Core <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review">peer
-                  review process</a>.  The process
-                is <a href="https://github.com/bitcoin/bitcoin/pull/15626">often</a>
+              <p>Be sure to learn and understand the Bitcoin Core
+                <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review">peer
+                  review process</a>.
+                The process is
+                <a href="https://github.com/bitcoin/bitcoin/pull/15626">often</a>
                 <a href="https://github.com/bitcoin/bitcoin/pull/16149">updated</a>,
                 so refer back to it frequently.</p>
               <p>Concept ACK means the reviewer acknowledges and agrees with the
@@ -569,14 +550,12 @@ jon atack bitcoin core developer and protocol researcher
               <p>A complex PR usually requires at least 3-4 experienced ACKs
                 before merging.</p>
 
-              <h3><a id="user-content-books" class="anchor" aria-hidden="true"
-                     href="#books"></a>BOOKS</h3>
+              <h3 id="books">BOOKS</h3>
 
-              <h4><a id="user-content-c-books" class="anchor" aria-hidden="true"
-                     href="#c-books"></a>C++ Books</h4>
+              <h4 id="cpp-books">C++ Books</h4>
 
-              <p>Bitcoin Core is written in C++ 11. Here are some C++ book
-                recommendations:</p>
+              <p>Bitcoin Core is currently written in C++ 11. Here are some C++
+                book recommendations:</p>
               <p>The Reference</p>
               <ul>
                 <li><a href="https://www.amazon.com/Programming-Language-hardcover-4th/dp/0321958322"
@@ -615,8 +594,7 @@ jon atack bitcoin core developer and protocol researcher
                        rel="nofollow">C++ Concurrency in Action, 2nd Edition</a></li>
               </ul>
 
-              <h4><a id="user-content-cryptography" class="anchor"
-                     aria-hidden="true" href="#cryptography"></a>Cryptography</h4>
+              <h4 id="cryptography">Cryptography</h4>
 
               <ul>
                 <li><a href="https://www.amazon.com/Foundations-Cryptography-Basic-Tools-Vol-dp-0521791723/dp/0521791723/"
@@ -634,8 +612,7 @@ jon atack bitcoin core developer and protocol researcher
                   challenges</li>
               </ul>
 
-              <h3><a id="user-content-credits" class="anchor" aria-hidden="true"
-                     href="#credits"></a>CREDITS</h3>
+              <h3 id="credits">CREDITS</h3>
 
               <p>A special thank you to <a href="https://twitter.com/jfnewbery"
                                            rel="nofollow">John Newbery</a> for launching
