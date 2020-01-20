@@ -204,9 +204,8 @@ pre {
 }
 
 .list li {
-  padding-bottom: 12px;
+  padding-bottom: 10px;
 }
-
 
 #content {
   margin: auto;
@@ -224,7 +223,7 @@ pre {
   .list ul {
     display: inline;
     position: absolute;
-    bottom: 8px;
+    bottom: 4px;
     width: 70%
   }
   .list li {
@@ -254,5 +253,4 @@ pre {
     font-size: 1.2em;
     font-weight: 700;
   }
-
 }
