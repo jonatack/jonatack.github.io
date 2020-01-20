@@ -55,7 +55,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 19 January 2020</div>
+          <div class="date">Last updated: 20 January 2020</div>
           <div class="body">
             <article>
               <div class="title">How to Open Bitcoin Core PRs</div>
@@ -131,9 +131,16 @@ jon atack bitcoin core developer and protocol researcher
                 root. Keep in mind that these comments can sometimes be out of
                 date.
               </p>
+
+              <h4 id="priorities">Priorities</h4>
               <p>
                 Focus on user problems, actual bugs, and "used, but untested"
-                methods that affect outcomes and need tests.
+                methods that affect outcomes and need tests. Bitcoin Core is a
+                large, legacy codebase and there are inconsistencies, but it's
+                good to keep a healthy perspective on priorities. An item might
+                seem fun to contribute, but before opening that PR, consider the
+                review time you're asking for. Because of your PR, is a
+                regression or CVE getting past a lack of review elsewhere?
               </p>
               <p>
                 <a href="https://github.com/bitcoin/bitcoin/pull/17728#issuecomment-565803646">Try
@@ -152,6 +159,12 @@ jon atack bitcoin core developer and protocol researcher
                 and dangerous territory. The goal of Bitcoin Core is to maintain
                 the correct consensus on the Bitcoin network — all else is
                 secondary.
+              </p>
+              <p>
+                As a general guideline, here are priorities in decreasing order:
+                fixing bugs, improving security/test coverage, addressing real
+                use cases, doing less/removing code (only when doing nothing
+                isn't better), doing more/adding code.
               </p>
 
               <h4 id="gather-information">Gather information</h4>
