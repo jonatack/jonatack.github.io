@@ -60,24 +60,132 @@ jon atack bitcoin core developer and protocol researcher
               <h3 id="before-you-begin">ON CHOOSING PRs TO REVIEW</h3>
 
               <p>
-                This guide builds on the foundation laid by
-                <a href="how-to-review-pull-requests-in-bitcoin-core"
-                   target="_self">How to Review Pull Requests in Bitcoin Core</a>.
+                Reviewing is not only the most effective way to contribute as a
+                new contributor, it is also a powerful form of voting. Just as
+                what we buy and do every day is the strongest way we can vote
+                and cumulatively influence things, our choices here matter
+                profoundly and cumulatively.
+              </p>
+              <h4 id="the-current-state-of-affairs">The Current State of Affairs</h4>
+              <p>
+                <a href="https://github.com/bitcoin/bitcoin/pulls"
+                   target="_blank">Several hundred pull requests</a>
+                are open at any given moment in Bitcoin Core waiting for review
+                and testing, and the stack continues to grow higher -- 280 in
+                November 2019, 350 at the end of January 2020!
               </p>
               <p>
-                Remember that reviewing is the most effective way you can
-                contribute as a new contributor (and will teach you more about
-                the codebase than opening PRs).
+                Review is currently not keeping pace with PRs and issues (the
+                latter are also up to nearly 800, from 700 a few months
+                ago). Worse, the PRs that tend to get reviewed and merged
+                quickly are the trivial, the easiest to review, and the newest.
+                Valuable, high-priority PRs can be seen sitting for months or
+                even years without enough reviewers, subjecting their authors to
+                frustration, discouragement, and rebase hell until they abandon
+                working on them.
               </p>
-
-              <h4 id="what-to-do">Reviewing is Voting</h4>
               <p>
-                Choose your contribution carefully to be sure it is desired by
-                the maintainers and reviewers; without their approval, you risk
-                squandering your time and social capital.
+                The number of experienced people doing good, consistent review
+                is surprisingly low. When I describe the situation to people,
+                even to established VCs in the Bitcoin space, they tend to be
+                astonished at how few people the system is depending on.
               </p>
-
-              <h4 id="keep-reviewing">Keep reviewing</h4>
+              <p>
+                On any given day, you'll see the same 10-20 people reviewing on
+                a daily basis. Of these, maybe half have the experience and
+                available time/finances/predisposition for tackling review of
+                the harder or larger PRs. That leaves roughly 10 consistent,
+                experienced reviewers. The other half of the regular reviewers
+                are reviewing the easier or more trivial PRs in their spare
+                time.
+              </p>
+              <h4 id="current-issues">Current Issues</h4>
+              <p>
+                This state of affairs creates several problems:
+                <ol>
+                  <li>
+                    High-priority, larger, or harder-to-review PRs can go for
+                    months (and even years) without sufficient review.
+                  </li>
+                  <li>
+                    PRs that provide important prevention but that are
+                    non-urgent, like
+                    <a href="https://github.com/bitcoin/bitcoin/pull/17535"
+                       target="_blank">adding missing test coverage</a>,
+                    tend to sit for months without review or being merged.
+                  </li>
+                  <li>
+                    PR authors are incentivised to either leave the project out
+                    of frustration, or more often, open trivial and small PRs
+                    that have a chance of being reviewed and merged within the
+                    year (until the author tires of making this sort of
+                    contribution and aspires to greater things, before being
+                    discouraged again by the current state of affairs).
+                  </li>
+                  <li>
+                    We're running a continual risk of mal-investment -- of review
+                resources going into minutae rather than catching a regression
+                or vulnerablity, or other important priorities.
+                  </li>
+                </ol>
+              </p>
+              <h4 id="reviewing-is-voting">Reviewing is Voting</h4>
+              <p>
+                Given this state of affairs, clearly, which PRs we review with
+                our limited time is an important choice, and one that might be
+                underappreciated.
+              </p>
+              <p>
+                The PRs we review represent:
+                <ul>
+                  <li>
+                    which areas we decide to contribute to
+                  </li>
+                  <li>
+                    which project priorities matter to us
+                  </li>
+                  <li>
+                    which authors we help
+                  </li>
+                  <li>
+                    which kind of PRs we incentivise
+                  </li>
+                </ul>
+              </p>
+              <p>
+                Nowadays, I pay a considerable amount of attention to
+                consciously choosing the right PRs to review. Here are my
+                current criteria:
+                <ul>
+                  <li>
+                    What: high-priority, higher-value, harder PRs over
+                    new/easy/trivial/annoying ones (knowing that they will see
+                    review anyway) unless they are urgent, interesting, or an
+                    area I know well
+                  </li>
+                  <li>
+                    Who: PRs by people who also review PRs or test issues
+                  </li>
+                  <li>
+                  </li>
+                </ul>
+              </p>
+              <p>
+                sure, coding is more fun than reviewing. but reviewing is too
+                vital here, and when i see trivial PRs i keep thinking, maybe
+                too much, about the review resources they might be taking away
+                from catching a regression or CVE
+              </p>
+              <p>
+                hopefully this review club can help encourage more reviewing but
+                i'm thinking about how else we can encourage it, add incentives
+                or social norms maybe, etc. these are good things to think about.
+              </p>
+              <h4 id="what-to-do">What To Do</h4>
+              <p>
+                Choose your reviews carefully! Don't squander time and social
+                capital on the technical equivalent of junk food.
+              </p>
               <p>
                 Continue to do more reviewing and testing than adding PRs to the
                 backlog. Reviewing 5 to 15 PRs for every PR you open is a good
