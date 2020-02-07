@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 20 January 2020</div>
+          <div class="date">Last updated: 7 February 2020</div>
           <div class="body">
             <article>
               <div class="title">Reviewing is Voting</div>
@@ -77,10 +77,13 @@ jon atack bitcoin core developer and protocol researcher
               <p>
                 Review is currently not keeping pace with PRs and issues (the
                 latter are also up to nearly 800, from 700 a few months
-                ago). Worse, the PRs that tend to get reviewed and merged
-                quickly are the trivial, the easiest to review, and the newest.
-                Valuable, high-priority PRs can be seen sitting for months or
-                even years without enough reviewers, subjecting their authors to
+                ago).
+              </p>
+              <p>
+                Worse, the PRs that tend to get reviewed and merged quickly are
+                the trivial, the easiest to review, and the newest.  Valuable,
+                high-priority PRs can be seen sitting for months or even years
+                without enough reviewers, subjecting their authors to
                 frustration, discouragement, and rebase hell until they abandon
                 working on them.
               </p>
@@ -108,24 +111,49 @@ jon atack bitcoin core developer and protocol researcher
                     months (and even years) without sufficient review.
                   </li>
                   <li>
-                    PRs that provide important prevention but that are
-                    non-urgent, like
-                    <a href="https://github.com/bitcoin/bitcoin/pull/17535"
-                       target="_blank">adding missing test coverage</a>,
-                    tend to sit for months without review or being merged.
+                    Smaller PRs that provide important, non-urgent prevention,
+                    adding missing test coverage, tend to sit for months without
+                    review or being merged.
                   </li>
                   <li>
-                    PR authors are incentivised to either leave the project out
-                    of frustration, or more often, open trivial and small PRs
-                    that have a chance of being reviewed and merged within the
-                    year (until the author tires of making this sort of
-                    contribution and aspires to greater things, before being
-                    discouraged again by the current state of affairs).
+                    Review and merges sometimes go to the squeaky wheel.
                   </li>
                   <li>
-                    We're running a continual risk of mal-investment -- of review
-                resources going into minutae rather than catching a regression
-                or vulnerablity, or other important priorities.
+                    Less-loud PR authors are incentivised to open more trivial
+                    and smaller PRs that have a better chance of being reviewed
+                    and merged within a reasonable time (until the author tires
+                    of making this sort of contribution and aspires to greater
+                    things, before being discouraged again by the current state
+                    of affairs). Any PR beyond a fairly small size or low level
+                    of complexity needs to be separated into bite-sized PRs that
+                    are easier to review.
+                  </li>
+                  <li>
+                    Things tend to be abandoned or never quite finished. Some
+                    contributors leave or take long periods of absence from the
+                    project out of frustration. Other shake it off but feel
+                    recurring discouragement.
+                  </li>
+                  <li>
+                    Of course, managing context, relevance, and building review
+                    alliances can make a huge difference. Bitcoin Core code
+                    reviews arguably represent a micro-economy of sorts. Getting
+                    your PRs reviewed without being annoying (preferably mainly
+                    by helping others and doing consistent review yourself) can
+                    be an art.
+                  </li>
+                  <li>
+                    Nevertheless, we're running a continual risk of
+                    mal-investment — scarce review resources squandered on the
+                    wrong things rather than catching a regression or
+                    vulnerability, fixing issues, improving test coverage,
+                    finishing up ongoing work that was has needed follow-ups,
+                    doing long-term work, and other priorities.
+                  </li>
+                  <li>
+                    Above all, not enough of the contributors do consistent
+                    review or follow the practice of 5-15 reviews or issues
+                    handled per PR opened.
                   </li>
                 </ol>
               </p>
@@ -139,16 +167,16 @@ jon atack bitcoin core developer and protocol researcher
                 The PRs we review represent:
                 <ul>
                   <li>
-                    which areas we decide to contribute to
+                    what areas we contribute to
                   </li>
                   <li>
                     which project priorities matter to us
                   </li>
                   <li>
-                    which authors we help
+                    what kind of PRs we incentivise
                   </li>
                   <li>
-                    which kind of PRs we incentivise
+                    ultimately, which behaviors we reward
                   </li>
                 </ul>
               </p>
@@ -161,35 +189,42 @@ jon atack bitcoin core developer and protocol researcher
                     What: high-priority, higher-value, harder PRs over
                     new/easy/trivial/annoying ones (knowing that they will see
                     review anyway) unless they are urgent, interesting, or an
-                    area I know well
+                    area I know well.
                   </li>
                   <li>
-                    Who: PRs by people who also review PRs or test issues
+                    Who: I want to reward people who do quality review or
+                    issue-testing, *particularly* if they are professional
+                    Bitcoin Core contributors, e.g. receiving a steady salary to
+                    work on Bitcoin open source.
                   </li>
                   <li>
                   </li>
                 </ul>
               </p>
               <p>
-                sure, coding is more fun than reviewing. but reviewing is too
-                vital here, and when i see trivial PRs i keep thinking, maybe
-                too much, about the review resources they might be taking away
-                from catching a regression or CVE
+                Sure, coding is more fun than reviewing. but reviewing is too
+                vital here, and when i see poorly-done PRs I keep thinking,
+                maybe too much, about the review resources they might be taking
+                away from catching a regression or CVE.
               </p>
               <p>
-                hopefully this review club can help encourage more reviewing but
+                Hopefully the review club can help encourage more reviewing but
                 i'm thinking about how else we can encourage it, add incentives
-                or social norms maybe, etc. these are good things to think about.
+                or social norms maybe, etc. These are good things to think
+                about.
               </p>
               <h4 id="what-to-do">What To Do</h4>
               <p>
-                Choose your reviews carefully! Don't squander time and social
-                capital on the technical equivalent of junk food.
-              </p>
-              <p>
                 Continue to do more reviewing and testing than adding PRs to the
                 backlog. Reviewing 5 to 15 PRs for every PR you open is a good
-                range.
+                range. Communicate that norm to people.
+              </p>
+              <p>
+                Choose PRs to review carefully. Don't squander time, diligence
+                and care on the technical equivalent of junk food. Don't reward
+                half-done PRs, and don't incentivise non-exceptional PRs added
+                to the stack by authors who aren't giving back by reviewing
+                consistently and commensurately.
               </p>
               <p>
               </p>
