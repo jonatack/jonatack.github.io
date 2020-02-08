@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 7 February 2020</div>
+          <div class="date">Last updated: 8 February 2020</div>
           <div class="body">
             <article>
               <div class="title">Reviewing is Voting</div>
@@ -82,20 +82,22 @@ jon atack bitcoin core developer and protocol researcher
                 which are also up to nearly 800, from 700 a few months ago.
               </p>
               <p>
-                Worse, the PRs that tend to get reviewed and merged quickly are
-                the trivial, the easiest to review, and the newest.
+                The PRs that tend to be reviewed quickly are the newest, the
+                easiest to review, and the trivial. Valuable, high-priority PRs
+                can be seen sitting for months or even years without enough
+                reviewers, subjecting their authors to frustration,
+                discouragement, and rebase hell until they abandon working on
+                them.
               </p>
               <p>
-                Valuable, high-priority PRs can be seen sitting for months or
-                even years without enough reviewers, subjecting their authors to
-                frustration, discouragement, and rebase hell until they abandon
-                working on them.
+                This is not a criticism of the maintainers. They're doing a
+                great job. They need help: more reviewers and testers.
               </p>
               <p>
-                The number of experienced people doing good, consistent review
+                The number of people doing good, consistent review and testing
                 is surprisingly low. On any given day, we see the same 5-15
                 people reviewing on a daily basis. Of these, maybe a bit more
-                than half have the experience, finances and predisposition to
+                than half have the experience, situation and predisposition to
                 tackle review of the harder or larger PRs. That leaves us with
                 roughly ten consistent reviewers present most days -- and some
                 days it's less than five.
@@ -125,44 +127,47 @@ jon atack bitcoin core developer and protocol researcher
                     regression, or vulnerability.
                   </li>
                   <li>
-                    Any PR of non-immediate urgency beyond a fairly small size
-                    or low level of complexity needs to be separated into
-                    bite-sized PRs that are easier to review.
+                    Any PR of non-immediate urgency beyond a certain size,
+                    number of commits, or level of complexity is a candidate for
+                    needing to be separated into bite-sized PRs that are easier
+                    to review, which multiplies the number of PRs. While small,
+                    focused PRs are often good, and separating large PRs into
+                    logical small ones can improve the code, some changes are
+                    better done in one go.
                   </li>
                   <li>
                     Grease (review, merges) sometimes goes to the squeaky
                     wheel. Such is life.
                   </li>
                   <li>
-                    PR authors may be incentivized to open more trivial and
-                    smaller PRs that have a better chance of being reviewed and
-                    merged within a reasonable time (until the author tires of
-                    making this sort of contribution and aspires to greater
-                    things, before being discouraged again). Though arguably
-                    smaller, focused PRs are a good thing.
+                    PR authors may be incentivized to open more trivial PRs that
+                    have a better chance of being reviewed and merged within a
+                    reasonable time (until the author tires of making this sort
+                    of contribution and aspires to greater things, before being
+                    discouraged again).
                   </li>
                   <li>
                     Things tend to be abandoned or never quite finished. Some
                     contributors leave or take long periods of absence from the
-                    project out of frustration. Other shake it off but feel
-                    recurring discouragement. Yes, it's open source. But we can
-                    improve the situation.
+                    project out of frustration. Other people shake it off but
+                    feel recurring discouragement. Yes, it's open source. But I
+                    think we can improve the situation.
                   </li>
                   <li>
-                    Managing context, relevance, and building review alliances
-                    can make a huge difference. Bitcoin Core code review
-                    arguably represents a micro-economy of sorts. Getting your
-                    PRs reviewed without being too annoying (hopefully by
-                    helping others and doing consistent review yourself) can be
-                    an art.
+                    Managing context, relevance, peer respect, and being kind
+                    can a difference. Bitcoin Core code review arguably
+                    represents a micro-economy of sorts, but it's also a human
+                    social process. Getting your PRs reviewed without being too
+                    annoying (hopefully by helping others and doing consistent
+                    review yourself) can be an art.
                   </li>
                   <li>
                     Nevertheless, we're running a continual risk of
-                    mal-investment -- scarce review resources going to the
-                    half-baked things that will wind up closed anyway, rather
-                    than catching a regression or vulnerability, fixing issues,
-                    improving test coverage, finishing up ongoing work that
-                    needed follow-ups, doing long-term work, and other
+                    mal-investment -- scarce review resources going to loud,
+                    half-baked, or bikesheddy things that will end up closed
+                    anyway, rather than catching a regression or vulnerability,
+                    fixing issues, improving test coverage, finishing up ongoing
+                    work that needed follow-ups, doing long-term work, and other
                     priorities.
                   </li>
                   <li>
@@ -197,7 +202,8 @@ jon atack bitcoin core developer and protocol researcher
               </p>
               <p>
                 Nowadays, I try to pay a considerable amount of attention to
-                consciously selecting the right PRs to review. Here are my
+                consciously selecting the right PRs to review. I'm only a
+                part-time contributor and have much to learn, but here are my
                 current criteria:
                 <ul>
                   <li>
@@ -208,9 +214,10 @@ jon atack bitcoin core developer and protocol researcher
                   </li>
                   <li>
                     Who: rewarding people who do consistent review or
-                    issue-testing. I set the bar much higher if they are
-                    professional Bitcoin Core contributors, e.g. receiving a
-                    steady salary to work on Bitcoin open source.
+                    issue-testing. Some of the most deserving people haven't
+                    seen enough review from me yet, but I'm working on
+                    it. Hopefully with more experience and time to invest I'll
+                    get there.
                   </li>
                 </ul>
               </p>
@@ -218,7 +225,7 @@ jon atack bitcoin core developer and protocol researcher
                 Sure, coding, writing mailing list posts, and doing research is
                 more fun and glorifying than reviewing. I totally get that. And
                 everyone has different priorities. But reviewing is too vital to
-                Bitcoin Core. <em>We need to reward reviewing and testing.</em>
+                Bitcoin. <em>We need to reward selfless reviewing and testing.</em>
               </p>
               <p>
                 Hopefully the
@@ -226,7 +233,8 @@ jon atack bitcoin core developer and protocol researcher
                    target="_blank">Bitcoin Core PR Review Club</a>
                 can help encourage more reviewing, but I'm thinking about how
                 else we can encourage it, add incentives or social norms maybe,
-                etc. These are good things to think about.
+                etc. Maybe we should launch a Bitcoin Core <em>Testing</em>
+                Club. These are good things to think about.
               </p>
               <h4 id="what-to-do">What To Do</h4>
               <p>
@@ -234,6 +242,24 @@ jon atack bitcoin core developer and protocol researcher
                 backlog. Reviewing 5 to 15 PRs (or testing 5-15 issues!) for
                 every PR you open is a good range. Communicate that norm to
                 people.
+              </p>
+              <p>
+                Participate every week in the review club, not only as a way to
+                learn but primarily to <em>actually do review</em>. Bitcoin
+                needs it.
+              </p>
+              <p>
+                Find a way to reward people who are doing consistent review or
+                testing. It's a harder and less-celebrated path. These people
+                need support.
+              </p>
+              <p>
+                <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#code-review"
+                   target="_blank">All review is not equal</a>;
+                some reviews naturally weigh more than others, and that's the
+                way it should be. But remember: reviewing is voting.
+                <a href="how-to-review-pull-requests-in-bitcoin-core"
+                   target="_self">So vote.</a>
               </p>
               <p>
                 Happy contributing!
