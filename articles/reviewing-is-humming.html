@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 8 February 2020</div>
+          <div class="date">Last updated: 9 February 2020</div>
           <div class="body">
             <article>
               <div class="title">Reviewing is Humming</div>
@@ -131,9 +131,9 @@ jon atack bitcoin core developer and protocol researcher
                   <li>
                     Any PR of non-immediate urgency beyond a certain size,
                     number of commits, or level of complexity is a candidate for
-                    needing to be separated into bite-sized PRs that are easier
-                    to review, which multiplies the number of PRs. While small,
-                    focused PRs are often good, and separating large PRs into
+                    needing to be separated into bite-sized PRs in order to
+                    attract reviewers, which multiplies the number of PRs. While
+                    small focused PRs are good, and separating large PRs into
                     logical small ones can improve the code, some changes are
                     better done in one go.
                   </li>
@@ -165,11 +165,11 @@ jon atack bitcoin core developer and protocol researcher
                   </li>
                   <li>
                     Nevertheless, we're running a continual risk of
-                    mal-investment -- scarce review resources going to loud,
-                    half-baked, or bikesheddy things that will end up closed
-                    anyway, rather than catching a regression or vulnerability,
-                    fixing issues, improving test coverage, finishing up ongoing
-                    work that needed follow-ups, doing long-term work, and other
+                    mal-investment -- scarce review resources going to vocal,
+                    half-baked, self-promoting or bikesheddy things rather than
+                    catching a regression or vulnerability, fixing issues,
+                    improving test coverage, finishing up ongoing work that
+                    needed follow-ups, doing long-term work, and other
                     priorities.
                   </li>
                   <li>
@@ -203,10 +203,11 @@ jon atack bitcoin core developer and protocol researcher
                 </ul>
               </p>
               <p>
-                Nowadays, I try to pay a considerable amount of attention to
-                consciously selecting the right PRs to review. I'm only a
-                part-time contributor and have much to learn, but here are my
-                current criteria:
+                If I were a maintainer charged with handling incoming PRs of a
+                certain category, then the following section would not apply.
+                But as a part-time contributor with much to learn and limited
+                means, I pay attention nowadays to selecting the right PRs to
+                review. Here are my current criteria:
                 <ul>
                   <li>
                     What: choosing high-priority, higher-value, harder PRs over
@@ -215,47 +216,112 @@ jon atack bitcoin core developer and protocol researcher
                     area I know well.
                   </li>
                   <li>
-                    Who: rewarding people who do consistent review or
-                    issue-testing. Some of the most deserving people haven't
-                    seen enough review from me yet, but I'm working on
+                    Who: rewarding people who do consistent or outstanding
+                    review/issue testing. Some of the most deserving people
+                    haven't seen enough review from me yet, but I'm working on
                     it. Hopefully with more experience and time to invest I'll
                     get there.
+                  </li>
+                  <li>
+                    I also avoid reviewing these kinds of PRs:
+                    <ol>
+                      <li>
+                        PRs that appear unfinished or lacking sufficient
+                        research
+                      </li>
+                      <li>
+                        PRs that seem poorly done or unlikely to be merged
+                      </li>
+                      <li>
+                        PRs whose approach I don't agree with (as a newcomer, I
+                        avoid NACKing)
+                      </li>
+                      <li>
+                        PRs by authors who frequently open and close PRs on a
+                        whim
+                      </li>
+                      <li>
+                        PRs where arguing/bikeshedding is taking place; these
+                        PRs attract a lot of attention anyway
+                      </li>
+                    </ol>
+                  </li>
+                  <li>
+                    If you are a newer or less-experienced contributor, please
+                    don't let that be an excuse or discourage you from testing
+                    issues, release candidates, and reviewing. These activities
+                    will teach you more and usually be of higher value to the
+                    project than opening PRs. Simply choose issues to test and
+                    PRs to review that are more accessible -- ideally right at
+                    the edge of your current reach -- and ramp up gradually to
+                    the harder ones.
                   </li>
                 </ul>
               </p>
               <p>
-                Sure, coding, writing mailing list posts, and doing research is
-                more fun and glorifying than reviewing. I totally get that. And
-                everyone has different priorities. But reviewing is too vital to
-                Bitcoin. <em>We need to reward selfless reviewing and testing.</em>
+                Sure, writing code, mailing list posts, and doing research can
+                be more fun and glorifying than reviewing, and are possibly much
+                better for finding grants or employment. I totally get that.
+                And everyone has different priorities. But reviewing, issue
+                testing, release candidate testing, and even building gitian
+                signatures are too vital to Bitcoin. <em>We need to reward
+                selfless review and testing.</em>
               </p>
               <p>
                 Hopefully the
                 <a href="https://bitcoincore.reviews"
                    target="_blank">Bitcoin Core PR Review Club</a>
-                can help encourage more reviewing, but I'm thinking about how
-                else we can encourage it, add incentives or social norms maybe,
+                can help stimulate review, but I'm thinking about how else we
+                can encourage it, add incentives or social norms maybe,
                 etc. Maybe we should launch a Bitcoin Core <em>Testing</em>
                 Club. These are good things to think about.
               </p>
+              <p>
+                As
+                <a href="https://twitter.com/moneyball" target="_blank">Steve Lee</a>
+                of
+                <a href="https://twitter.com/sqcrypto" target="_blank">Square Crypto</a>
+                recently wrote: "If literally all a developer did was review
+                hard but important PRs it'd be incredibly valuable." It would be
+                wonderful if more open source patrons and donors shared this
+                view.
+              </p>
+
               <h4 id="what-to-do">What To Do</h4>
               <p>
-                Remember that <em>contributing is not mainly about opening
-                PRs</em>. Continue to do more reviewing and testing than adding
+                This is open source; it's ad hoc, free-flowing, and these
+                ideas are proposed more as things to think about than rules.
+              </p>
+              <p>
+                <em>Contributing is not mainly about opening PRs</em>. It would
+                be great to get away from the idea of telling people that
+                contributing equals opening PRs and basking in the
+                glory. Contributing is much more than this and it could be
+                reflected in what we say and do.
+              </p>
+              <p>
+                Continue to do more reviewing and issue testing than adding
                 PRs to the backlog. Reviewing 5 to 15 PRs (or testing 5-15
                 issues!) for every PR you open is a good range. Communicate that
                 norm to people.
               </p>
               <p>
-                Participate every week in the review club, not only as a way to
-                learn but primarily to <em>actually do review</em>. Bitcoin
-                needs it.
+                Before and after opening a PR in a particular domain, <em>review
+                the other open PRs in the same domain</em>. Presumably you have
+                or could use more domain expertise. Gather it and share it by
+                reviewing and testing the related PRs.
               </p>
               <p>
-                Find a way to reward people who are doing consistent review or
-                testing. It's a harder and less-celebrated path. These people
-                need support. Review their work. Help them. Donate Bitcoin to
+                Participate every week in the review club, not only as a way to
+                learn but primarily to <em>actually do review</em>. Reviewers,
+                both beginners and experts, are the true heroes. Bitcoin needs
                 them.
+              </p>
+              <p>
+                Find a way to <em>reward people who are doing consistent review
+                or testing</em>. It's a harder and less-celebrated path. These
+                people need support. Review their work. Help them. Donate
+                Bitcoin to them.
               </p>
               <p>
                 <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#code-review"
