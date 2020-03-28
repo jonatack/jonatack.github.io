@@ -576,6 +576,8 @@ jon atack bitcoin core developer and protocol researcher
                 (here are some
                 <a href="https://github.com/fanquake/core-review/blob/master/diffoscope.md"
                    rel="nofollow">diffoscope usage tips</a>).
+              </p>
+              <p>
                 If you use gitk and like dark mode, I recommend
                 <a href="https://github.com/dracula/gitk" rel="nofollow">Dracula for gitk</a>.
               </p>
@@ -752,19 +754,6 @@ jon atack bitcoin core developer and protocol researcher
                 be in git history forever.
               </p>
               <p>
-                Some Bitcoin Core contributors sign and OpenTimestamp their
-                ACKs. While that is beyond the scope of this document, it is
-                surprisingly trivial to sign your commits using the
-                <a href="https://github.com/opentimestamps/opentimestamps-client/blob/master/doc/git-integration.md">OpenTimestamps Git Integration</a>.
-              </p>
-              <p>
-                Bitcoin Core reviewers frequently use the
-                <a href="https://www.apache.org/foundation/voting.html#expressing-votes-1-0-1-and-fractions"
-                   rel="nofollow">Apache voting system</a>
-                in their comments. Here is an
-                <a href="https://github.com/bitcoin/bitcoin/pull/11426#issuecomment-334091207">example</a>.
-              </p>
-              <p>
                 As a new contributor, be cautious with giving a NACK. Assume by
                 default that you might lack understanding or context. If you do
                 NACK, provide good reasoning.
@@ -781,6 +770,35 @@ jon atack bitcoin core developer and protocol researcher
               <p>
                 A complex PR usually requires at least 3-4 experienced ACKs
                 before merging.
+              </p>
+
+              <h4 id="apache-voting-system">Apache voting system</h4>
+              <p>
+                Bitcoin Core reviewers frequently use the
+                <a href="https://www.apache.org/foundation/voting.html#expressing-votes-1-0-1-and-fractions"
+                   rel="nofollow">Apache voting system</a>
+                in their comments. Here is an
+                <a href="https://github.com/bitcoin/bitcoin/pull/11426#issuecomment-334091207">example</a>.
+              </p>
+
+              <h4 id="signing-commits">Signing commits with Opentimestamps</h4>
+              <p>
+                Some Bitcoin Core contributors sign and OpenTimestamp their
+                ACKs. While that is beyond the scope of this document, it is
+                surprisingly trivial to sign your commits using the
+                <a href="https://github.com/opentimestamps/opentimestamps-client/blob/master/doc/git-integration.md">OpenTimestamps Git Integration</a>.
+              </p>
+
+              <h4 id="collapsible-comments">Collapsible comments</h4>
+              <p>
+                After a while you'll notice that contributors sometimes review
+                using
+                <a href="https://github.com/bitcoin/bitcoin/pull/15600#issuecomment-604144041"
+                   rel="nofollow">collapsible comments</a>.
+                <em>Cool,</em> you may think, <em>how do I do that?</em>
+                It's done using HTML <code>details</code> tags.
+                <a href="https://gist.github.com/joyrexus/16041f2426450e73f5df9391f7f7ae5f"
+                   rel="nofollow">Here's how</a>.
               </p>
 
               <h3 id="credits">CREDITS</h3>
