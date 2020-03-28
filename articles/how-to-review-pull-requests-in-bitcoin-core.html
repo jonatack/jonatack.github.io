@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 28 February 2020</div>
+          <div class="date">Last updated: 28 March 2020</div>
           <div class="body">
             <article>
               <div class="title">How to Review Pull Requests in Bitcoin Core</div>
@@ -487,12 +487,21 @@ jon atack bitcoin core developer and protocol researcher
                 not for reviewing the commits and code, which you should do in
                 your local environment.
               </p>
+
+              <h4 id="pull-down-the-code-locally">Pull down the code locally</h4>
               <p>
                 Therefore, a review begins by pulling the PR branch down to your
-                computer to build and review locally. There are several ways to
-                do it:
+                computer to build and review locally. There are many ways to
+                do it. Here are a few:
               </p>
               <ul>
+                <li>
+                  Pulling down remote PRs with <code>git checkout
+                    pr/&lt;number&gt;</code>
+                  <a href="https://gist.github.com/piscisaureus/3342247">as
+                    described in this nice little gist</a>
+                  which can be modified to suit your needs
+                </li>
                 <li>
                   Bitcoin Core documentation for
                   <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/productivity.md#reference-prs-easily-with-refspecs">referencing
