@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 28 March 2020</div>
+          <div class="date">Last updated: 29 March 2020</div>
           <div class="body">
             <article>
               <div class="title">How to Review Pull Requests in Bitcoin Core</div>
@@ -495,23 +495,27 @@ jon atack bitcoin core developer and protocol researcher
                 to do it depending on what you want, your needs, disk space,
                 internet bandwidth, etc. Here are a few:
               </p>
-              <ul>
+              <ol>
                 <li>
                   Pulling down remote PRs with <code>git checkout
                     pr/&lt;number&gt;</code>
                   <a href="https://gist.github.com/piscisaureus/3342247">as
                     described in this nice little gist</a>
-                  which can be modified to suit your needs
+                  which can be modified to suit your needs.
+                </li>
+                <li>
+                  My gitconfig <code>[remote "origin"]</code> section:
+                  <code>fetch = +refs/pull/*/head:refs/remotes/origin/pr/*</code>
+                </li>
+                <li>
+                  Bitcoin Core contributor Luke Dashjr's version: "To avoid all
+                  the merge branches, configure the origin-pull remote as":
+                  <code>fetch = +refs/pull/*/head:refs/remotes/origin-pull/*/head</code>
                 </li>
                 <li>
                   Bitcoin Core documentation for
                   <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/productivity.md#reference-prs-easily-with-refspecs">referencing
-                    PRs easily with refspecs</a>
-                </li>
-                <li>
-                  Bitcoin Core contributor Luke Dashjr's version: "To avoid all
-                  the /merge branches, configure the origin-pull remote
-                  as <code>fetch = +refs/pull//head:refs/remotes/origin-pull//head</code>"
+                    PRs easily with refspecs</a>.
                 </li>
                 <li>
                   GitHub
@@ -524,7 +528,7 @@ jon atack bitcoin core developer and protocol researcher
                   &amp;&amp; git checkout FETCH_HEAD</code>. That said, I prefer
                   to depend as little as possible on GitHub.
                 </li>
-              </ul>
+              </ol>
               <p>
                 You can test a PR either on the contributor's branch or with the
                 changes merged on top of master. Testing the latter can be
@@ -663,7 +667,7 @@ jon atack bitcoin core developer and protocol researcher
                 start contributing. Authors appreciate it when someone reviews
                 their PR and provides additional tests.
                 <a href="https://github.com/bitcoin/bitcoin/pull/15996#issuecomment-491740946">Here's
-                  an example.</a>
+                  an example</a>.
               </p>
 
               <h4 id="big-picture-more-important-than-nits">Big picture &gt; nits</h4>
@@ -754,20 +758,6 @@ jon atack bitcoin core developer and protocol researcher
                 be in git history forever.
               </p>
               <p>
-                As a new contributor, be cautious with giving a NACK. Assume by
-                default that you might lack understanding or context. If you do
-                NACK, provide good reasoning.
-                <a href="https://github.com/bitcoin/bitcoin/pull/12360#issuecomment-383342462">Here's
-                  one example.</a>
-              </p>
-              <p>
-                When you disagree, state your point of view once and move
-                on. Don't flood the comments section, browbeat others or
-                overreact. Remember that the most important thing is probably
-                not the issue being discussed, but your relationship with the
-                other contributors.
-              </p>
-              <p>
                 A complex PR usually requires at least 3-4 experienced ACKs
                 before merging.
               </p>
@@ -778,7 +768,24 @@ jon atack bitcoin core developer and protocol researcher
                 <a href="https://www.apache.org/foundation/voting.html#expressing-votes-1-0-1-and-fractions"
                    rel="nofollow">Apache voting system</a>
                 in their comments. Here is an
-                <a href="https://github.com/bitcoin/bitcoin/pull/11426#issuecomment-334091207">example</a>.
+                <a href="https://github.com/bitcoin/bitcoin/pull/11426#issuecomment-334091207"
+                   rel="nofollow">example</a>.
+              </p>
+
+              <h4 id="go-easy-on-the-people">Go easy on the people</h4>
+              <p>
+                When you disagree, state your point of view once and move
+                on. Don't flood the comments section, browbeat others or
+                overreact. Remember that the most important thing is probably
+                not the issue being discussed, but your relationship with the
+                other contributors.
+              </p>
+              <p>
+                As a new contributor, be cautious with giving a NACK. Assume by
+                default that you might lack understanding or context. If you do
+                NACK, provide good reasoning.
+                <a href="https://github.com/bitcoin/bitcoin/pull/12360#issuecomment-383342462"
+                   rel="nofollow">Here's one example</a>.
               </p>
 
               <h4 id="signing-commits">Signing commits with Opentimestamps</h4>
@@ -786,7 +793,8 @@ jon atack bitcoin core developer and protocol researcher
                 Some Bitcoin Core contributors sign and OpenTimestamp their
                 ACKs. While that is beyond the scope of this document, it is
                 surprisingly trivial to sign your commits using the
-                <a href="https://github.com/opentimestamps/opentimestamps-client/blob/master/doc/git-integration.md">OpenTimestamps Git Integration</a>.
+                <a href="https://github.com/opentimestamps/opentimestamps-client/blob/master/doc/git-integration.md"
+                   rel="nofollow">OpenTimestamps Git Integration</a>.
               </p>
 
               <h4 id="collapsible-comments">Collapsible comments</h4>
