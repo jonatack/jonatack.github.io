@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 29 March 2020</div>
+          <div class="date">Last updated: 31 March 2020</div>
           <div class="body">
             <article>
               <div class="title">How to Review Pull Requests in Bitcoin Core</div>
@@ -637,6 +637,15 @@ jon atack bitcoin core developer and protocol researcher
                 Try refactoring the code to be better or prettier, and discover
                 why that doesn't work. Expect it to take twice as long as you
                 planned it to. Yes, it's work.
+              </p>
+              <p>
+                Maybe run strace (<code>man page strace</code>) to trace system
+                calls and signals.
+              </p>
+              <p>
+                Depending on the changes, contributing benchmarks, memory
+                profiling/valgrind or flame graphs to a PR review can sometimes
+                be very useful, and even decisive.
               </p>
 
               <h4 id="debugging">Debugging</h4>
