@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 19 January 2020</div>
+          <div class="date">Last updated: 24 April 2020</div>
           <div class="body">
             <article>
               <div class="title">
@@ -74,7 +74,7 @@ jon atack bitcoin core developer and protocol researcher
 
               <ol>
                 <li>
-                  Ensure the dependencies are installed:
+                  Ensure the dependencies are installed.
                   <ul>
                     <li>
                       Linux:
@@ -110,9 +110,11 @@ jon atack bitcoin core developer and protocol researcher
                   </ul>
                 </li>
                 <li>
-                  Install Berkeley DB (BDB) v4.8, a backward-compatible
-                  version needed for the wallet, using the script in
-                  <code>/contrib</code>.
+                  Install Berkeley DB (BDB) v4.8, a backward-compatible version
+                  needed for the wallet, using the
+                  <a href="https://github.com/bitcoin/bitcoin/tree/master/contrib/install_db4.sh"
+                     target="_blank">installation script</a>
+                  included in the Bitcoin Core <code>contrib</code> directory.
                   <ul>
                     <li>
                       Enter your local copy of the bitcoin repository:
@@ -151,11 +153,11 @@ jon atack bitcoin core developer and protocol researcher
                   Compile Bitcoin from source.
                   <ul>
                     <li>
-                      <code>./autogen.sh</code>
-                    </li>
-                    <li>
                       <code>export BDB_PREFIX='&lt;PATH-TO&gt;/db4'</code>
                       (you can use the output from the BDB build above)
+                    </li>
+                    <li>
+                      <code>./autogen.sh</code>
                     </li>
                     <li>
                       <code>
@@ -182,10 +184,54 @@ jon atack bitcoin core developer and protocol researcher
                     various configuration options.
                   </p>
                   <p>
-                    If you build frequently from source (e.g. for testing pull
-                    requests), as long as you don't need to change the
+                    If you build frequently from source (e.g. for testing small
+                    changes), as long as you don't need to change the
                     configuration options you can skip directly to
                     the <code>make</code> step for subsequent builds.
+                  </p>
+                  <p>
+                    On the other hand, when changing the build configuration,
+                    and in some cases when testing different PRs, it's often
+                    best to start with a clean slate using <code>make
+                    clean</code> or <code>make distclean</code> before
+                    configuring. Here's a complete example:
+                  </p>
+                  <p>
+                    <code>
+                      export BDB_PREFIX='&lt;PATH-TO&gt;/db4' && ./autogen.sh &&
+                      ./configure && make distclean && ./configure && make
+                    </code>
+                  </p>
+                  <p>
+                    To compile with
+                    <a href="https://clang.llvm.org/" target="_blank">Clang</a>
+                    instead of
+                    <a href="https://gcc.gnu.org/" target="_blank">GCC</a>
+                    (e.g. for fuzzing, sanitizers, better warnings/errors, or to
+                    use less resources) add <code>CC=clang CXX=clang++</code> to
+                    your configure flags:
+                  </p>
+                  <p>
+                    <code>
+                      export BDB_PREFIX='&lt;PATH-TO&gt;/db4' && ./autogen.sh &&
+                      make distclean && ./configure
+                      BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8"
+                      BDB_CFLAGS="-I${BDB_PREFIX}/include" CC=clang CXX=clang++
+                      && make
+                    </code>
+                  </p>
+                  <p>
+                    To compile for
+                    <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/fuzzing.md"
+                       target="_blank">fuzz testing</a>,
+                    build with Clang using the following flags:
+                  </p>
+                  <p>
+                    <code>
+                      ./autogen.sh && make distclean && ./configure CC=clang
+                      CXX=clang++ --enable-fuzz
+                      --with-sanitizers=address,fuzzer,undefined
+                    </code>
                   </p>
                   <p>
                     Be sure to use <code>ccache</code> to speed up your builds. You can also gain time by
