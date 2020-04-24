@@ -60,12 +60,11 @@ jon atack bitcoin core developer and protocol researcher
               </div>
 
               <p>
-                This is a simplified summary of the various docs in
+                This is a summary of the
                 <a href="https://github.com/bitcoin/bitcoin/tree/master/doc"
-                   target="_blank">https://github.com/bitcoin/bitcoin/tree/master/doc</a>.
-              </p>
-              <p>
-                Don't hesitate to read them for more information.
+                   target="_blank">documentation</a>
+                in the Bitcoin Core repository. Don't hesitate to read it for
+                more information.
               </p>
               <p>
                 All steps are to be run from your terminal emulator, i.e. the
@@ -179,28 +178,27 @@ jon atack bitcoin core developer and protocol researcher
                       on macOS
                     </li>
                   </ul>
+                </li>
+                <li>
+                  Pro tips.
                   <p>
                     You can run <code>./configure --help</code> to see the
                     various configuration options.
                   </p>
                   <p>
-                    If you build frequently from source (e.g. for testing small
-                    changes), as long as you don't need to change the
-                    configuration options you can skip directly to
-                    the <code>make</code> step for subsequent builds.
+                    If you're re-compiling frequently (e.g. for testing small
+                    changes), as long as you're not changing the build
+                    configuration you can skip directly to the <code>make</code>
+                    step for subsequent builds.
                   </p>
                   <p>
-                    On the other hand, when changing the build configuration,
-                    and in some cases when testing different PRs, it's often
-                    best to start with a clean slate using <code>make
-                    clean</code> or <code>make distclean</code> before
-                    configuring. Here's a complete example:
-                  </p>
-                  <p>
-                    <code>
-                      export BDB_PREFIX='&lt;PATH-TO&gt;/db4' && ./autogen.sh &&
-                      ./configure && make distclean && ./configure && make
-                    </code>
+                    On the other hand, when you change the build configuration,
+                    and in some cases when testing different PRs, or when the
+                    build isn't working, it's often best to start with a clean
+                    slate using <code>make clean</code> or <code>make
+                    distclean</code> before configuring. Here's a complete
+                    example:
+                  <pre>export BDB_PREFIX='&lt;PATH-TO&gt;/db4' && ./autogen.sh && ./configure && make distclean && ./configure && make</pre>
                   </p>
                   <p>
                     To compile with
@@ -210,28 +208,14 @@ jon atack bitcoin core developer and protocol researcher
                     (e.g. for fuzzing, sanitizers, better warnings/errors, or to
                     use less resources) add <code>CC=clang CXX=clang++</code> to
                     your configure flags:
-                  </p>
-                  <p>
-                    <code>
-                      export BDB_PREFIX='&lt;PATH-TO&gt;/db4' && ./autogen.sh &&
-                      make distclean && ./configure
-                      BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8"
-                      BDB_CFLAGS="-I${BDB_PREFIX}/include" CC=clang CXX=clang++
-                      && make
-                    </code>
+                    <pre>export BDB_PREFIX='&lt;PATH-TO&gt;/db4' && ./autogen.sh && make distclean && ./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include" CC=clang CXX=clang++ && make</pre>
                   </p>
                   <p>
                     To compile for
                     <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/fuzzing.md"
                        target="_blank">fuzz testing</a>,
                     build with Clang using the following flags:
-                  </p>
-                  <p>
-                    <code>
-                      ./autogen.sh && make distclean && ./configure CC=clang
-                      CXX=clang++ --enable-fuzz
-                      --with-sanitizers=address,fuzzer,undefined
-                    </code>
+                    <pre>./autogen.sh && make distclean && ./configure CC=clang CXX=clang++ --enable-fuzz --with-sanitizers=address,fuzzer,undefined</pre>
                   </p>
                   <p>
                     Be sure to use <code>ccache</code> to speed up your builds. You can also gain time by
@@ -246,13 +230,18 @@ jon atack bitcoin core developer and protocol researcher
                   <ul>
                     <li><code>make check</code>, or</li>
                     <li>
-                      <code>make -j"$(($(nproc)+1))" check</code> to use
-                      multithreading on Linux, or
+                      <code>make -j"$(($(nproc)+1))" check</code>
+                      to use multithreading on Linux, or
                     </li>
                     <li>
-                      <code>make -j"$(($(sysctl -n hw.physicalcpu)+1))"
-                        check</code>
-                      on macOS
+                      <code>make -j"$(($(sysctl -n hw.physicalcpu)+1))" check</code>
+                      to use multithreading on macOS
+                    </li>
+                    <li>
+                      See the Bitcoin Core
+                      <a href="https://github.com/bitcoin/bitcoin/blob/master/src/test/README.md"
+                         target="_blank">unit tests documentation</a>
+                      for more info.
                     </li>
                   </ul>
                 </li>
@@ -270,6 +259,12 @@ jon atack bitcoin core developer and protocol researcher
                     <li>
                       <code>test/functional/test_runner.py --help</code>
                       to see the various options for running tests
+                    </li>
+                    <li>
+                      See the Bitcoin Core
+                      <a href="https://github.com/bitcoin/bitcoin/blob/master/test/README.md"
+                         target="_blank">functional tests documentation</a>
+                      for more info.
                     </li>
                   </ul>
                 </li>
