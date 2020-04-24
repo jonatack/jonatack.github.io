@@ -196,9 +196,13 @@ jon atack bitcoin core developer and protocol researcher
                     and in some cases when testing different PRs, or when the
                     build isn't working, it's often best to start with a clean
                     slate using <code>make clean</code> or <code>make
-                    distclean</code> before configuring. Here's a complete
-                    example:
-                  <pre>export BDB_PREFIX='&lt;PATH-TO&gt;/db4' && ./autogen.sh && ./configure && make distclean && ./configure && make</pre>
+                    distclean</code> before configuring. Here's an example:
+                  </p>
+                  <p>
+                    <code>
+                      ./autogen.sh && ./configure && make distclean &&
+                      ./configure &lt;flags&gt; && make
+                    </code>
                   </p>
                   <p>
                     To compile with
@@ -208,14 +212,22 @@ jon atack bitcoin core developer and protocol researcher
                     (e.g. for fuzzing, sanitizers, better warnings/errors, or to
                     use less resources) add <code>CC=clang CXX=clang++</code> to
                     your configure flags:
-                    <pre>export BDB_PREFIX='&lt;PATH-TO&gt;/db4' && ./autogen.sh && make distclean && ./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include" CC=clang CXX=clang++ && make</pre>
+                  </p>
+                  <p>
+                    <code>
+                      ./configure CC=clang CXX=clang++
+                    </code>
                   </p>
                   <p>
                     To compile for
                     <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/fuzzing.md"
                        target="_blank">fuzz testing</a>,
                     build with Clang using the following flags:
-                    <pre>./autogen.sh && make distclean && ./configure CC=clang CXX=clang++ --enable-fuzz --with-sanitizers=address,fuzzer,undefined</pre>
+                  </p>
+                  <p>
+                    <code>
+                      ./configure CC=clang CXX=clang++ --enable-fuzz  --with-sanitizers=address,fuzzer,undefined
+                    </code>
                   </p>
                   <p>
                     Be sure to use <code>ccache</code> to speed up your builds. You can also gain time by
