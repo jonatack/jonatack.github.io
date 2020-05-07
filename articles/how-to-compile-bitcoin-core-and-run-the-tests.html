@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 24 April 2020</div>
+          <div class="date">Last updated: 7 May 2020</div>
           <div class="body">
             <article>
               <div class="title">
@@ -114,6 +114,10 @@ jon atack bitcoin core developer and protocol researcher
                   <a href="https://github.com/bitcoin/bitcoin/tree/master/contrib/install_db4.sh"
                      target="_blank">installation script</a>
                   included in the Bitcoin Core <code>contrib</code> directory.
+                  If you have another version of BDB already installed that you
+                  wish to use, skip this section and add
+                  <code>--with-incompatible-bdb</code> to your
+                  <code>./configure</code> options below instead.
                   <ul>
                     <li>
                       Enter your local copy of the bitcoin repository:
@@ -135,8 +139,8 @@ jon atack bitcoin core developer and protocol researcher
                   </ul>
                 </li>
                 <li>
-                  Compile from a tagged release branch instead of master, unless
-                  you want to test the bleeding edge.
+                  Compile from a tagged release branch, unless you wish to test
+                  a specific branch or PR.
                   <ul>
                     <li>
                       <code>git tag -n | sort -V</code> to see tags and
@@ -144,7 +148,13 @@ jon atack bitcoin core developer and protocol researcher
                     </li>
                     <li>
                       <code>git checkout &lt;TAG&gt;</code> to use a tagged
-                      release, for example: <code>git checkout v0.19.0.1</code>
+                      release, for example: <code>git checkout v0.20.0rc1</code>
+                    </li>
+                    <li>
+                      If you want to pull down a PR or specific branch from the
+                      remote repository to build and test locally,
+                      <a href="how-to-review-pull-requests-in-bitcoin-core#pull-down-the-code-locally"
+                         target="_blank">here is how</a>.
                     </li>
                   </ul>
                 </li>
@@ -153,7 +163,9 @@ jon atack bitcoin core developer and protocol researcher
                   <ul>
                     <li>
                       <code>export BDB_PREFIX='&lt;PATH-TO&gt;/db4'</code>
-                      (you can use the output from the BDB build above)
+                      (you can use the output from the BDB build above). Skip
+                      this step if you plan to configure with
+                      <code>--with-incompatible-bdb</code>.
                     </li>
                     <li>
                       <code>./autogen.sh</code>
@@ -163,6 +175,8 @@ jon atack bitcoin core developer and protocol researcher
                         ./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8"
                         BDB_CFLAGS="-I${BDB_PREFIX}/include"
                       </code>
+                      if using BDB 4.8, otherwise
+                      <code>./configure --with-incompatible-bdb</code>
                     </li>
                     <li>
                       <code>make</code>, or if you have multiple threads on your
@@ -182,8 +196,10 @@ jon atack bitcoin core developer and protocol researcher
                 <li>
                   Pro tips.
                   <p>
-                    You can run <code>./configure --help</code> to see the
-                    various configuration options.
+                    You can run <code>./configure --help</code> to see all the
+                    various configuration options. It's a long list, so it may
+                    be more practical to search for what you want with
+                    grep: <code>./configure --help | grep -A1 "your-search-term"</code>
                   </p>
                   <p>
                     If you're re-compiling frequently (e.g. for testing small
@@ -196,12 +212,13 @@ jon atack bitcoin core developer and protocol researcher
                     and in some cases when testing different PRs, or when the
                     build isn't working, it's often best to start with a clean
                     slate using <code>make clean</code> or <code>make
-                    distclean</code> before configuring. Here's an example:
+                    distclean</code> before configuring. Here's a complete
+                    example, courtesy of Marco Falke:
                   </p>
                   <p>
                     <code>
-                      ./autogen.sh && ./configure && make distclean &&
-                      ./configure &lt;flags&gt; && make
+                      ./autogen.sh && ./configure &lt;flags&gt; && make
+                      distclean && ./configure &lt;flags&gt; && make
                     </code>
                   </p>
                   <p>
@@ -235,6 +252,13 @@ jon atack bitcoin core developer and protocol researcher
                     <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/productivity.md">productivity
                     notes</a>
                     for more.
+                  </p>
+                  <p>
+                    If you build often, bash aliases may be helpful for
+                    abstracting the repetitive details down to short
+                    commands. These are probably not a great example, but
+                    <a href="https://github.com/jonatack/dotfiles/blob/master/bash_aliases#L331">here
+                    are mine</a>.
                   </p>
                 </li>
                 <li>
