@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 24 April 2020</div>
+          <div class="date">Last updated: 17 May 2020</div>
           <div class="body">
             <article>
               <div class="title">How to Review Pull Requests in Bitcoin Core</div>
@@ -717,6 +717,13 @@ jon atack bitcoin core developer and protocol researcher
                 so refer back to it frequently.
               </p>
               <p>
+                An ACK is generally followed by a description of how the
+                reviewer did the review and any manual testing. As a new
+                contributor, it's advisable to be even more verbose in review
+                comments to provide context on what you did and thought through
+                during the review.
+              </p>
+              <p>
                 Concept ACK means the reviewer acknowledges and agrees with the
                 goal of the change, but is not (yet) confirming they've looked
                 at the code or tested it.  This can be a valuable signal to a PR
@@ -729,6 +736,18 @@ jon atack bitcoin core developer and protocol researcher
                 agreement with both the goal and the approach used in
                 implementing the change. Approach NACK would therefore indicate
                 agreement with the goal but not the approach.
+              </p>
+              <p>
+                Sometimes reviewers comment "code review ack" to be specific
+                about the fact that the code looks good but they haven't tested
+                the changes further or don't have much of an opinion on the
+                concept yet. When in doubt, adding more context doesn't hurt,
+                e.g. "code review ACK <code>HEAD</code>, unsure about the
+                concept, I'd like to verify x, y, z..."
+              </p>
+              <p>
+                Other ACK variants that are sometimes used are "tACK" or "tested
+                ACK", and "utACK" or "untested ACK".
               </p>
               <p>
                 Manual testing of new features and reported issues is always
@@ -746,6 +765,12 @@ jon atack bitcoin core developer and protocol researcher
                 contribution.
               </p>
               <p>
+                Examples of other useful comments could be "verified move-only"
+                if the PR includes move-only commits, or "thought hard about how
+                change X could break Y but didn't find any (or could this
+                scenario happen?)", etc.
+              </p>
+              <p>
                 When giving an ACK, specify the commits reviewed by appending
                 the commit hash of the <code>HEAD</code> commit. The trustless
                 way to do this is to use the hash from your <em>local</em>
@@ -761,10 +786,10 @@ jon atack bitcoin core developer and protocol researcher
               </p>
               <p>
                 The Bitcoin Core merge script currently copies into the merge
-                commit all ACK comments pertaining to the <code>HEAD</code>
-                commit at the time of merge. Keep in mind that anything you
-                write in an ACK comment that is copied by the merge script will
-                be in git history forever.
+                commit the first line of each ACK review pertaining to
+                the <code>HEAD</code> commit at the time of merge. Keep in mind
+                that anything you write there that is copied by the merge script
+                will be in git history forever.
               </p>
               <p>
                 A complex PR usually requires at least 3-4 experienced ACKs
