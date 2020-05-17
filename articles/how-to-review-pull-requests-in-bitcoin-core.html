@@ -383,7 +383,12 @@ jon atack bitcoin core developer and protocol researcher
               <p>
                 The best time for any nit comments is after the Concept/Approach
                 ACKs and consensus on the PR, and before the PR is finalised and
-                has tested ACKs.
+                has tested ACKs. As Pieter Wuille
+                <a href="http://www.erisian.com.au/bitcoin-core-dev/log-2020-05-17.html#l-307">wrote
+                  on IRC</a>:
+                "I think the most disrupting thing to a PR is getting a
+                multitude of low level/nits/code style comments, while it's very
+                unclear if a PR is desirable as a concept."
               </p>
               <p>
                 Give nits and style advice in a friendly, light, enabling way —
@@ -721,7 +726,7 @@ jon atack bitcoin core developer and protocol researcher
                 reviewer did the review and any manual testing. As a new
                 contributor, it's advisable to be even more verbose in review
                 comments to provide context on what you did and thought through
-                during the review.
+                during the review and show that you understood the change.
               </p>
               <p>
                 Concept ACK means the reviewer acknowledges and agrees with the
@@ -738,12 +743,11 @@ jon atack bitcoin core developer and protocol researcher
                 agreement with the goal but not the approach.
               </p>
               <p>
-                Sometimes reviewers comment "code review ack" to be specific
-                about the fact that the code looks good but they haven't tested
-                the changes further or don't have much of an opinion on the
-                concept yet. When in doubt, adding more context doesn't hurt,
-                e.g. "code review ACK <code>HEAD</code>, unsure about the
-                concept, I'd like to verify x, y, z..."
+                Reviewers sometimes comment "Code review ACK" to communicate
+                that the code looks good but they haven't tested the changes or
+                don't have an opinion on the concept yet. It's good to add more
+                context to clarify: "Code review ACK <code>HEAD</code>, unsure
+                about the concept, I'd like to verify x, y, z, etc."
               </p>
               <p>
                 Other ACK variants that are sometimes used are "tACK" or "tested
@@ -786,7 +790,7 @@ jon atack bitcoin core developer and protocol researcher
               </p>
               <p>
                 The Bitcoin Core merge script currently copies into the merge
-                commit the first line of each ACK review pertaining to
+                commit the first paragraph of each ACK review pertaining to
                 the <code>HEAD</code> commit at the time of merge. Keep in mind
                 that anything you write there that is copied by the merge script
                 will be in git history forever.
