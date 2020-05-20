@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 19 May 2020</div>
+          <div class="date">Last updated: 20 May 2020</div>
           <div class="body">
             <article>
               <div class="title">How to Review Pull Requests in Bitcoin Core</div>
@@ -131,53 +131,10 @@ jon atack bitcoin core developer and protocol researcher
                   resource bottlenecks, and
                 </li>
                 <li>
-                  the best and most helpful way to begin contributing and
-                    earning reputation in the community.
+                  the best and most helpful way to learn and begin contributing
+                  and earning reputation in the community.
                 </li>
               </ul>
-              <p>
-                Yet the process and learning curve can seem intimidating and in
-                practice very few new contributors do it.
-              </p>
-              <p>
-                As a newcomer, this article represents my understanding after a
-                few months, a couple hundred PRs reviewed, a few issues tested
-                or handled, and a few dozen commits.
-              </p>
-              <p>
-                Some of this understanding was gained from
-              </p>
-              <ul>
-                <li>
-                  contributing to a large open source project,
-                  <a href="https://github.com/rails/rails">Ruby on Rails</a>,
-                  and co-editing its blog and newsletter,
-                  <a href="https://rails-weekly.ongoodbits.com/archive"
-                     rel="nofollow">This Week in Rails</a>
-                </li>
-                <li>
-                  development and lead maintainership of
-                  <a href="https://github.com/activerecord-hackery/ransack">Ransack</a>,
-                  a popular Ruby search engine
-                </li>
-                <li>
-                  daily discussions on this topic of mutual interest with my
-                  good friend and colleague,
-                  <a href="https://twitter.com/kaspth"
-                     rel="nofollow">Kasper Timm Hansen</a>,
-                  a developer at
-                  <a href="https://basecamp.com/about/team"
-                     rel="nofollow">Basecamp</a>
-                  and since 2016 a member of the
-                  <a href="https://rubyonrails.org/community/"
-                     rel="nofollow">Ruby on Rails Core Team</a>.
-                </li>
-              </ul>
-              <p>
-                Yet much of it is unique to Bitcoin Core and came only with
-                time. I would have preferred to know these things from the
-                start.
-              </p>
 
               <h3 id="terminology">TERMINOLOGY</h3>
 
@@ -218,7 +175,7 @@ jon atack bitcoin core developer and protocol researcher
               </p>
               <p>
                 One of the most challenging aspects facing new contributors is
-                the breadth of the codebase and the complexities of the
+                the breadth of the codebase and the complexity of the
                 technologies surrounding it.
               </p>
               <p>
@@ -614,9 +571,9 @@ jon atack bitcoin core developer and protocol researcher
                 out. Repeat.
               </p>
               <p>
-                Once it all starts to make sense, run bitcoind on testnet (or on
-                mainnet with very small amounts), and tail or search through the
-                relevant logs (run
+                Once it all starts to make sense, run bitcoind on regtest,
+                testnet (or on mainnet with very small amounts), and tail or
+                search through the relevant logs (run
                 <code>bitcoin-cli help logging</code> for the various bitcoind
                 logging categories and how to toggle them on/off).
               </p>
@@ -639,7 +596,9 @@ jon atack bitcoin core developer and protocol researcher
                 or Python
                 <a href="https://docs.python.org/3/library/pdb.html"
                    target="_blank">pdb</a>
-                breakpoints. Examine values. Run RPC commands.
+                breakpoints (or add <code>import pdb; pdb.set_trace()</code>
+                anywhere in the functional test code). Examine values. Run RPC
+                commands.
               </p>
               <p>
                 Check if any call sites, headers or declarations have been
@@ -658,6 +617,18 @@ jon atack bitcoin core developer and protocol researcher
                 Depending on the changes, contributing benchmarks, memory
                 profiling/valgrind or flame graphs to a PR review can sometimes
                 be very useful, and even decisive.
+              </p>
+
+              <h4 id="technical-resources">Technical resources</h4>
+              <p>
+                I maintain a document of various technical notes for myself,
+                that I refer to often when working on Bitcoin Core, here:
+                <a href="https://github.com/jonatack/bitcoin-development/blob/master/notes.txt"
+                   target="_blank">jonatack/bitcoin-development/notes.txt</a>.
+                There is also useful stuff in the repository where those notes
+                are located. Another great repository of resources is
+                <a href="https://github.com/fanquake/core-review"
+                   target="_blank" rel="nofollow">fanquake/core-review</a>.
               </p>
 
               <h4 id="debugging">Debugging</h4>
