@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 20 May 2020</div>
+          <div class="date">Last updated: 11 June 2020</div>
           <div class="body">
             <article>
               <div class="title">How to Review Pull Requests in Bitcoin Core</div>
@@ -263,7 +263,14 @@ jon atack bitcoin core developer and protocol researcher
                 The big picture is more important than nits, spelling, or code
                 style.
               </p>
-
+              <p>
+                There are different levels of big picture review: "does this
+                change affect behavior?" or "is this safe?" are different from
+                "is this a good idea?" The latter may require more context,
+                which you will slowly gain with time. Don't let that stop you
+                from thinking about these questions and striving to review on
+                that level.
+              </p>
               <p>
                 Steps to improve understanding of the big picture:
               </p>
@@ -313,7 +320,7 @@ jon atack bitcoin core developer and protocol researcher
                 and so on.
               </p>
               <p>
-                Test coverage is essential; don't hesitate to improve or write
+                Test coverage is important; don't hesitate to improve or write
                 any missing
                 <a href="https://github.com/bitcoin/bitcoin/blob/master/src/test/">unit</a>
                 or
@@ -373,15 +380,18 @@ jon atack bitcoin core developer and protocol researcher
                 you review.
               </p>
               <p>
-                You can add more value and learn more by taking the time to do
-                deep, quality review of the
-                <a href="https://github.com/bitcoin/bitcoin/projects/8">high-priority
-                  PRs</a>
-                and the more difficult PRs. These PRs tend to intimidate
-                people and can stagnate for months, killing their author's
-                motivation with death by a thousand cuts from lack of quality
-                review, nitpicking/code style bikeshedding, and rebase hell.
-                Reviewing them well provides a true service to Bitcoin.
+                You can
+                <a href="on-reviewing-and-helping-those-who-do-it" target="_self">add more
+                  value</a>
+                and learn more by taking the time to do deep, quality review of
+                the
+                <a href="https://github.com/bitcoin/bitcoin/projects/8"
+                   target="_blank">high-priority PRs</a>
+                and the more difficult PRs. These PRs tend to intimidate people
+                and can stagnate for months, killing their author's motivation
+                with death by a thousand cuts from lack of quality review,
+                nitpicking/code style bikeshedding, and rebase hell.  Reviewing
+                them well provides a true service to Bitcoin.
               </p>
               <p>
                 The process of ramping up takes time; nothing can substitute for
@@ -409,6 +419,9 @@ jon atack bitcoin core developer and protocol researcher
               </p>
               <p>
                 Be patient with people and outcomes.
+              </p>
+              <p>
+                Praise publicly; criticize privately and in an encouraging way.
               </p>
               <p>
                 Persistence helps. Work on it every day.
@@ -794,6 +807,9 @@ jon atack bitcoin core developer and protocol researcher
               </p>
 
               <h4 id="go-easy-on-the-people">Go easy on the people</h4>
+              <p>
+                Review the code, not the contributor or their comments.
+              </p>
               <p>
                 When you disagree, state your point of view once and move
                 on. Don't flood the comments section, browbeat others or
