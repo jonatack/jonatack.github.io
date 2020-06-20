@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 7 May 2020</div>
+          <div class="date">Last updated: 20 June 2020</div>
           <div class="body">
             <article>
               <div class="title">
@@ -180,7 +180,7 @@ jon atack bitcoin core developer and protocol researcher
                     </li>
                     <li>
                       <code>make</code>, or if you have multiple threads on your
-                      machine, you can tell
+                      machine, which is the usual case nowadays, you can tell
                       <code>make</code> to use all of them and reduce compile
                       time significantly with
                     </li>
@@ -204,8 +204,8 @@ jon atack bitcoin core developer and protocol researcher
                   <p>
                     If you're re-compiling frequently (e.g. for testing small
                     changes), as long as you're not changing the build
-                    configuration you can skip directly to the <code>make</code>
-                    step for subsequent builds.
+                    configuration you can skip directly to the
+                    <code>make -j&lt;n&gt;</code> step for subsequent builds.
                   </p>
                   <p>
                     On the other hand, when you change the build configuration,
@@ -217,8 +217,8 @@ jon atack bitcoin core developer and protocol researcher
                   </p>
                   <p>
                     <code>
-                      ./autogen.sh && ./configure &lt;flags&gt; && make
-                      distclean && ./configure &lt;flags&gt; && make
+                      ./autogen.sh && ./configure &lt;any BDB flags&gt; && make
+                      distclean && ./configure &lt;all flags&gt; && make -j&lt;n&gt;
                     </code>
                   </p>
                   <p>
