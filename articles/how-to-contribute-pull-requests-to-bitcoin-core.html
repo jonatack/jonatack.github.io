@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 8 March 2020</div>
+          <div class="date">Last updated: 12 July 2020</div>
           <div class="body">
             <article>
               <div class="title">How to Contribute Pull Requests to Bitcoin Core</div>
@@ -149,9 +149,11 @@ jon atack bitcoin core developer and protocol researcher
                 methods that affect outcomes and need tests. Bitcoin Core is a
                 large, legacy codebase and there are inconsistencies, but it's
                 good to keep a healthy perspective on priorities. An item might
-                seem fun to contribute, but before opening that PR, consider the
-                review time you're asking for. Because of your PR, is a
-                regression or CVE getting past a lack of review elsewhere?
+                seem fun to contribute, but before opening that PR,
+                <a href="on-reviewing-and-helping-those-who-do-it"
+                   target="_self">consider the review time you're asking for</a>.
+                Because of your PR, is a regression or CVE getting past a lack
+                of review elsewhere?
               </p>
               <p>
                 <a href="https://github.com/bitcoin/bitcoin/pull/17728#issuecomment-565803646"
@@ -206,11 +208,9 @@ jon atack bitcoin core developer and protocol researcher
                 Test coverage is essential; don't hesitate to write any missing
                 <a href="https://github.com/bitcoin/bitcoin/tree/master/src/test" target="_blank">unit</a>,
                 <a href="https://github.com/bitcoin/bitcoin/tree/master/test/functional" target="_blank">functional</a>, or
-                <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/rapidcheck.md" target="_blank">property-based</a>
+                <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/fuzzing.md" target="_blank">fuzz</a>
                 tests, or improve the
-                <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/fuzzing.md" target="_blank">fuzzing tests</a>
-                or
-                <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/benchmarking.md" target="_blank">benchmarking</a>.
+                <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/benchmarking.md" target="_blank">benchmarks</a>.
               </p>
               <p>
                 A Gregory Maxwell warning to test contributors: "Overly exact
@@ -254,6 +254,36 @@ jon atack bitcoin core developer and protocol researcher
                 tests in a well thought-out way tend to be well-received.
               </p>
 
+              <h4 id="hygienic-commits">Hygienic commits</h4>
+              <p>
+                Make sure each individual commit in your PR is hygienic. Every
+                commit must compile successfully on its own without warnings,
+                errors, regressions, or test failures.
+              </p>
+              <p>
+                This means compiling your PRs with <code>--enable-debug</code>
+                passed to your build configuration. Run
+                <code>./configure --help | grep -A1 --enable-debug</code>
+                for more info.
+              </p>
+              <p>
+                Set up Travis CI on your own GitHub Bitcoin repository so that
+                when you push a branch or commit, the linter and Travis CI
+                (continuous integration) tests run. It can be a good idea to
+                verify that they are all green on your GitHub repository before
+                filing a PR. Unfortunately, Travis CI is also sometimes slow and
+                times out frequently — you may have to look at the logs of
+                failing jobs to distinguish between real issues and when you
+                just need to restart the job.
+              </p>
+              <p>When it works,
+                <a href="https://bitcoinbuilds.org"
+                   rel="nofollow">https://bitcoinbuilds.org</a>
+                runs more quickly than Travis CI (but for the moment it
+                tests fewer platforms), so don't hesitate to consult it for
+                quicker feedback when you push a PR or changes.
+              </p>
+
               <h4 id="do-it-well">Do it well</h4>
               <p>
                 Don't rush. Give your work time to mature, revisit it with fresh
@@ -261,6 +291,13 @@ jon atack bitcoin core developer and protocol researcher
                 there and asking for others' time. It might be a good rule of
                 thumb to write several WIP PRs for each one that you do file.
               </p>
+              <p>
+                Put the time in to make your PRs as easy to understand and
+                review as possible: Code, tests, documentation, good commit
+                messages, relevant references, concise explanations.
+              </p>
+
+              <h4 id="timing">Timing</h4>
               <p>
                 Consider also the timing of what is going on in the project in
                 terms of priorities and releases as well as your current
@@ -271,35 +308,20 @@ jon atack bitcoin core developer and protocol researcher
                 staying well under that.
               </p>
               <p>
-                Put the time in to make your PRs as easy to understand and
-                review as possible: Code, tests, documentation, good commit
-                messages, relevant references, concise explanations.
-              </p>
-              <p>
                 Give some thought to PR size and scope. Many contributors err on
                 the side of making their PRs too large and time-consuming to
                 review. It is often better to keep your PRs short and focused to
                 make them easier and safer to review. This may require splitting
                 your work into several consecutive PRs.
               </p>
+
+              <h4 id="pr-descriptions">PR descriptions</h4>
               <p>
                 As described in the Bitcoin Core
                 <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md"
                    target="_blank">contributing guide</a>,
                 prefix your PR title with the relevant area
-                (e.g. <code>doc</code>, <code>test</code>, <code>rpc</code>, <code>wallet</code>),
-                and become comfortable with frequently rebasing your commits to
-                squash them. Rebasing is also frequently done to keep your
-                commits logical, separate, and easier to review. Even better,
-                hygienic — each standing on their own without introducing
-                regressions.
-              </p>
-              <p>
-                A PR prefixed or labelled as changing UI/UX can attract
-                excessive bikeshedding. One tried-and-tested solution can be to
-                make a minor UI fix or change as a commit inside a non-UI/UX PR
-                that changes related items or code. The regular reviewers will
-                see it, but few drive-by commentators will.
+                (e.g. <code>doc</code>, <code>test</code>, <code>rpc</code>, <code>wallet</code>).
               </p>
               <p>
                 PR descriptions are important. They "sell" your PR yet are often
@@ -308,12 +330,21 @@ jon atack bitcoin core developer and protocol researcher
                 <a href="https://www.collinsdictionary.com/dictionary/english/pithy"
                    rel="nofollow">pithy</a>.
               </p>
-
-              <h4 id="say-how-to-review-and-test-your-pr">Say how to review and test your PR</h4>
               <p>
-                It's a smart habit to give reviewers tips in your PR description
-                on how to review and test your changes: "Here's how to review
-                this".
+                Never put @-prefixed usernames in commits and PR descriptions;
+                the latter because usernames in the description are copied into
+                the merge commit by the merge script. This can cause endless
+                annoying notifications for those concerned. An
+                <a href="https://github.com/bitcoin-core/bitcoin-maintainer-tools/pull/32" target="_blank">update</a>
+                to the merge script now warns maintainers if a merge message
+                contains a @username, but it's better not to add them to begin
+                with.
+              </p>
+              <p>
+                Don't rely on markdown in your PR description for it to make
+                sense, especially strike-through formatting. The Bitcoin Core
+                merge script will copy your PR description to git history in the
+                merge commit but any formatting will be lost.
               </p>
 
               <h4 id="say-why">Say why</h4>
@@ -325,32 +356,27 @@ jon atack bitcoin core developer and protocol researcher
                 no one was ever hurt by a little more concise explanation.
               </p>
 
+              <h4 id="say-how-to-review-and-test-your-pr">Say how to review and test your PR</h4>
               <p>
-                Don't rely on markdown in your PR description for it to make
-                sense, especially strike-through formatting. The Bitcoin Core
-                merge script will copy your PR description to git history in the
-                merge commit but any formatting will be lost.
+                It's a smart habit to give reviewers tips in your PR description
+                on how to review and test your changes: "Here's how to review
+                this".
+              </p>
+
+              <h4 id="rebasing">Rebasing</h4>
+              <p>
+                It essential to be comfortable with frequently rebasing your
+                commits to reorganise or squash them. Rebasing is frequently
+                done to keep your commits logical, separate, and easier to
+                review. Even better, hygienic — each standing on their own
+                without introducing regressions.
               </p>
               <p>
                 For simple edits of existing commits, don't hesitate to squash
                 your commits before pushing, without waiting for the maintainers
                 to ask you to do so.
               </p>
-              <p>
-                Set up Travis CI on your own GitHub Bitcoin repository so that
-                when you push a branch or commit, the linter and continuous
-                integration tests run. It can be a good idea to verify that they
-                are all green on your GitHub repository before filing a
-                PR. Unfortunately, the Travis CI is also currently very slow and
-                times out frequently, signaling false negatives.
-              </p>
-              <p>When it works,
-                <a href="https://bitcoinbuilds.org"
-                   rel="nofollow">https://bitcoinbuilds.org</a>
-                runs more quickly than the Travis CI (but for the moment it
-                tests fewer platforms), so don't hesitate to consult it for
-                early initial feedback when you push a PR or changes.
-              </p>
+
               <p>
                 You can sign your commits using the
                 <a href="https://github.com/opentimestamps/opentimestamps-client/blob/master/doc/git-integration.md"
@@ -362,9 +388,27 @@ jon atack bitcoin core developer and protocol researcher
                 you're sending notifications to the people who previously
                 reviewed or commented on it. Respect their time.
               </p>
+
+              <h4 id="getting-review">Getting review</h4>
               <p>
                 Learn how to get people to review your work when needed. It's a
                 skill.
+                <a href="on-reviewing-and-helping-those-who-do-it"
+                   target="_self">Review is scarce and valuable -- it's the bottleneck</a>.
+              </p>
+              <p>
+                The best ways to get review are organic: Making sure your work
+                is interesting, desired, and done well. Giving back by helping
+                others and giving review. Giving more than you take or ask for;
+                adding value as best as you can while figuring things out on
+                your own. It's a long and sometimes frustrating path but a
+                rewarding one.
+              </p>
+              <p>
+                While waiting for review, the very best thing you can do
+                is give review to others. Karma is a thing — and
+                reviewing/testing PRs and issues builds your credibility and
+                understanding of the codebase and the process.
               </p>
               <p>
                 Persistence can pay off. Sometimes a PR succeeds on the second
@@ -381,16 +425,6 @@ jon atack bitcoin core developer and protocol researcher
                 usernames, to rope in support for the new PR. If you do, be sure
                 to do it in a comment — not in a commit message and not in the
                 PR description.
-              </p>
-              <p>
-                Never put GitHub @-prefixed usernames in commits and PR
-                descriptions; the latter because usernames in the description
-                are copied into the merge commit by the merge script. This can
-                cause endless annoying notifications for those concerned. An
-                <a href="https://github.com/bitcoin-core/bitcoin-maintainer-tools/pull/32" target="_blank">update</a>
-                to the merge script now warns maintainers if a merge message
-                contains a @username, but it's better not to add them to begin
-                with.
               </p>
               <p>
                 Ask yourself how others will see your PR. Try to only file PRs
@@ -414,7 +448,17 @@ jon atack bitcoin core developer and protocol researcher
                 If you are a good reviewer and begin building a reputation and
                 appreciation for your help in moving the project forward,
                 maintainers and other contributors may reciprocate by reviewing
-                your work more quickly as well.
+                your work more quickly as well. See these two articles for more:
+                <ul>
+                  <li>
+                    <a href="/articles/on-reviewing-and-helping-those-who-do-it"
+                       target="_self">On Reviewing, and Helping Those Who Do It</a>
+                  </li>
+                  <li>
+                    <a href="/articles/how-to-review-pull-requests-in-bitcoin-core"
+                       target="_self">How to Review Pull Requests in Bitcoin Core</a>
+                  </li>
+                </ul>
               </p>
               <p>
                 Happy contributing!
