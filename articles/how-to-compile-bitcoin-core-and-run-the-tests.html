@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 30 October 2020</div>
+          <div class="date">Last updated: 26 November 2020</div>
           <div class="body">
             <article>
               <div class="title">
@@ -270,11 +270,11 @@ jon atack bitcoin core developer and protocol researcher
                   <ul>
                     <li><code>make check</code>, or</li>
                     <li>
-                      <code>make -j"$(($(nproc)+1))" check</code>
+                      <code>make -j "$(($(nproc)+1))" check</code>
                       to use multithreading on Linux, or
                     </li>
                     <li>
-                      <code>make -j"$(($(sysctl -n hw.physicalcpu)+1))" check</code>
+                      <code>make -j "$(($(sysctl -n hw.physicalcpu)+1))" check</code>
                       to use multithreading on macOS
                     </li>
                     <li>
@@ -289,8 +289,15 @@ jon atack bitcoin core developer and protocol researcher
                   Run the functional tests. From the repository root:
                   <ul>
                     <li>
-                      <code>test/functional/test_runner.py</code>
-                      to run the standard test suite
+                      <code>test/functional/test_runner.py</code> to run the
+                      standard test suite
+                      (try <code>test/functional/test_runner.py -j 60</code> or
+                      a similar high number to run the tests more quickly in
+                      parallel)
+                    </li>
+                    <li>
+                      <code>test/functional/<name of test file>.py</code> to run
+                      an individual test file
                     </li>
                     <li>
                       <code>test/functional/test_runner.py --extended</code>
