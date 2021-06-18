@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 12 May 2021</div>
+          <div class="date">Last updated: 18 June 2021</div>
           <div class="body">
             <article>
               <div class="title">How to Review Pull Requests in Bitcoin Core</div>
@@ -63,14 +63,6 @@ jon atack bitcoin core developer and protocol researcher
               </p>
               <ol>
                 <li>
-                    <a href="https://bitcointechtalk.com/contributing-to-bitcoin-core-a-personal-account-35f3a594340b"
-                       rel="nofollow">Contributing to Bitcoin Core, a personal
-                      account</a>
-                    by
-                    <a href="https://twitter.com/jfnewbery" rel="nofollow">John
-                      Newbery</a> (2017)
-                </li>
-                <li>
                     <a href="https://bitcointechtalk.com/a-gentle-introduction-to-bitcoin-core-development-fdc95eaee6b8"
                         rel="nofollow">A Gentle Introduction to Bitcoin Core
                       Development</a>
@@ -78,6 +70,14 @@ jon atack bitcoin core developer and protocol researcher
                     <a href="https://twitter.com/jimmysong" rel="nofollow">Jimmy
                       Song</a>
                     (2017)
+                </li>
+                <li>
+                    <a href="https://bitcointechtalk.com/contributing-to-bitcoin-core-a-personal-account-35f3a594340b"
+                       rel="nofollow">Contributing to Bitcoin Core, a personal
+                      account</a>
+                    by
+                    <a href="https://twitter.com/jfnewbery" rel="nofollow">John
+                      Newbery</a> (2017)
                 </li>
                 <li>
                     <a href="https://medium.com/@pierre_rochard/understanding-the-technical-side-of-bitcoin-2c212dd65c09"
@@ -238,24 +238,24 @@ jon atack bitcoin core developer and protocol researcher
               </ul>
 
               <p>
-                Participate in the excellent
+                Participate in the
                 <a href="https://bitcoincore.reviews"
                    rel="nofollow">Bitcoin Core PR Review Club</a>
-                weekly meetings on IRC. The club was launched in May 2019
-                by
-                <a href="https://twitter.com/jfnewbery" rel="nofollow">John
-                  Newbery</a>.
-                You'll benefit the most if you prepare for each meeting in
-                advance by studying, building, and testing the PR under review —
-                and then actually reviewing it! Go through the notes, questions,
-                and logs of the previous meetings; there is gold in there.
+                weekly meetings on IRC.  You'll benefit the most if you prepare
+                for each meeting in advance by studying, building, and testing
+                the PR under review — and then actually reviewing it! Go through
+                the notes, questions, and logs of the previous meetings; there
+                is gold in there.
               </p>
               <p>
                 Many newcomers begin by opening pull requests that add to the
-                hundreds already awaiting valuable review. In many cases, it may
-                be better to begin by reviewing the existing pull requests and
-                starting to understand what kind of pull requests and review are
-                most helpful, while slowly gaining the big picture.
+                hundreds already awaiting valuable review.  It's much better to
+                begin by reviewing the existing pull requests and starting to
+                understand what kind of pull requests and review are most
+                helpful, while slowly gaining the big picture.
+              </p>
+              <p>
+                A good rule of thumb is to review 5-15 PRs for each PR you open.
               </p>
 
               <h4 id="the-big-picture">The big picture</h4>
@@ -282,11 +282,6 @@ jon atack bitcoin core developer and protocol researcher
                     Labs study guide</a>
                 </li>
                 <li>
-                  read and do
-                  <a href="https://github.com/jimmysong/programmingbitcoin">Programming
-                    Bitcoin</a>
-                </li>
-                <li>
                   study the
                   <a href="https://github.com/bitcoin/bips/">Bitcoin Improvement
                     Proposals</a>
@@ -296,10 +291,11 @@ jon atack bitcoin core developer and protocol researcher
                 <li>
                   subscribe to the
                   <a href="https://bitcoinops.org/"
-                     rel="nofollow">Bitcoin Optech newsletters</a>
-                  and read their
-                  <a href="https://github.com/bitcoinops/scaling-book">Scaling
-                      Book</a>
+                     target="_blank" rel="nofollow">Bitcoin Optech newsletters</a>
+                  and use their
+                  <a href="https://bitcoinops.org/en/topics/"
+                     target="_blank" rel="nofollow">topics page</a>
+                  as a go-to resource.
                 </li>
                 <li>
                   do
@@ -446,33 +442,8 @@ jon atack bitcoin core developer and protocol researcher
                 yourself and others.
               </p>
               <p>
-                John Newbery:
-                <ul>
-                  <li>
-                    A good rule of thumb is to review 5-15 PRs for each PR you
-                    make
-                  </li>
-                  <li>
-                    Start small
-                  </li>
-                  <li>
-                    Have a plan, don't spread yourself too thin
-                  </li>
-                  <li>
-                    Sharpen your tools
-                  </li>
-                  <li>
-                    Ask for and offer help, like rebasing for people or adding
-                    test cases
-                  </li>
-                  <li>
-                    People are generous with their time because they care
-                  </li>
-                  <li>
-                    Contribute by understanding what others want and being
-                    respectful
-                  </li>
-                </ul>
+                Remember to review 5-15 PRs (or handle or test 5-15 issues), for
+                every PR you open.
               </p>
               <p>
                 Finally, be sure to review contributions from a wide range of
@@ -823,10 +794,10 @@ jon atack bitcoin core developer and protocol researcher
               <p>
                 Bitcoin Core reviewers frequently use the
                 <a href="https://www.apache.org/foundation/voting.html#expressing-votes-1-0-1-and-fractions"
-                   rel="nofollow">Apache voting system</a>
+                   target="_blank" rel="nofollow">Apache voting system</a>
                 in their comments. Here is an
                 <a href="https://github.com/bitcoin/bitcoin/pull/11426#issuecomment-334091207"
-                   rel="nofollow">example</a>.
+                   target="_blank" rel="nofollow">example</a>.
               </p>
 
               <h4 id="go-easy-on-the-people">Go easy on the people</h4>
@@ -834,11 +805,13 @@ jon atack bitcoin core developer and protocol researcher
                 Review the code, not the contributor or their comments.
               </p>
               <p>
-                When you disagree, state your point of view once and move
-                on. Don't flood the comments section, browbeat others or
-                overreact. Remember that the most important thing is probably
-                not the issue being discussed, but your relationship with the
-                other contributors.
+                When you disagree, state your point of view once and move on.
+                <a href="https://github.com/bitcoin/bitcoin/pull/22245#issuecomment-862044403"
+                   target="_blank" rel="nofollow">Here's an example</a>.
+                Don't flood the comments section, browbeat others or overreact.
+                Be patient, never aggressive, pushy or bullying.  Remember that
+                the most important thing is probably not the issue being
+                discussed, but your relationship with the other contributors.
               </p>
               <p>
                 As a new contributor, be cautious with giving a NACK. Assume by
@@ -870,31 +843,6 @@ jon atack bitcoin core developer and protocol researcher
               </p>
 
               <h3 id="credits">CREDITS</h3>
-              <p>
-                A special thank you to
-                <a href="https://twitter.com/jfnewbery"
-                   rel="nofollow">John Newbery</a>
-                for launching the
-                <a href="https://bitcoincore.reviews" rel="nofollow">Bitcoin
-                  Core PR Reviews Club</a>
-                and to the long-term contributors who participated so far:
-                Andrew Chow,
-                Anthony Towns,
-                Bryan Bishop,
-                <a href="https://hash.social/users/harding"
-                   rel="nofollow">Dave Harding</a>,
-                Gregory Sanders,
-                James O'Beirne,
-                Karl-Johan Alm,
-                Marco Falke,
-                Mark "Murch" Erhardt,
-                Michael Ford,
-                Mike Schmidt,
-                Pieter Wuille,
-                Samuel Dobson,
-                and
-                Wladimir van der Laan.
-              </p>
               <p>
                 Thanks to
                 <a href="https://twitter.com/moneyball"
