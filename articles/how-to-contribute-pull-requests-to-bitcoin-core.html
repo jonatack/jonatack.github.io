@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 21 January 2021</div>
+          <div class="date">Last updated: 21 June 2021</div>
           <div class="body">
             <article>
               <div class="title">How to Contribute Pull Requests to Bitcoin Core</div>
@@ -68,6 +68,11 @@ jon atack bitcoin core developer and protocol researcher
                 Remember that testing issues and reviewing are the most
                 effective ways you can contribute as a new contributor (and will
                 teach you more about the codebase than opening PRs).
+              </p>
+              <p>
+                When a new contributor is doing review or testing, they stand
+                out positively and much more than someone who is opening pull
+                requests and doing little to no commensurate review and testing.
               </p>
               <p>
                 As
@@ -97,10 +102,12 @@ jon atack bitcoin core developer and protocol researcher
               <p>
                 Read and know the Bitcoin Core
                 <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md"
-                   target="_blank">Contributing Guide</a>
-                and
+                   target="_blank">Contributing Guide</a>,
                 <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/developer-notes.md"
-                   target="_blank">Developer Notes</a>.
+                   target="_blank">Developer Notes</a>
+                and
+                <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/productivity.md"
+                   target="_blank">Productivity Notes</a>.
               </p>
 
               <h4 id="what-to-do">What to do</h4>
@@ -184,11 +191,13 @@ jon atack bitcoin core developer and protocol researcher
               <p>
                 Gather context about the change you have in mind. Has it already
                 been proposed in the past? Do issues or PRs about it already
-                exist? (They probably do). Sleuth a bit. Search the <code>git
+                exist? (They probably do.) Sleuth a bit. Search the <code>git
                 log -S</code> history. Look at the <code>git blame</code> of the
-                code in question and <code>git show</code> the commits. Check
-                the GitHub file history. You'll see who understands that part of
-                the codebase and can be contacted for questions or review.
+                code in question and <code>git show</code> / <code>git
+                log</code> the commits of the relevant lines. Check the GitHub
+                file history. You'll see who understands that part of the
+                codebase and can be contacted for questions or review (after
+                you've first put in the work to understand it on your own).
               </p>
               <p>
                 It may save you a lot of time to consult with relevant people on
@@ -200,7 +209,9 @@ jon atack bitcoin core developer and protocol researcher
                 I sometimes seek Concept ACKs for larger changes at IRC meetings
                 (<a href="http://www.erisian.com.au/meetbot/bitcoin-core-dev/2020/bitcoin-core-dev.2020-01-17-19.00.log.html"
                     target="_blank">example</a>)
-                as a topic request and discussion.
+                as a topic request and discussion. That said, I do it less and
+                less, and now quite rarely, because observing discussion on IRC
+                and while reviewing pull requests allows seeing needs naturally.
               </p>
 
               <h4 id="write-test-coverage">Write test coverage</h4>
@@ -257,21 +268,23 @@ jon atack bitcoin core developer and protocol researcher
               <h4 id="hygienic-commits">Hygienic commits</h4>
               <p>
                 Make sure each individual commit in your PR is hygienic. Every
-                commit must compile successfully on its own without warnings,
-                errors, regressions, or test failures.
+                commit must
+                <a href="/articles/how-to-compile-bitcoin-core-and-run-the-tests"
+                   target="_self">compile successfully</a>
+                on its own without warnings, errors, regressions, or test
+                failures.
               </p>
               <p>
                 This means compiling your PRs with <code>--enable-debug</code>
-                passed to your build configuration. Run
+                passed to your build configuration.  Run
                 <code>./configure --help | grep -A1 --enable-debug</code>
                 for more info.
               </p>
               <p>
-                Set up Travis CI on your own GitHub Bitcoin repository so that
-                when you push a branch or commit, the linter and Travis CI
-                (continuous integration) tests run. It can be a good idea to
-                verify that they are all green on your GitHub repository before
-                filing a PR. Unfortunately, Travis CI is also sometimes slow and
+                Set up a CI (continuous integration) on your own GitHub Bitcoin
+                repository, so that when you push a branch or commit, the linter
+                and CI tests run. It can be a good idea to verify that they are
+                all green before opening a PR.  The CI is sometimes slow and
                 times out frequently — you may have to look at the logs of
                 failing jobs to distinguish between real issues and when you
                 just need to restart the job.
@@ -279,9 +292,9 @@ jon atack bitcoin core developer and protocol researcher
               <p>When it works,
                 <a href="https://bitcoinbuilds.org"
                    rel="nofollow">https://bitcoinbuilds.org</a>
-                runs more quickly than Travis CI (but for the moment it
-                tests fewer platforms), so don't hesitate to consult it for
-                quicker feedback when you push a PR or changes.
+                runs more quickly than the CI (but for the moment it tests fewer
+                platforms), so don't hesitate to consult it for quicker feedback
+                when you push a PR or changes.
               </p>
 
               <h4 id="do-it-well">Do it well</h4>
@@ -294,7 +307,9 @@ jon atack bitcoin core developer and protocol researcher
               <p>
                 Put the time in to make your PRs as easy to understand and
                 review as possible: Code, tests, documentation, good commit
-                messages, relevant references, concise explanations.
+                messages, relevant references, concise explanations, and a
+                logical ordering of commits that each build cleanly and pass all
+                tests.
               </p>
 
               <h4 id="timing">Timing</h4>
@@ -304,8 +319,10 @@ jon atack bitcoin core developer and protocol researcher
                 status. If you already have a few PRs open it may be best to
                 close them or concentrate on having them merged before adding
                 yet another PR to the review stack. The idea of limiting open
-                PRs to 5 per contributor is occasionally raised; consider
-                staying well under that.
+                PRs to 5 per contributor is occasionally raised; consider not
+                exceeding that unless the quality and quantity of your reviews
+                (or handling and testing of issues) are also present in equal or
+                greater proportion.
               </p>
               <p>
                 Give some thought to PR size and scope. Many contributors err on
@@ -331,7 +348,7 @@ jon atack bitcoin core developer and protocol researcher
                    rel="nofollow">pithy</a>.
               </p>
               <p>
-                Never put @-prefixed usernames in commits and PR descriptions;
+                Don't put @-prefixed usernames in commits and PR descriptions;
                 the latter because usernames in the description are copied into
                 the merge commit by the merge script. This can cause endless
                 annoying notifications for those concerned. An
@@ -344,7 +361,7 @@ jon atack bitcoin core developer and protocol researcher
                 Don't rely on markdown in your PR description for it to make
                 sense, especially strike-through formatting. The Bitcoin Core
                 merge script will copy your PR description to git history in the
-                merge commit but any formatting will be lost.
+                merge commit as text, and any formatting will be lost.
               </p>
 
               <h4 id="say-why">Say why</h4>
@@ -397,12 +414,11 @@ jon atack bitcoin core developer and protocol researcher
                    target="_self">Review is scarce and valuable -- it's the bottleneck</a>.
               </p>
               <p>
-                The best ways to get review are organic: Making sure your work
-                is interesting, desired, and done well. Giving back by helping
-                others and giving review. Giving more than you take or ask for;
-                adding value as best as you can while figuring things out on
-                your own. It's a long and sometimes frustrating path but a
-                rewarding one.
+                The best ways to get review are organic: Make sure your work is
+                interesting, desired, and done well. Give back by helping others
+                and giving review. Give more than you take or ask for; add value
+                as best as you can while figuring things out on your own. It's a
+                long and sometimes frustrating path but a rewarding one.
               </p>
               <p>
                 While waiting for review, the very best thing you can do
