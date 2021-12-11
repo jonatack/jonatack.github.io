@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 30 June 2021</div>
+          <div class="date">Last updated: 11 December 2021</div>
           <div class="body">
             <article>
               <div class="title">How to Contribute Pull Requests to Bitcoin Core</div>
@@ -79,8 +79,8 @@ jon atack bitcoin core developer and protocol researcher
                 <a href="https://twitter.com/moneyball" target="_blank">Steve Lee</a>
                 of
                 <a href="https://squarecrypto.org/" target="_blank">Square Crypto</a>
-                wrote to me recently: "If literally all a developer did was
-                review hard but important PRs it'd be incredibly valuable."
+                wrote to me once: "If literally all a developer did was review
+                hard but important PRs it'd be incredibly valuable."
               </p>
               <p>
                 Don't be in a hurry to add to the growing pile of open PRs.
@@ -146,8 +146,7 @@ jon atack bitcoin core developer and protocol researcher
                 Things to do and fix can also be found by searching for TODO and
                 FIXME comments in the codebase. An easy way to do this is to
                 run <code>git grep "TODO\|FIXME"</code> on the command line from
-                root. Keep in mind that these comments can sometimes be out of
-                date.
+                root. Keep in mind that these comments are often out of date.
               </p>
 
               <h4 id="priorities">Priorities</h4>
@@ -168,11 +167,15 @@ jon atack bitcoin core developer and protocol researcher
                    clear, minimal change</a>.
               </p>
               <p>
-                Avoid making trivial refactoring, style cleanup, or spelling
-                PRs; these consume valuable contributor and maintainer time,
-                often for little gain. Code churn can cause hidden new bugs and
-                blurs the code history and git blame. Any code refactoring needs
-                substantial motivation, advantages, or simplifications.
+                Avoid making trivial refactoring, style cleanup, or spelling PRs
+                as a newcomer; these consume valuable contributor and maintainer
+                time, often for little gain. Code churn can cause hidden new
+                bugs and blurs the code history and git blame. Any code
+                refactoring needs substantial motivation, advantages, or
+                simplifications. As
+                <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#refactoring"
+                   target="_blank">described in CONTRIBUTING.md</a>,
+                it's best to leave refactoring to the experienced contributors.
               </p>
               <p>
                 Do not begin by trying to change consensus code; it is difficult
@@ -223,14 +226,6 @@ jon atack bitcoin core developer and protocol researcher
                 tests, or improve the
                 <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/benchmarking.md" target="_blank">benchmarks</a>.
               </p>
-              <p>
-                A Gregory Maxwell warning to test contributors: "Overly exact
-                tests have greatly diminished value if their exactitude turns
-                them into hyper-active <em>something changed</em> detectors,
-                when they would otherwise be more useful as <em>something isn't
-                right</em> detectors if constructed more in terms of invariants
-                instead of strict behaviour."
-              </p>
 
               <h4 id="write-documentation">Write documentation</h4>
               <p>
@@ -252,7 +247,7 @@ jon atack bitcoin core developer and protocol researcher
                 of <code>getbalances</code> for details."
                </p>
               <p>
-                To avoid potential merge conflicts, release notes are usually
+                To avoid potential merge conflicts, release notes are sometimes
                 added in a separate markdown file in the <code>/doc</code>
                 directory named <code>release-notes-&lt;PR_NUMBER&gt;.md</code>,
                 not directly in
@@ -262,7 +257,9 @@ jon atack bitcoin core developer and protocol researcher
 
               <p>
                 In general, PRs that intelligently improve documentation and
-                tests in a well thought-out way tend to be well-received.
+                tests in a well thought-out way, after some time invested in
+                observing and reviewing to understand what is desired, tend to
+                be well-received.
               </p>
 
               <h4 id="hygienic-commits">Hygienic commits</h4>
@@ -289,12 +286,11 @@ jon atack bitcoin core developer and protocol researcher
                 failing jobs to distinguish between real issues and when you
                 just need to restart the job.
               </p>
-              <p>When it works,
-                <a href="https://bitcoinbuilds.org"
+              <p><a href="https://bitcoinbuilds.org"
                    rel="nofollow">https://bitcoinbuilds.org</a>
-                runs more quickly than the CI (but for the moment it tests fewer
-                platforms), so don't hesitate to consult it for quicker feedback
-                when you push a PR or changes.
+                often runs more quickly than the CI (but for the moment it tests
+                fewer platforms), so don't hesitate to consult it for quicker
+                feedback when you push a PR or changes.
               </p>
 
               <h4 id="do-it-well">Do it well</h4>
@@ -302,7 +298,7 @@ jon atack bitcoin core developer and protocol researcher
                 Don't rush. Give your work time to mature, revisit it with fresh
                 perspective, and iterate on it a few times before putting it out
                 there and asking for others' time. It might be a good rule of
-                thumb to write several WIP PRs for each one that you do file.
+                thumb to write several WIP PRs for each one that you do open.
               </p>
               <p>
                 Put the time in to make your PRs as easy to understand and
@@ -325,11 +321,11 @@ jon atack bitcoin core developer and protocol researcher
                 greater proportion.
               </p>
               <p>
-                Give some thought to PR size and scope. Many contributors err on
-                the side of making their PRs too large and time-consuming to
-                review. It is often better to keep your PRs short and focused to
-                make them easier and safer to review. This may require splitting
-                your work into several consecutive PRs.
+                Give some thought to PR size and scope. Sometimes, contributors
+                err on the side of making their PRs too large and time-consuming
+                to review. It is often better to keep your PRs short and focused
+                to make them easier and safer to review. This may require
+                splitting your work into several consecutive PRs.
               </p>
 
               <h4 id="pr-descriptions">PR descriptions</h4>
@@ -382,7 +378,7 @@ jon atack bitcoin core developer and protocol researcher
 
               <h4 id="rebasing">Rebasing</h4>
               <p>
-                It essential to be comfortable with frequently rebasing your
+                It's essential to be comfortable with frequently rebasing your
                 commits to reorganise or squash them. Rebasing is frequently
                 done to keep your commits logical, separate, and easier to
                 review. Even better, hygienic — each standing on their own
