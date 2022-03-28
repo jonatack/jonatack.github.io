@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 24 March 2022</div>
+          <div class="date">Last updated: 28 March 2022</div>
           <div class="body">
             <article>
               <div class="title">
@@ -188,10 +188,18 @@ jon atack bitcoin core developer and protocol researcher
                     <li>
                       <code>
                         ./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8"
-                        BDB_CFLAGS="-I${BDB_PREFIX}/include"
+                        BDB_CFLAGS="-I${BDB_PREFIX}/include" --enable-suppress-external-warnings
                       </code>
                       if using BDB 4.8, otherwise
-                      <code>./configure --with-incompatible-bdb</code>
+                      <code>
+                        ./configure --with-incompatible-bdb --enable-suppress-external-warnings
+                      </code>
+                    </li>
+                    <li>
+                      You can omit the
+                      <code>--enable-suppress-external-warnings</code> flag if
+                      you want to see compiler warnings related to external
+                      libraries used by Bitcoin Core.
                     </li>
                     <li>
                       <code>make</code>, or if you have multiple CPU cores,
