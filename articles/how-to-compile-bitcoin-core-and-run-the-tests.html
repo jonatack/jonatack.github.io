@@ -287,6 +287,29 @@ jon atack bitcoin core developer and protocol researcher
                   </p>
                 </li>
                 <li>
+                  Troubleshooting.
+                  <p>
+                    If you're seeing any odd issues while compiling, try
+                    using <code>make clean</code> or <code>make distclean</code>
+                    and rebuild from scratch as described above.
+                  </p>
+                  <p>
+                    If that doesn't work, or if you are seeing linker issues,
+                    the header and compilation might be out of sync and you may
+                    want to ensure that you are building from a clean tree. If
+                    you are using ccache, try clearing the cache by
+                    running <code>ccache -C</code> (see <code>ccache -h</code>
+                    for help) and then rebuilding.
+                  </p>
+                  <p>
+                    If that doesn't solve it, you can also run <code>git clean
+                    -f -x -d</code> and rebuild. This wipes everything in the
+                    tree that doesn't belong to git, so be careful that you
+                    don't have anything else in the directory that you don't
+                    want to lose and move it out first.
+                  </p>
+                </li>
+                <li>
                   Run the unit tests.
                   <ul>
                     <li><code>make check</code>, or</li>
