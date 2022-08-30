@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 28 March 2022</div>
+          <div class="date">Last updated: 30 August 2022</div>
           <div class="body">
             <article>
               <div class="title">
@@ -270,6 +270,50 @@ jon atack bitcoin core developer and protocol researcher
                       --with-sanitizers=address,fuzzer,undefined CC=clang
                       CXX=clang++ && make clean && make -j &lt;n&gt;
                     </code>
+                  </p>
+                  <p>
+                    To compile with
+                    <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/developer-notes.md#sanitizers"
+                       target="_blank">sanitizers</a> (credit to Marco Falke for
+                       this section), build with Clang using the following:
+                  </p>
+                  <p>
+                    <ul>
+                      <li>
+                        MSan: Compiling with MSan is quite involved. For running
+                        tests with MSan, it's probably easiest to just compile
+                        normally and then invoke
+                        <code>valgrind ./src/test/test_bitcoin</code>
+                        or
+                        <code>./test/functional/test_runner.py --valgrind</code>
+                        instead. Alternatively, you can use the
+                        <code>./ci/</code>
+                        system to run any sanitizer task.
+                      </li>
+                      <li>
+                        Other sanitizers: Simply append
+                        <code>
+                          --with-sanitizers=undefined,integer CC=clang CXX=clang++
+                        </code>
+                        to your
+                        <code>./configure</code>
+                        call (or
+                        <code>--with-sanitizers=address,</code>
+                        ...). Then, run the tests normally, using the env vars
+                        as needed:
+                        <br>
+                        <pre>  export LSAN_OPTIONS="suppressions=$(pwd)/test/sanitizer_suppressions/lsan"
+  export TSAN_OPTIONS="suppressions=$(pwd)/test/sanitizer_suppressions/tsan:halt_on_error=1:second_deadlock_stack=1"
+  export UBSAN_OPTIONS="suppressions=$(pwd)/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1"</pre>
+                      </li>
+                    </ul>
+                  </p>
+                  <p>
+                    See the
+                    <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/developer-notes.md#sanitizers"
+                       target="_blank">Sanitizers</a>
+                    section of the Bitcoin Core developer notes for more
+                    information.
                   </p>
                   <p>
                     Be sure to use <code>ccache</code> to speed up your builds. You can also gain time by
