@@ -59,9 +59,7 @@ jon atack bitcoin core developer and protocol researcher
                 Using Alternative P2P Networks with your Bitcoin Core Node (and more)
               </div>
 
-              <h3 id="summary">Summary</h3>
-
-              <h4>Presentation at Adopting Bitcoin, San Salvador, November 2022</h4>
+              <h3 id="summary">Summary -- Adopting Bitcoin, San Salvador, November 2022</h3>
 
               <p>
                 We'll discuss why and how to easily use alternative peer-to-peer
@@ -157,11 +155,11 @@ jon atack bitcoin core developer and protocol researcher
                 (using <code>-netinfo</code>) on node startup.
               </p>
 
-              <h3 id="considerations-with-running-tor-only">Running with Tor only</h3>
+              <h3 id="considerations-with-running-tor-only">Considerations with running Tor only</h3>
 
               <p>
-                There are also security considerations with running only Tor,
-                i.e. <code>-onlynet=onion</code>.
+                There are security considerations with running a node only over
+                Tor, i.e. <code>-onlynet=onion</code>.
               </p>
               <ul>
                 <li>
@@ -200,11 +198,12 @@ jon atack bitcoin core developer and protocol researcher
                 to nodes that listen on that port.
               </p>
               <p>
-                Since Bitcoin Core v23 that preference has been removed, because
-                connections over clearnet involving port 8333 make it easy to
-                detect, analyze, block or divert Bitcoin P2P traffic before the
-                connection is even established (at TCP SYN time).  Your Bitcoin
-                Core node may now use any port!
+                Since Bitcoin Core v23, that preference has been removed,
+                because connections over clearnet involving port 8333 make it
+                easy to detect, analyze, block or divert Bitcoin P2P traffic
+                before the connection is even established (at TCP SYN time).
+                Your Bitcoin Core node may now use any port, so try using a
+                different one!
               </p>
 
               <h3 id="resources">Resources</h3>
@@ -269,6 +268,17 @@ jon atack bitcoin core developer and protocol researcher
                 <code>$ ./src/bitcoin-cli -rpcwait -addrinfo</code>
               </p>
               <p>
+                Credit to
+                <a href="https://github.com/vasild"
+                   target="_blank" rel="nofollow">Vasil Dimov</a>
+                and
+                <a href="https://github.com/Rspigler"
+                   target="_blank" rel="nofollow">Robert Spigler</a>,
+                as well as to the I2P and CJDNS online documentation,
+                for parts of the text above.  Credit as well to Vasil for his
+                amazing work over the years on these areas of Bitcoin Core.
+              </p>
+              <p>
                 -----
               </p>
               <p>
@@ -279,16 +289,6 @@ jon atack bitcoin core developer and protocol researcher
                 his writing at
                 <a href="https://jonatack.github.io/articles" target="_blank"
                    rel="nofollow">https://jonatack.github.io/articles</a>.
-              </p>
-              <p>
-                Credit to
-                <a href="https://github.com/vasild"
-                   target="_blank" rel="nofollow">Vasil Dimov</a>
-                and
-                <a href="https://github.com/Rspigler"
-                   target="_blank" rel="nofollow">Robert Spigler</a>
-                for parts of the text above, as well to the I2P and CJDNS online
-                documentation.
               </p>
             </article>
           </div>
