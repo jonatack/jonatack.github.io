@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 25 November 2022</div>
+          <div class="date">Last updated: 26 November 2022</div>
           <div class="body">
             <article>
               <div class="title">
@@ -79,14 +79,6 @@ jon atack bitcoin core developer and protocol researcher
                    target="_blank" rel="nofollow">garlic routing, bundling and
                   encryption</a>.
               </p>
-              <p>
-                I2P connections have a "source address" -- it is certain that
-                the peer who connects from a given I2P address to us possesses
-                the private key that corresponds to that I2P address.  This can
-                be used for whitelisting friend nodes.  It is a stronger
-                guarantee than IP addresses (which can be spoofed by your ISP,
-                for instance).
-              </p>
 
               <h3 id="cjdns">What is CJDNS?</h3>
 
@@ -101,14 +93,27 @@ jon atack bitcoin core developer and protocol researcher
                 multiple entry points where every participant can reach any
                 other participant.
               </p>
+
+              <h3 id="i2p-and-cjdns-commonalities">I2P and CJDNS commonalities</h3>
+
               <p>
-                Compared to IPv4/IPv6, CJDNS provides end-to-end encryption and
-                protects nodes from traffic analysis and filtering.
+                Compared to IPv4/IPv6, both I2P and CJDNS provide end-to-end
+                encryption and protect nodes from traffic analysis and
+                filtering.
+              </p>
+
+              <p>
+                Used with Tor, I2P and CJDNS are complementary options that
+                can enhance network redundancy and robustness for both the
+                Bitcoin network and individual nodes.
               </p>
               <p>
-                Used with Tor and I2P, CJDNS is a complementary option that can
-                enhance network redundancy and robustness for both the Bitcoin
-                network and individual nodes.
+                Unlike Tor, I2P and CJDNS connections have a "source
+                address":  you can be certain that the peer that connects to us
+                from a given address possesses the private key corresponding to
+                that address.  This quality can be used to whitelist "friend"
+                nodes.  It is a stronger guarantee than IP addresses (which can
+                be spoofed by your ISP, for instance).
               </p>
 
               <h3 id="why-use-multiple-bitcoin-p2p-networks">Why use multiple Bitcoin peer-to-peer networks?</h3>
@@ -152,14 +157,15 @@ jon atack bitcoin core developer and protocol researcher
                 Overall, it is good to have options and redundancy.  I've found
                 both I2P and CJDNS work very well for my nodes alongside Tor,
                 and they generally are the first peer connections that I see
-                (using <code>-netinfo</code>) on node startup.
+                (using CLI <code>-netinfo</code>, see below) on node startup.
               </p>
 
               <h3 id="considerations-with-running-tor-only">Considerations with running Tor only</h3>
 
               <p>
                 There are security considerations with running a node only over
-                Tor, i.e. <code>-onlynet=onion</code>.
+                Tor, i.e. <code>-onlynet=onion</code> without other onlynet
+                options set.
               </p>
               <ul>
                 <li>
@@ -181,12 +187,16 @@ jon atack bitcoin core developer and protocol researcher
                   option -- due to the cost of obtaining IPs in many networks.)
                 </li>
                 <li>
-                  Network Partitioning:  If too many nodes use
-                  <code>-onlynet=onion</code>,
-                  it could become difficult for onion nodes to communicate with
-                  clearnet, I2P, and CJDNS nodes, preventing the Tor network
-                  from seeing recent transactions and blocks.  It is essential
-                  that some nodes access multiple networks.
+                  Network Partitioning:  If a sufficiently large proportion of
+                  Tor nodes uses <code>-onlynet=onion</code> without setting
+                  other onlynet options, it could become difficult for onion
+                  nodes to communicate with clearnet, I2P, and CJDNS nodes,
+                  preventing the Tor network from seeing recent transactions and
+                  blocks.  The same is even more true for nodes running only I2P
+                  or CJDNS.  It is essential that some nodes access multiple
+                  networks, and with the currently small identity set of Bitcoin
+                  nodes that run I2P or CJDNS it is a good idea for a node to
+                  run these as one of several networks.
                 </li>
               </ul>
 
@@ -211,7 +221,8 @@ jon atack bitcoin core developer and protocol researcher
               <ul>
                 <li>
                   <a href="https://github.com/bitcoin/bips/blob/master/bip-0155.mediawiki"
-                     target="_blank" rel="nofollow">BIP 155 (addrv2 message)</a>
+                     target="_blank" rel="nofollow">BIP 155 (addrv2)</a>
+                  that was required for Tor v3, I2P and CJDNS support
                 </li>
                 <li>
                   <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/tor.md"
@@ -234,23 +245,25 @@ jon atack bitcoin core developer and protocol researcher
                 </li>
                 <li>
                   one window with a live CLI -getinfo dashboard:
-                  <code>$ watch --no-title --interval 10 ./src/bitcoin-cli -rpcwait -getinfo</code>
+                  <br>
+                  <code>watch --no-title --interval 10 ./src/bitcoin-cli -rpcwait -getinfo</code>
                 </li>
                 <li>
                   one window with a live CLI -netinfo (network connections) dashboard:
-                  <code>$ watch --no-title --interval 4 ./src/bitcoin-cli -rpcwait -netinfo 4</code>
+                  <br>
+                  <code>watch --no-title --interval 4 ./src/bitcoin-cli -rpcwait -netinfo 4</code>
                 </li>
               </ul>
               <p>
                 Run the following for -netinfo help:
+                <br>
                 <code>./src/bitcoin-cli -netinfo help</code>
               </p>
               <p>
                 Note:
                 <ul>
                   <li>
-                    <code>watch</code> is built into Linux as the watch(1)
-                    command
+                    <code>watch</code> is built into Linux as the watch(1) command
                   </li>
                   <li>
                     with macOS, <code>watch</code> can be installed using brew,
@@ -265,7 +278,13 @@ jon atack bitcoin core developer and protocol researcher
               <p>
                 You can also check the number of peers your node knows by
                 network type by running:
-                <code>$ ./src/bitcoin-cli -rpcwait -addrinfo</code>
+                <br>
+                <code>
+                  ./src/bitcoin-cli -rpcwait -addrinfo
+                </code>
+              </p>
+              <p>
+                -----
               </p>
               <p>
                 Credit to
@@ -275,8 +294,14 @@ jon atack bitcoin core developer and protocol researcher
                 <a href="https://github.com/Rspigler"
                    target="_blank" rel="nofollow">Robert Spigler</a>,
                 as well as to the I2P and CJDNS online documentation,
-                for parts of the text above.  Credit as well to Vasil for his
-                amazing work over the years on these areas of Bitcoin Core.
+                for parts of the text above.
+              </p>
+              <p>
+                Thanks and credit as well to
+                <a href="https://github.com/vasild"
+                   target="_blank" rel="nofollow">Vasil Dimov</a>
+                for giving feedback on this article and for his amazing work
+                over the years on these areas of Bitcoin Core.
               </p>
               <p>
                 -----
