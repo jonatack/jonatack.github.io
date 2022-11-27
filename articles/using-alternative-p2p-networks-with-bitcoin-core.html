@@ -52,32 +52,32 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 26 November 2022</div>
+          <div class="date">Last updated: 27 November 2022</div>
           <div class="body">
             <article>
               <div class="title">
                 Using Alternative P2P Networks with your Bitcoin Core Node (and more)
               </div>
 
-              <h3 id="summary">Summary -- Adopting Bitcoin, San Salvador, November 2022</h3>
+              <h3 id="summary">Summary — Adopting Bitcoin, San Salvador, November 2022</h3>
 
               <p>
                 We'll discuss why and how to easily use alternative peer-to-peer
                 networks (I2P, CJDNS) with your Bitcoin Core node for improved
-                network connectivity and robustness -- and more good stuff.
+                network connectivity and robustness — and more good stuff.
               </p>
 
               <h3 id="i2p">What is I2P?</h3>
 
               <p>
-                I2p is an anonymizing network, offering a simple layer that
-                identity-sensitive applications can use to securely communicate.
-                All data is wrapped with several layers of encryption, and the
-                network is both distributed and dynamic, with no trusted parties.
-                I2P uses
+                I2P (the Invisible Internet Project) is an anonymizing network,
+                offering a simple layer that identity-sensitive applications can
+                use to securely communicate.  All data is wrapped with several
+                layers of encryption, and the network is both distributed and
+                dynamic, with no trusted parties.  I2P uses
                 <a href="https://geti2p.net/en/docs/how/garlic-routing"
-                   target="_blank" rel="nofollow">garlic routing, bundling and
-                  encryption</a>.
+                   target="_blank" rel="nofollow">garlic</a>
+                routing, bundling and encryption.
               </p>
 
               <h3 id="cjdns">What is CJDNS?</h3>
@@ -86,12 +86,10 @@ jon atack bitcoin core developer and protocol researcher
                 CJDNS is an encrypted IPv6 network that uses public-key
                 cryptography for address allocation and a distributed hash table
                 for routing.  It builds an end-to-end encrypted IPv6 mesh
-                network that uses the
-                <code>fc00::/8</code>
-                address space (reserved IPv6 range) and a friend-of-a-friend
-                network topology.  It is like a distributed, shared VPN with
-                multiple entry points where every participant can reach any
-                other participant.
+                network that uses the <code>fc00::/8</code> address space
+                (reserved IPv6 range) and a friend-of-a-friend network topology.
+                It is like a distributed, shared VPN with multiple entry points
+                where every participant can reach any other participant.
               </p>
 
               <h3 id="i2p-and-cjdns-commonalities">I2P and CJDNS commonalities</h3>
@@ -103,17 +101,17 @@ jon atack bitcoin core developer and protocol researcher
               </p>
 
               <p>
-                Used with Tor, I2P and CJDNS are complementary options that
-                can enhance network redundancy and robustness for both the
-                Bitcoin network and individual nodes.
+                Used with Tor, I2P and CJDNS are complementary, less-centralized
+                options that can enhance network redundancy and robustness for
+                both your node and the Bitcoin network.
               </p>
               <p>
-                Unlike Tor, I2P and CJDNS connections have a "source
-                address":  you can be certain that the peer that connects to us
+                Unlike Tor, I2P and CJDNS connections have a source
+                address — you can be certain that the peer that connects to you
                 from a given address possesses the private key corresponding to
-                that address.  This quality can be used to whitelist "friend"
-                nodes.  It is a stronger guarantee than IP addresses (which can
-                be spoofed by your ISP, for instance).
+                that address.  This quality can be used to whitelist friend
+                nodes.  It is a stronger guarantee than IP addresses (which can be
+                spoofed by your ISP, for instance).
               </p>
 
               <h3 id="why-use-multiple-bitcoin-p2p-networks">Why use multiple Bitcoin peer-to-peer networks?</h3>
@@ -121,32 +119,30 @@ jon atack bitcoin core developer and protocol researcher
               <p>
                 Using multiple networks provides potentially better
                 decentralization, network robustness and censorship
-                resistance, e.g. I2P or CJDNS may be operational when Tor isn't
+                resistance, e.g. I2P or CJDNS may be operational when Tor is not
                 or has degraded operation, while not degrading privacy or
                 facilitating fingerprinting compared to running Tor alone.
               </p>
               <p>
                 Each network has different characteristics. For instance, Tor is
                 widely used but somewhat centralized, which can lead to problems
-                (consensus node attacks, DoS,  censorship, etc).  Recently,
-                various forms of DoS have been ongoing for nearly half a year
-                now
-                (see
+                (consensus node attacks, denial of service attacks, censorship,
+                etc).  At the time of this writing, various forms of DoS have
+                been ongoing for nearly half a year now — see
                 <a href="https://status.torproject.org/issues/"
-                   rel="nofollow">https://status.torproject.org/issues</a>).
+                   rel="nofollow">https://status.torproject.org/issues</a>.
               </p>
               <p>
                 I2P can be fairly slow in latency (similar to Tor), and unlike
-                Tor, connections have a source address.  However, since the
-                upcoming v24 release, Bitcoin Core automatically generates
-                a new transient address for every outbound I2P peer connection
-                when listening is off, i.e. when your node doesn't accept
-                inbound connections
+                Tor, connections have a source address.  However, starting with
+                24.0, Bitcoin Core automatically generates a new transient
+                address for every outbound I2P peer connection when listening is
+                off, i.e. when your node doesn't accept inbound connections
                 (<code>`-i2pacceptincoming=0</code>).
              </p>
               <p>
                 CJDNS is generally quite fast but does not hide the sender and
-                the recipient from intermediate routers.  It was designed to be
+                the recipient from intermediate routers; it was designed to be
                 used with a friend-of-a-friend topology.  It builds an overlay
                 network which traverses NAT (Network Address Translation),
                 exposing all ports of every node to every other node within the
@@ -156,15 +152,15 @@ jon atack bitcoin core developer and protocol researcher
               <p>
                 Overall, it is good to have options and redundancy.  I've found
                 both I2P and CJDNS work very well for my nodes alongside Tor,
-                and they generally are the first peer connections that I see
-                (using CLI <code>-netinfo</code>, see below) on node startup.
+                and they generally are the first peer connections that I see on
+                node startup.
               </p>
 
               <h3 id="considerations-with-running-tor-only">Considerations with running Tor only</h3>
 
               <p>
                 There are security considerations with running a node only over
-                Tor, i.e. <code>-onlynet=onion</code> without other onlynet
+                Tor, i.e. <code>-onlynet=onion</code> with no other onlynet
                 options set.
               </p>
               <ul>
@@ -178,13 +174,15 @@ jon atack bitcoin core developer and protocol researcher
                   prevent you from seeing confirmed transactions and, with more
                   difficulty, even trick your node into falsely reporting a
                   transaction as confirmed on the blockchain with the most
-                  cumulative chainwork.  This can be alleviated by making manual
-                  <code>-addnode</code>
-                  connections to trusted peers, as a connection to a single
-                  honest peer is enough to thwart an attempted eclipse attack.
-                  (It can also be alleviated with IPv4/IPv6 connections --
-                  particularly when using the <code>-asmap</code> configuration
-                  option -- due to the cost of obtaining IPs in many networks.)
+                  cumulative chainwork.
+                  <p>
+                    This can be alleviated by making manual <code>-addnode</code>
+                    connections to trusted peers, as a connection to a single
+                    honest peer is enough to thwart an attempted eclipse attack.
+                    (It can also be alleviated with IPv4/IPv6 connections —
+                    particularly when using the <code>-asmap</code> configuration
+                    option — due to the cost of obtaining IPs in many networks.)
+                  </p>
                 </li>
                 <li>
                   Network Partitioning:  If a sufficiently large proportion of
@@ -192,97 +190,128 @@ jon atack bitcoin core developer and protocol researcher
                   other onlynet options, it could become difficult for onion
                   nodes to communicate with clearnet, I2P, and CJDNS nodes,
                   preventing the Tor network from seeing recent transactions and
-                  blocks.  The same is even more true for nodes running only I2P
-                  or CJDNS.  It is essential that some nodes access multiple
-                  networks, and with the currently small identity set of Bitcoin
-                  nodes that run I2P or CJDNS it is a good idea for a node to
-                  run these as one of several networks.
+                  blocks.
+                  <p>
+                    The same is even more true for nodes running only I2P
+                    or CJDNS.  It is essential that some nodes access multiple
+                    networks, and with the currently small identity set of
+                    Bitcoin nodes that run I2P or CJDNS it is a good idea for a
+                    node to run these as one of several networks.  Initial Block
+                    Download (IBD) will be much faster as well.
+                  </p>
+                  <p>
+                    A question that sometimes comes up is whether running your
+                    node over multiple networks means that it will gossip to all
+                    of the networks you have set up.  The answer is generally
+                    yes, depending on your configuration. For example, most
+                    full nodes are configured to relay new transactions to all
+                    of their peers unless they’ve already received an
+                    advertisement about the transaction from that peer.
+                  </p>
                 </li>
               </ul>
 
               <h3 id="bitcoin-core-listening-port">Bitcoin Core Listening Port</h3>
 
               <p>
-                Historically, on mainnet the network listening port has been
-                8333 -- Bitcoin Core had a strong preference for only connecting
-                to nodes that listen on that port.
+                Historically, the network listening port on mainnet has been
+                8333; Bitcoin Core had a strong preference for only connecting
+                to nodes on clearnet that listen on that port.
               </p>
               <p>
-                Since Bitcoin Core v23, that preference has been removed,
+                Since Bitcoin Core 23.0, that preference has been removed,
                 because connections over clearnet involving port 8333 make it
                 easy to detect, analyze, block or divert Bitcoin P2P traffic
                 before the connection is even established (at TCP SYN time).
-                Your Bitcoin Core node may now use any port, so try using a
-                different one!
+                Your Bitcoin Core node may now use any port, so consider using a
+                different one over clearnet.
               </p>
 
-              <h3 id="resources">Resources</h3>
+              <br>
 
-              <ul>
-                <li>
-                  <a href="https://github.com/bitcoin/bips/blob/master/bip-0155.mediawiki"
-                     target="_blank" rel="nofollow">BIP 155 (addrv2)</a>
-                  that was required for Tor v3, I2P and CJDNS support
-                </li>
-                <li>
-                  <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/tor.md"
-                     target="_blank" rel="nofollow">Bitcoin Core Tor documentation</a>
-                </li>
-                <li>
-                  <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/i2p.md"
-                     target="_blank" rel="nofollow">Bitcoin Core I2P documentation</a>
-                </li>
-                <li>
-                  <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/cjdns.md"
-                     target="_blank" rel="nofollow">Bitcoin Core CJDNS documentation</a>
-                </li>
-              </ul>
+              <h3 id="getting-started">Getting Started</h3>
 
-              <h4 id="monitoring-your-node">Monitoring your Bitcoin Core node from the command line with 3 open windows</h4>
-              <ul>
-                <li>
-                  one window for the debug log
-                </li>
-                <li>
-                  one window with a live CLI -getinfo dashboard:
-                  <br>
-                  <code>watch --no-title --interval 10 ./src/bitcoin-cli -rpcwait -getinfo</code>
-                </li>
-                <li>
-                  one window with a live CLI -netinfo (network connections) dashboard:
-                  <br>
-                  <code>watch --no-title --interval 4 ./src/bitcoin-cli -rpcwait -netinfo 4</code>
-                </li>
-              </ul>
               <p>
-                Run the following for -netinfo help:
-                <br>
-                <code>./src/bitcoin-cli -netinfo help</code>
-              </p>
-              <p>
-                Note:
+                Running your Bitcoin Core node over I2P and CJDNS is
+                surprisingly quick and easy.  Here is the Bitcoin Core
+                documentation for running your node with:
                 <ul>
                   <li>
-                    <code>watch</code> is built into Linux as the watch(1) command
+                    <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/tor.md"
+                       target="_blank" rel="nofollow">Tor</a>
                   </li>
                   <li>
-                    with macOS, <code>watch</code> can be installed using brew,
-                    i.e. <code>$ brew install watch</code>
+                    <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/i2p.md"
+                       target="_blank" rel="nofollow">I2P</a>
                   </li>
                   <li>
-                    adjust the <code>--interval</code> (in seconds) and
-                    <code>--no-title</code> arguments as you prefer
+                    <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/cjdns.md"
+                       target="_blank" rel="nofollow">CJDNS</a>
                   </li>
                 </ul>
               </p>
               <p>
-                You can also check the number of peers your node knows by
-                network type by running:
-                <br>
-                <code>
-                  ./src/bitcoin-cli -rpcwait -addrinfo
-                </code>
+                Further reading:
+                <ul>
+                  <li>
+                    <a href="https://github.com/bitcoin/bips/blob/master/bip-0155.mediawiki"
+                       target="_blank" rel="nofollow">BIP 155</a>
+                    (addr v2) that was required for Tor v3, I2P and CJDNS support
+                  </li>
+                </ul>
               </p>
+              <br>
+
+              <h3 id="monitoring-your-node">Monitoring your Bitcoin Core node from the command line</h3>
+              <p>
+                I generally have the following 3 command line windows open:
+                <ul>
+                  <li>
+                    1 window for the debug log
+                  </li>
+                  <li>
+                    1 window with a live CLI -getinfo dashboard:
+                    <p>
+                      <code>$ watch --no-title --interval 10 ./src/bitcoin-cli -rpcwait -getinfo</code>
+                    </p>
+                  </li>
+                  <li>
+                    1 window with a live CLI -netinfo (network connections) dashboard:
+                    <p>
+                      <code>$ watch --no-title --interval 4 ./src/bitcoin-cli -rpcwait -netinfo 4</code>
+                    </p>
+                  </li>
+                  <li>
+                    Run the following for -netinfo help:
+                    <p>
+                      <code>$ ./src/bitcoin-cli -netinfo help</code>
+                    </p>
+                  </li>
+                  <li>
+                    To see the number of peers your node knows by network type:
+                    <p>
+                      <code>$ ./src/bitcoin-cli -rpcwait -addrinfo</code>
+                    </p>
+                  </li>
+                </ul>
+              </p>
+
+              Info about the <code>watch</code> command:
+              <ul>
+                <li>
+                  <code>watch</code> is built into Linux as the watch(1) command
+                </li>
+                <li>
+                  with macOS, <code>watch</code> can be installed using brew,
+                  i.e. <code>$ brew install watch</code>
+                </li>
+                <li>
+                  adjust the <code>--interval</code> (in seconds) and
+                  <code>--no-title</code> arguments as you prefer
+                </li>
+              </ul>
+
+              <br>
               <p>
                 -----
               </p>
@@ -293,15 +322,14 @@ jon atack bitcoin core developer and protocol researcher
                 and
                 <a href="https://github.com/Rspigler"
                    target="_blank" rel="nofollow">Robert Spigler</a>,
-                as well as to the I2P and CJDNS online documentation,
-                for parts of the text above.
+                as well as to the I2P and CJDNS online documentation
+                and the Bitcoin Optech topics resource, for parts of the text
+                above.
               </p>
               <p>
-                Thanks and credit as well to
-                <a href="https://github.com/vasild"
-                   target="_blank" rel="nofollow">Vasil Dimov</a>
-                for giving feedback on this article and for his amazing work
-                over the years on these areas of Bitcoin Core.
+                Thanks to Vasil Dimov for giving feedback on this article and
+                for his amazing work over the years on these areas of Bitcoin
+                Core.
               </p>
               <p>
                 -----
