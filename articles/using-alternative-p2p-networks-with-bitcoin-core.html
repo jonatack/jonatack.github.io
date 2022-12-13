@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 27 November 2022</div>
+          <div class="date">Last updated: 13 December 2022</div>
           <div class="body">
             <article>
               <div class="title">
@@ -96,7 +96,7 @@ jon atack bitcoin core developer and protocol researcher
 
               <p>
                 Compared to IPv4/IPv6, both I2P and CJDNS provide end-to-end
-                encryption and protect nodes from traffic analysis and
+                encryption and may help protect nodes from traffic analysis and
                 filtering.
               </p>
 
@@ -155,6 +155,15 @@ jon atack bitcoin core developer and protocol researcher
                 and they generally are the first peer connections that I see on
                 node startup.
               </p>
+              <p>
+                A question that sometimes comes up is whether running your
+                node over multiple networks means that it will gossip to all
+                of the networks you have set up.  The answer is (generally)
+                yes, depending on your configuration. For example, most
+                full nodes are configured to relay new transactions to all
+                of their peers unless they’ve already received an
+                advertisement about the transaction from that peer.
+              </p>
 
               <h3 id="considerations-with-running-tor-only">Considerations with running Tor only</h3>
 
@@ -199,15 +208,6 @@ jon atack bitcoin core developer and protocol researcher
                     node to run these as one of several networks.  Initial Block
                     Download (IBD) will be much faster as well.
                   </p>
-                  <p>
-                    A question that sometimes comes up is whether running your
-                    node over multiple networks means that it will gossip to all
-                    of the networks you have set up.  The answer is generally
-                    yes, depending on your configuration. For example, most
-                    full nodes are configured to relay new transactions to all
-                    of their peers unless they’ve already received an
-                    advertisement about the transaction from that peer.
-                  </p>
                 </li>
               </ul>
 
@@ -224,7 +224,8 @@ jon atack bitcoin core developer and protocol researcher
                 easy to detect, analyze, block or divert Bitcoin P2P traffic
                 before the connection is even established (at TCP SYN time).
                 Your Bitcoin Core node may now use any port, so consider using a
-                different one over clearnet.
+                different one over clearnet, and/or running it behind a VPN
+                to encrypt your node's traffic.
               </p>
 
               <br>
