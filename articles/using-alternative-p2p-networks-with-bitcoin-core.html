@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 13 December 2022</div>
+          <div class="date">Last updated: 19 December 2022</div>
           <div class="body">
             <article>
               <div class="title">
@@ -70,7 +70,9 @@ jon atack bitcoin core developer and protocol researcher
               <h3 id="i2p">What is I2P?</h3>
 
               <p>
-                I2P (the Invisible Internet Project) is an anonymizing network,
+                <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/i2p.md"
+                   target="_blank" rel="nofollow">I2P</a>
+                (the Invisible Internet Project) is an anonymizing network,
                 offering a simple layer that identity-sensitive applications can
                 use to securely communicate.  All data is wrapped with several
                 layers of encryption, and the network is both distributed and
@@ -79,17 +81,35 @@ jon atack bitcoin core developer and protocol researcher
                    target="_blank" rel="nofollow">garlic</a>
                 routing, bundling and encryption.
               </p>
+              <p>
+                I2P support was merged into Bitcoin Core in
+                <a href="https://github.com/bitcoin/bitcoin/pull/20685"
+                   target="_blank" rel="nofollow">PR 20685</a>
+                and the documentation is
+                <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/i2p.md"
+                   target="_blank" rel="nofollow">here</a>.
+              </p>
 
               <h3 id="cjdns">What is CJDNS?</h3>
 
               <p>
-                CJDNS is an encrypted IPv6 network that uses public-key
-                cryptography for address allocation and a distributed hash table
-                for routing.  It builds an end-to-end encrypted IPv6 mesh
-                network that uses the <code>fc00::/8</code> address space
-                (reserved IPv6 range) and a friend-of-a-friend network topology.
-                It is like a distributed, shared VPN with multiple entry points
-                where every participant can reach any other participant.
+                <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/cjdns.md"
+                   target="_blank" rel="nofollow">CJDNS</a>
+                is an encrypted IPv6 network that uses public-key cryptography
+                for address allocation and a distributed hash table for routing.
+                It builds an end-to-end encrypted IPv6 mesh network that uses
+                the <code>fc00::/8</code> address space (reserved IPv6 range)
+                and a friend-of-a-friend network topology.  It is like a
+                distributed, shared VPN with multiple entry points where every
+                participant can reach any other participant.
+              </p>
+              <p>
+                CJDNS support was merged into Bitcoin Core in
+                <a href="https://github.com/bitcoin/bitcoin/pull/23077"
+                   target="_blank" rel="nofollow">PR 23077</a>
+                and the documentation is
+                <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/cjdns.md"
+                   target="_blank" rel="nofollow">here</a>.
               </p>
 
               <h3 id="i2p-and-cjdns-commonalities">I2P and CJDNS commonalities</h3>
@@ -135,10 +155,14 @@ jon atack bitcoin core developer and protocol researcher
               <p>
                 I2P can be fairly slow in latency (similar to Tor), and unlike
                 Tor, connections have a source address.  However, starting with
-                24.0, Bitcoin Core automatically generates a new transient
-                address for every outbound I2P peer connection when listening is
-                off, i.e. when your node doesn't accept inbound connections
-                (<code>`-i2pacceptincoming=0</code>).
+                24.0 containing the merge of
+                <a href="https://github.com/bitcoin/bitcoin/pull/25355"
+                   target="_blank" rel="nofollow">PR 25355</a>,
+                Bitcoin Core automatically generates a new transient
+                address for every outbound I2P peer connection when I2P
+                listening is turned off, i.e. when your node doesn't accept
+                inbound connections by using the configuration option
+                <code>-i2pacceptincoming=0</code>.
              </p>
               <p>
                 CJDNS is generally quite fast but does not hide the sender and
@@ -219,7 +243,10 @@ jon atack bitcoin core developer and protocol researcher
                 to nodes on clearnet that listen on that port.
               </p>
               <p>
-                Since Bitcoin Core 23.0, that preference has been removed,
+                Since Bitcoin Core 23.0, that preference was removed with the
+                merge of
+                <a href="https://github.com/bitcoin/bitcoin/pull/23542"
+                   target="_blank" rel="nofollow">PR 23542</a>,
                 because connections over clearnet involving port 8333 make it
                 easy to detect, analyze, block or divert Bitcoin P2P traffic
                 before the connection is even established (at TCP SYN time).
@@ -323,9 +350,10 @@ jon atack bitcoin core developer and protocol researcher
                 and
                 <a href="https://github.com/Rspigler"
                    target="_blank" rel="nofollow">Robert Spigler</a>,
-                as well as to the I2P and CJDNS online documentation
-                and the Bitcoin Optech topics resource, for parts of the text
-                above.
+                as well as to the I2P and CJDNS online documentation and the
+                <a href="https://bitcoinops.org/en/topics/" target="_blank"
+                   rel="nofollow">Bitcoin Optech topics</a>
+                resource, for parts of the text above.
               </p>
               <p>
                 Thanks to Vasil Dimov for giving feedback on this article and
