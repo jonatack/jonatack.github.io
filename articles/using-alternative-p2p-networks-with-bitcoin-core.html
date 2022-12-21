@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 19 December 2022</div>
+          <div class="date">Last updated: 21 December 2022</div>
           <div class="body">
             <article>
               <div class="title">
@@ -95,13 +95,13 @@ jon atack bitcoin core developer and protocol researcher
               <p>
                 <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/cjdns.md"
                    target="_blank" rel="nofollow">CJDNS</a>
-                is an encrypted IPv6 network that uses public-key cryptography
+                is an IPv6 overlay network that uses public-key cryptography
                 for address allocation and a distributed hash table for routing.
-                It builds an end-to-end encrypted IPv6 mesh network that uses
-                the <code>fc00::/8</code> address space (reserved IPv6 range)
-                and a friend-of-a-friend network topology.  It is like a
-                distributed, shared VPN with multiple entry points where every
-                participant can reach any other participant.
+                It builds an end-to-end encrypted mesh network over the
+                <code>fc00::/8</code> address space (reserved IPv6 range) with a
+                friend-of-a-friend network topology.  It is like a distributed,
+                shared VPN with multiple entry points where every participant
+                can reach any other participant.
               </p>
               <p>
                 CJDNS support was merged into Bitcoin Core in
@@ -121,9 +121,9 @@ jon atack bitcoin core developer and protocol researcher
               </p>
 
               <p>
-                Used with Tor, I2P and CJDNS are complementary, less-centralized
-                options that can enhance network redundancy and robustness for
-                both your node and the Bitcoin network.
+                Used with Tor, the I2P and CJDNS networks are complementary,
+                less-centralized options that can enhance network redundancy and
+                robustness for both your node and the Bitcoin network.
               </p>
               <p>
                 Unlike Tor, I2P and CJDNS connections have a source
@@ -161,7 +161,7 @@ jon atack bitcoin core developer and protocol researcher
                 Bitcoin Core automatically generates a new transient
                 address for every outbound I2P peer connection when I2P
                 listening is turned off, i.e. when your node doesn't accept
-                inbound connections by using the configuration option
+                inbound I2P connections by using the configuration option
                 <code>-i2pacceptincoming=0</code>.
              </p>
               <p>
