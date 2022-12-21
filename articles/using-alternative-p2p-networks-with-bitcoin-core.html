@@ -82,7 +82,7 @@ jon atack bitcoin core developer and protocol researcher
                 routing, bundling and encryption.
               </p>
               <p>
-                I2P support was merged into Bitcoin Core in
+                I2P support was merged into Bitcoin Core v22 in
                 <a href="https://github.com/bitcoin/bitcoin/pull/20685"
                    target="_blank" rel="nofollow">PR 20685</a>
                 and the documentation is
@@ -104,7 +104,7 @@ jon atack bitcoin core developer and protocol researcher
                 can reach any other participant.
               </p>
               <p>
-                CJDNS support was merged into Bitcoin Core in
+                CJDNS support was merged into Bitcoin Core v23 in
                 <a href="https://github.com/bitcoin/bitcoin/pull/23077"
                    target="_blank" rel="nofollow">PR 23077</a>
                 and the documentation is
@@ -275,6 +275,26 @@ jon atack bitcoin core developer and protocol researcher
                   <li>
                     <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/cjdns.md"
                        target="_blank" rel="nofollow">CJDNS</a>
+                  </li>
+                </ul>
+                In many cases, getting started with I2P could be as quick as:
+                <ul>
+                  <li>
+                    Install i2pd (I2P daemon) on the command line:<br>
+                    <code>apt install i2pd && systemctl enable i2pd.service</code> (Linux), or<br>
+                    <code>brew install i2pd && brew services start i2pd</code> (macOS)
+                  </li>
+                  <li>
+                    Add these options to your <code>bitcoin.conf</code>
+                    configuration file (on Linux it is usually located in the
+                    <code>~/.bitcoin/</code> directory, and on macOS in
+                    <code>~/Library/Application\ Support/Bitcoin</code>):<br>
+                    <code>-i2psam=127.0.0.1:7656</code><br>
+                    <code>-i2pacceptincoming=1</code> (optional, to accept inbound I2P connections<br>
+                    <code>-debug=i2p</code> (optional, to turn on I2P logging in the debug log)
+                  </li>
+                  <li>
+                    Restart your node with Bitcoin Core version 22 and up.
                   </li>
                 </ul>
               </p>
