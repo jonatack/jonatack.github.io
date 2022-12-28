@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 21 December 2022</div>
+          <div class="date">Last updated: 27 December 2022</div>
           <div class="body">
             <article>
               <div class="title">
@@ -164,7 +164,9 @@ jon atack bitcoin core developer and protocol researcher
                 address for every outbound I2P peer connection when I2P
                 listening is turned off, i.e. when your node doesn't accept
                 inbound I2P connections by using the configuration option
-                <code>-i2pacceptincoming=0</code>.
+                <code>-i2pacceptincoming=0</code>. (Note that turning off
+                listening is neither the default behavior nor necessarily
+                recommended.)
              </p>
               <p>
                 CJDNS is generally quite fast but does not hide the sender and
@@ -293,9 +295,8 @@ jon atack bitcoin core developer and protocol researcher
                     configuration file (on Linux it is usually located in the
                     <code>~/.bitcoin/</code> directory, and on macOS in
                     <code>~/Library/Application\ Support/Bitcoin</code>):<br>
-                    <code>-i2psam=127.0.0.1:7656</code><br>
-                    <code>-i2pacceptincoming=1</code> (optional, to accept inbound I2P connections<br>
-                    <code>-debug=i2p</code> (optional, to turn on I2P logging in the debug log)
+                    <code>i2psam=127.0.0.1:7656</code><br>
+                    <code>debug=i2p</code> (to turn on I2P logging in the debug log)
                   </li>
                   <li>
                     Restart your node with Bitcoin Core version 22 and up.
@@ -312,6 +313,7 @@ jon atack bitcoin core developer and protocol researcher
                   </li>
                 </ul>
               </p>
+
               <br>
 
               <h3 id="monitoring-your-node">Monitoring your Bitcoin Core node from the command line</h3>
