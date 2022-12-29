@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 27 December 2022</div>
+          <div class="date">Last updated: 29 December 2022</div>
           <div class="body">
             <article>
               <div class="title">
@@ -79,7 +79,13 @@ jon atack bitcoin core developer and protocol researcher
                 dynamic, with no trusted parties.  I2P uses
                 <a href="https://geti2p.net/en/docs/how/garlic-routing"
                    target="_blank" rel="nofollow">garlic</a>
-                routing, bundling and encryption.
+                routing, bundling and encryption.  See
+                <a href="https://geti2p.net/en/docs/how/threat-model"
+                   target="_blank" rel="nofollow">here</a>
+                for more about its threat model.  A good blog post that
+                describes I2P and how it compares to Tor is
+                <a href="https://becomesovran.com/blog/i2p-the-private-layer-of-the-web.html"
+                   target="_blank" rel="nofollow">here</a>.
               </p>
               <p>
                 I2P support was merged into Bitcoin Core v22 in
@@ -147,12 +153,18 @@ jon atack bitcoin core developer and protocol researcher
               </p>
               <p>
                 Each network has different characteristics. For instance, Tor is
-                widely used but somewhat centralized, which can lead to problems
-                (consensus node attacks, denial of service attacks, censorship,
-                etc).  At the time of this writing, various forms of DoS have
-                been ongoing for nearly half a year now — see
+                widely used but centralized due to its hardcoded
+                <a href="https://metrics.torproject.org/rs.html#search/flag:authority"
+                   target="_blank" rel="nofollow">directory servers</a>
+                /
+                <a href="https://consensus-health.torproject.org/"
+                   target="_blank" rel="nofollow">consensus nodes</a>
+                that store the identity of nodes on the network, which can lead
+                to problems (consensus node attacks, denial of service attacks,
+                censorship, etc).  At the time of this writing, various forms of
+                DoS have been ongoing for nearly half a year now — see
                 <a href="https://status.torproject.org/issues/"
-                   rel="nofollow">https://status.torproject.org/issues</a>.
+                   target="_blank" rel="nofollow">https://status.torproject.org/issues</a>.
               </p>
               <p>
                 I2P can be fairly slow in latency (similar to Tor), and unlike
