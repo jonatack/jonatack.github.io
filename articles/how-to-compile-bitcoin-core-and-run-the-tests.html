@@ -270,9 +270,9 @@ jon atack bitcoin core developer and protocol researcher
                   </p>
                   <p>
                     <code>
-                      ./autogen.sh ; ./configure --enable-c++17 --enable-fuzz
-                      --with-sanitizers=address,fuzzer,undefined CC=clang
-                      CXX=clang++ && make clean && make -j &lt;n&gt;
+                      ./autogen.sh ; ./configure --enable-fuzz
+                      --with-sanitizers=address,fuzzer,undefined
+                      CC=clang CXX=clang++ && make clean && make -j &lt;n&gt;
                     </code>
                   </p>
                   <p>
