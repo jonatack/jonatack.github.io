@@ -52,7 +52,7 @@ jon atack bitcoin core developer and protocol researcher
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 8 September 2022</div>
+          <div class="date">Last updated: 7 February 2023</div>
           <div class="body">
             <article>
               <div class="title">
@@ -273,6 +273,28 @@ jon atack bitcoin core developer and protocol researcher
                       ./autogen.sh ; ./configure --enable-fuzz
                       --with-sanitizers=address,fuzzer,undefined
                       CC=clang CXX=clang++ && make clean && make -j &lt;n&gt;
+                    </code>
+                  </p>
+                  <p>
+                    The steps for fuzz builds with macOS are different (see
+                    <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/fuzzing.md#macos-hints-for-libfuzzer"
+                       target="_blank">this link</a>
+                    for more details):
+                  </p>
+                  <p>
+                    <code>
+                      brew install llvm ; ./autogen.sh ; ./configure
+                      --enable-fuzz --with-sanitizers=fuzzer,address,undefined
+                      CC=$(brew --prefix llvm)/bin/clang
+                      CXX=$(brew --prefix llvm)/bin/clang++
+                      --disable-asm --enable-suppress-external-warnings
+                      && make clean && make -j &lt;n&gt;
+                    </code>
+                  </p>
+                  <p>
+                    You can test running a single fuzzer with, for example:
+                    <code>
+                      FUZZ=process_message ./src/test/fuzz/fuzz
                     </code>
                   </p>
                   <p>
