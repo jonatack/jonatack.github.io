@@ -49,7 +49,7 @@ jon atack
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 9 February 2023</div>
+          <div class="date">Last updated: 14 February 2023</div>
           <div class="body">
             <article>
               <div class="title">
@@ -104,9 +104,9 @@ jon atack
                          target="_blank">doc/build-osx.md</a>
                       for details):
                       <code>
-                        brew install automake berkeley-db@4 boost ccache git
-                        libevent libnatpmp libtool miniupnpc pkg-config python
-                        qrencode qt@5 sqlite zeromq
+                        brew install automake boost ccache git libevent
+                        libnatpmp libtool miniupnpc pkg-config python qrencode
+                        qt@5 sqlite zeromq
                       </code>
                     </li>
                   </ul>
@@ -121,32 +121,34 @@ jon atack
                   </ul>
                 </li>
                 <li>
-                  Install Berkeley DB (BDB) v4.8, a backward-compatible version
-                  needed for the wallet, using the
-                  <a href="https://github.com/bitcoin/bitcoin/tree/master/contrib/install_db4.sh"
-                     target="_blank">installation script</a>
-                  included in the Bitcoin Core <code>contrib</code> directory.
-                  If you have another version of BDB already installed that you
-                  wish to use, skip this section and add
-                  <code>--with-incompatible-bdb</code> to your
-                  <code>./configure</code> options below instead.
+                  Berkeley DB (BDB) is only needed for legacy wallet
+                  compatibility or testing, i.e. before the current descriptor
+                  wallets that use SQLite3.  Note that you can disable legacy
+                  wallet support by passing
+                  <code>--without-bdb</code>
+                  to your
+                  <code>./configure</code>
+                  options below.
                   <ul>
                     <li>
-                      Enter your local copy of the bitcoin repository:
-                      <code>cd bitcoin</code>
+                      To install BDB 4.8, a backward-compatible
+                      legacy version, run
+                      <code>brew install berkeley-db@4</code>
+                      for macOS, and for Linux see the Bitcoin Core
+                      <a href="https://github.com/bitcoin/bitcoin/tree/master/doc/"
+                         target="_blank" rel="nofollow">build-*.md</a>
+                      documentation for your operating system (the legacy
+                      <code>install_db4.sh</code>
+                      script was removed in Bitcoin Core v25 with
+                      <a href="https://github.com/bitcoin/bitcoin/pull/26834"
+                         target="_blank" rel="nofollow">PR 26834</a>).
                     </li>
                     <li>
-                      Now that you are in the root of the bitcoin repository,
-                      run <code>./contrib/install_db4.sh `pwd`</code>
-                    </li>
-                    <li>
-                      Take note of the instructions displayed in the terminal at
-                      the end of the BDB installation process:
-                      <br>
-                      <pre>  db4 build complete.
-  When compiling bitcoind, run `./configure` in the following way:
-  export BDB_PREFIX='&lt;PATH-TO&gt;/db4'
-  ./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include" ...</pre>
+                      If you have another version of BDB already installed that
+                      you wish to use, simply add
+                      <code>--with-incompatible-bdb</code> to your
+                      <code>./configure</code> flags below instead.  This option
+                      is recommended unless you specifically need BDB 4.8.
                     </li>
                   </ul>
                 </li>
@@ -174,23 +176,18 @@ jon atack
                   Compile Bitcoin from source.
                   <ul>
                     <li>
-                      <code>export BDB_PREFIX='&lt;PATH-TO&gt;/db4'</code>
-                      (you can use the output from the BDB build above). Skip
-                      this step if you plan to configure with
-                      <code>--with-incompatible-bdb</code>.
-                    </li>
-                    <li>
                       <code>./autogen.sh</code>
                     </li>
                     <li>
                       <code>
-                        ./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8"
-                        BDB_CFLAGS="-I${BDB_PREFIX}/include" --enable-suppress-external-warnings
-                      </code>
-                      if using BDB 4.8, otherwise
-                      <code>
                         ./configure --with-incompatible-bdb --enable-suppress-external-warnings
                       </code>
+                      <p>
+                        or, if you are using BDB 4.8
+                        <br>
+                        <pre>  export BDB_PREFIX='&lt;PATH-TO&gt;/db4'
+  ./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include" --enable-suppress-external-warnings</pre>
+                      </p>
                     </li>
                     <li>
                       You can omit the
@@ -221,7 +218,6 @@ jon atack
                     be more practical to search for what you want with
                     grep: <code>./configure --help | grep -A1 "your-search-term"</code>.
                     The three options I probably use the most often
-                    are <code>--enable-suppress-external-warnings</code>
                     and <code>--with-incompatible-bdb</code> as mentioned above
                     and <code>--enable-debug</code> for debug builds.
                   </p>
