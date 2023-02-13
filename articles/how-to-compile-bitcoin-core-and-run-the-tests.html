@@ -193,7 +193,7 @@ jon atack
                       You can omit the
                       <code>--enable-suppress-external-warnings</code> flag if
                       you want to see compiler warnings related to external
-                      libraries used by Bitcoin Core.
+                      libraries used by Bitcoin Core
                     </li>
                     <li>
                       <code>make</code>, or if you have multiple CPU cores,
@@ -202,10 +202,10 @@ jon atack
                       time significantly with
                     </li>
                     <li>
-                      <code>make -j "$(($(nproc)+1))"</code> on Linux, or
+                      <code>make -j "$(($(nproc) + 1))"</code> on Linux, or
                     </li>
                     <li>
-                      <code>make -j "$(($(sysctl -n hw.physicalcpu)+1))"</code>
+                      <code>make -j "$(($(sysctl -n hw.physicalcpu) + 1))"</code>
                       on macOS
                     </li>
                   </ul>
@@ -217,9 +217,11 @@ jon atack
                     various configuration options. It's a long list, so it may
                     be more practical to search for what you want with
                     grep: <code>./configure --help | grep -A1 "your-search-term"</code>.
-                    The three options I probably use the most often
-                    and <code>--with-incompatible-bdb</code> as mentioned above
-                    and <code>--enable-debug</code> for debug builds.
+                    The three options I use the most often are
+                    <code>--enable-suppress-external-warnings</code> and
+                    <code>--with-incompatible-bdb</code> as mentioned above,
+                    and <code>--enable-debug</code> for debug builds for
+                    reviewing and testing pull requests.
                   </p>
                   <p>
                     If you're re-compiling frequently (e.g. for testing small
@@ -260,29 +262,22 @@ jon atack
                     <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/fuzzing.md"
                        target="_blank">fuzz testing</a>,
                     build with Clang using the following:
-                  </p>
-                  <p>
-                    <code>
-                      ./autogen.sh ; ./configure --enable-fuzz
-                      --with-sanitizers=address,fuzzer,undefined
-                      CC=clang CXX=clang++ && make clean && make -j &lt;n&gt;
-                    </code>
+                    <br>
+                    <pre>  ./autogen.sh
+  ./configure --enable-fuzz --with-sanitizers=address,fuzzer,undefined CC=clang CXX=clang++
+  make clean
+  make -j &lt;n&gt;</pre>
                   </p>
                   <p>
                     The steps for fuzz builds with macOS are different (see
                     <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/fuzzing.md#macos-hints-for-libfuzzer"
                        target="_blank">this link</a>
                     for more details):
-                  </p>
-                  <p>
-                    <code>
-                      brew install llvm ; ./autogen.sh ; ./configure
-                      --enable-fuzz --with-sanitizers=fuzzer,address,undefined
-                      CC=$(brew --prefix llvm)/bin/clang
-                      CXX=$(brew --prefix llvm)/bin/clang++
-                      --disable-asm --enable-suppress-external-warnings
-                      && make clean && make -j &lt;n&gt;
-                    </code>
+                    <br>
+                    <pre>  ./autogen.sh
+  ./configure --enable-fuzz --with-sanitizers=address,fuzzer,undefined CC=$(brew --prefix llvm)/bin/clang CXX=$(brew --prefix llvm)/bin/clang++ --disable-asm --enable-suppress-external-warnings
+  make clean
+  make -j &lt;n&gt;</pre>
                   </p>
                   <p>
                     You can test running a single fuzzer with, for example:
