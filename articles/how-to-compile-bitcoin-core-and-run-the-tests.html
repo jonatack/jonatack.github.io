@@ -75,7 +75,7 @@ jon atack
                   the links below, adapt the dependencies to your needs, and let
                   me know if any are out of date here. Note that ccache isn't
                   strictly required, but you'll probably want to install it (see
-                  below).  You'll also need a compiler like GCC or Clang
+                  below).  You'll also need a compiler like GCC and/or Clang
                   installed. Refer to
                   <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/dependencies.md"
                      target="_blank">doc/dependencies.md</a>
@@ -88,7 +88,7 @@ jon atack
                       for details):
                       <code>
                         sudo apt-get install automake autotools-dev bsdmainutils
-                        build-essential ccache git libboost-dev
+                        build-essential ccache clang gcc git libboost-dev
                         libboost-filesystem-dev libboost-system-dev
                         libboost-test-dev libevent-dev libminiupnpc-dev
                         libnatpmp-dev libqt5gui5 libqt5core5a libqt5dbus5
@@ -105,8 +105,8 @@ jon atack
                       for details):
                       <code>
                         brew install automake boost ccache git libevent
-                        libnatpmp libtool miniupnpc pkg-config python qrencode
-                        qt@5 sqlite zeromq
+                        libnatpmp libtool llvm miniupnpc pkg-config python
+                        qrencode qt@5 sqlite zeromq
                       </code>
                     </li>
                   </ul>
