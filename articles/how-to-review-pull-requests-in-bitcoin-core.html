@@ -49,7 +49,7 @@ jon atack
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 9 February 2023</div>
+          <div class="date">Last updated: 14 February 2023</div>
           <div class="body">
             <article>
               <div class="title">How to Review Pull Requests in Bitcoin Core</div>
@@ -746,14 +746,17 @@ jon atack
                 change X could break Y but didn't find any (or could this
                 scenario happen?)", etc.
               </p>
+
+              <h4 id="ack-with-the-commit-hash">ACK with the commit hash</h4>
               <p>
                 When giving an ACK, specify the commits reviewed by appending
-                the commit hash of the <code>HEAD</code> commit. The trustless
-                way to do this is to use the hash from your <em>local</em>
-                checkout of the branch and not from the GitHub web page. That
-                way, unless your local tools are compromised, you ensure you are
-                ACKing the exact changes. This is also useful when a force push
-                happens and links to old commits are lost on GitHub.
+                the hash of the <code>HEAD</code> commit or the one to which you
+                reviewed.  The trustless, correct way to do this is to use the
+                hash from your <em>local</em> checkout of the branch and not
+                from the GitHub web page. That way, unless your local tools are
+                compromised, you ensure you are ACKing the exact changes.  This
+                is also useful when a force push happens and links to old
+                commits are lost on GitHub.
               </p>
               <p>
                 A full ACK could look like: "ACK <code>fa2f991</code>, I built,
@@ -768,8 +771,8 @@ jon atack
                 will be in git history forever.
               </p>
               <p>
-                A complex PR usually requires at least 3-4 experienced ACKs
-                before merging.
+                A complex or more risky PR may require at least 3-4 experienced
+                ACKs before merging.
               </p>
 
               <h4 id="apache-voting-system">Apache voting system</h4>
