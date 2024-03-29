@@ -262,10 +262,18 @@ jon atack
                     </code>
                   </p>
                   <p>
-                    Be sure to use <code>ccache</code> to speed up your builds. You can also gain time by
-                    building only what you need. See the Bitcoin Core
-                    <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/productivity.md">productivity
-                    notes</a>
+                    Be sure to use
+                    <a href="https://ccache.dev/" target="_blank">ccache</a>,
+                    the fast C/C++ compiler cache, to speed up your builds.  It
+                    should already be installed as part of the dependencies
+                    described at the top of this article.  Run <code>man
+                    ccache</code> or <code>ccache -h</code> for help.
+                  </p>
+                  <p>
+                    You can also gain time by building only what you need. See
+                    the Bitcoin Core
+                    <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/productivity.md"
+                       target="_blank">productivity notes</a>
                     for more.
                   </p>
                   <p>
@@ -357,8 +365,8 @@ jon atack
                     the header and compilation might be out of sync and you may
                     want to ensure that you are building from a clean tree. If
                     you are using ccache, try clearing the cache by
-                    running <code>ccache -C</code> (see <code>ccache -h</code>
-                    for help) and then rebuilding.
+                    running <code>ccache -C</code> (see <code>man ccache</code>
+                    or <code>ccache -h</code> for help) and then rebuilding.
                   </p>
                   <p>
                     If that doesn't solve it, you can also run <code>git clean
