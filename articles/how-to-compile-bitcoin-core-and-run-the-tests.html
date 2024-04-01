@@ -49,7 +49,7 @@ jon atack
 
       <div id="entry_block">
         <div class="entry">
-          <div class="date">Last updated: 29 March 2024</div>
+          <div class="date">Last updated: 1st April 2024</div>
           <div class="body">
             <article>
               <div class="title">
@@ -113,8 +113,8 @@ jon atack
                 </li>
                 <li>
                   Download the Bitcoin source files by git cloning the
-                  repository and then <code>cd</code> ("change directory") to
-                  it.
+                  repository and then <code>cd</code> (change the current
+                  directory) to it.
                   <ul>
                     <li>
                       <code>git clone https://github.com/bitcoin/bitcoin.git</code>
@@ -210,18 +210,24 @@ jon atack
                   </ul>
                 </li>
                 <li>
-                  Pro tips.
+                  Compiling with Clang (for Linux users).
                   <p>
-                    You can run <code>./configure --help</code> to see all the
-                    various configuration options. It's a long list, so it may
-                    be more practical to search for what you want with
-                    grep: <code>./configure --help | grep -A1 "your-search-term"</code>.
-                    The three options I use the most often are
-                    <code>--enable-suppress-external-warnings</code> and
-                    <code>--with-incompatible-bdb</code> as mentioned above,
-                    and <code>--enable-debug</code> for debug builds for
-                    reviewing and testing pull requests.
+                    To compile with
+                    <a href="https://clang.llvm.org/" target="_blank">Clang</a>
+                    instead of
+                    <a href="https://gcc.gnu.org/" target="_blank">GCC</a>
+                    (e.g. for fuzzing, sanitizers, better warnings/errors, or to
+                    use less resources), add <code>CC=clang CXX=clang++</code>
+                    to your configure flags:
                   </p>
+                  <p>
+                    <code>
+                      ./configure CC=clang CXX=clang++
+                    </code>
+                  </p>
+                </li>
+                <li>
+                  Pro tips.
                   <p>
                     If you're re-compiling frequently (e.g. for testing small
                     changes), as long as you're not changing the build
@@ -243,20 +249,6 @@ jon atack
                     </code>
                   </p>
                   <p>
-                    To compile with
-                    <a href="https://clang.llvm.org/" target="_blank">Clang</a>
-                    instead of
-                    <a href="https://gcc.gnu.org/" target="_blank">GCC</a>
-                    (e.g. for fuzzing, sanitizers, better warnings/errors, or to
-                    use less resources), add <code>CC=clang CXX=clang++</code>
-                    to your configure flags:
-                  </p>
-                  <p>
-                    <code>
-                      ./configure CC=clang CXX=clang++
-                    </code>
-                  </p>
-                  <p>
                     Be sure to use
                     <a href="https://ccache.dev/" target="_blank">ccache</a>,
                     the fast C/C++ compiler cache, to speed up your builds.  It
@@ -272,9 +264,23 @@ jon atack
                     for more.
                   </p>
                   <p>
+                    You can run <code>./configure --help</code> to see all the
+                    various configuration options. It's a long list, so it may
+                    be more practical to search for what you want with
+                    grep: <code>./configure --help | grep -A1 "your-search-term"</code>.
+                    The three options I use the most often are
+                    <code>--enable-suppress-external-warnings</code> and
+                    <code>--with-incompatible-bdb</code> as mentioned above,
+                    and <code>--enable-debug</code> for debug builds for
+                    reviewing and testing pull requests.
+                  </p>
+                  <p>
                     If you build often, bash aliases may be helpful for
                     abstracting the repetitive details down to short commands.
                   </p>
+                </li>
+                <li>
+                  Fuzz Testing.
                   <p>
                     To compile for
                     <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/fuzzing.md"
@@ -303,6 +309,9 @@ jon atack
                       FUZZ=process_message ./src/test/fuzz/fuzz
                     </code>
                   </p>
+                </li>
+                <li>
+                  Sanitizers.
                   <p>
                     To compile with
                     <a href="https://github.com/bitcoin/bitcoin/blob/master/doc/developer-notes.md#sanitizers"
