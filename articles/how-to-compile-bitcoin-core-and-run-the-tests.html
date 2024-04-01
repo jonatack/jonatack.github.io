@@ -125,14 +125,9 @@ jon atack
                   </ul>
                 </li>
                 <li>
-                  Berkeley DB (BDB) is only needed for legacy wallet
-                  compatibility or testing, i.e. before the current descriptor
-                  wallets that use SQLite3.  By default, legacy wallet support
-                  is enabled, but you can disable it by passing
-                  <code>--without-bdb</code>
-                  to your
-                  <code>./configure</code>
-                  options below.
+                  Berkeley DB (BDB) is only needed if you want legacy wallet
+                  compatibility, i.e. before the current descriptor wallets that
+                  use SQLite3.  If not, you can skip this step.
                   <ul>
                     <li>
                       To install BDB 4.8, a backward-compatible
