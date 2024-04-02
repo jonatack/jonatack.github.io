@@ -202,20 +202,20 @@ jon atack
                       which is the usual case nowadays, you can tell
                       <code>make</code> to use all of them and reduce compile
                       time significantly with
-                    </li>
-                    <li>
+                    </p>
                       <code>make -j "$(($(nproc) + 1))"</code> on Linux, or
-                    </li>
-                    <li>
+                    </p>
+                    <p>
                       <code>make -j "$(($(sysctl -n hw.physicalcpu) + 1))"</code>
                       on macOS
+                    </p>
                     </li>
                   </ul>
                 </li>
                 <li>
                   Compiling with Clang for Linux users (macOS uses Clang by default).
                   <p>
-                    To compile with
+                    To optionally compile with
                     <a href="https://clang.llvm.org/" target="_blank">Clang</a>
                     instead of
                     <a href="https://gcc.gnu.org/" target="_blank">GCC</a>
