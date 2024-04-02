@@ -180,10 +180,18 @@ jon atack
                     </li>
                     <li>
                       <code>
-                        ./configure --with-incompatible-bdb
+                        ./configure
                       </code>
                       <p>
-                        or, if you are using BDB 4.8
+                        or, for legacy wallet support with a recent BDB
+                      </p>
+                      <p>
+                        <code>
+                          ./configure --with-incompatible-bdb
+                        </code>
+                      </p>
+                      <p>
+                        or, for legacy wallet support with BDB 4.8
                         <br>
                         <pre>  export BDB_PREFIX='&lt;PATH-TO&gt;/db4'
   ./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include"</pre>
