@@ -180,20 +180,14 @@ jon atack
                     </li>
                     <li>
                       <code>
-                        ./configure --with-incompatible-bdb --enable-suppress-external-warnings
+                        ./configure --with-incompatible-bdb
                       </code>
                       <p>
                         or, if you are using BDB 4.8
                         <br>
                         <pre>  export BDB_PREFIX='&lt;PATH-TO&gt;/db4'
-  ./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include" --enable-suppress-external-warnings</pre>
+  ./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include"</pre>
                       </p>
-                    </li>
-                    <li>
-                      You can omit the
-                      <code>--enable-suppress-external-warnings</code> flag if
-                      you want to see compiler warnings related to external
-                      libraries used by Bitcoin Core
                     </li>
                     <li>
                       <code>make</code>, or if you have multiple CPU cores,
@@ -269,8 +263,7 @@ jon atack
                     various configuration options. It's a long list, so it may
                     be more practical to search for what you want with
                     grep: <code>./configure --help | grep -A1 "your-search-term"</code>.
-                    The three options I use the most often are
-                    <code>--enable-suppress-external-warnings</code> and
+                    The options I use the most often are
                     <code>--with-incompatible-bdb</code> as mentioned above,
                     and <code>--enable-debug</code> for debug builds for
                     reviewing and testing pull requests.
@@ -300,7 +293,7 @@ jon atack
                     for more details):
                     <br>
                     <pre>  ./autogen.sh
-  ./configure --enable-fuzz --with-sanitizers=address,fuzzer,undefined CC=$(brew --prefix llvm)/bin/clang CXX=$(brew --prefix llvm)/bin/clang++ --disable-asm --enable-suppress-external-warnings
+  ./configure --enable-fuzz --with-sanitizers=address,fuzzer,undefined CC=$(brew --prefix llvm)/bin/clang CXX=$(brew --prefix llvm)/bin/clang++ --disable-asm
   make clean
   make -j &lt;n&gt;</pre>
                   </p>
