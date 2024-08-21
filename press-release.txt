@@ -1,0 +1,44 @@
+Press Release - 20 August 2024
+
+XXXXXX Bitcoin Developer Grant Awarded to Jon Atack
+
+We are delighted to announce the XXXXXX Bitcoin Grant Program has awarded Jon Atack a one year grant.
+
+Grantee: Jon Atack
+Github: https://github.com/jonatack
+
+Jon Atack is a seasoned contributor to Bitcoin Core, having started contributing in 2019. Jon has also recently been made a maintainer/editor of the BIPs (Bitcoin Improvement Proposals) repository.
+
+...
+
+The grantee, Jon Atack said:
+
+“I'm concerned about human freedom, decentralization of power, individual empowerment, privacy and self-sovereignty.  Bitcoin and open source software play a key part in striving for these causes around the world that are increasingly important every day.
+
+“Bitcoin isn't perfect. Among other things, it needs further decentralization, continued vigilance, review, bug-fixing, updates, maintenance, and improved robustness, performance, privacy, scaling, documentation and user experience.
+
+“I pursue a long-term, evergreen role of help and service, hopefully with a measure of kindness, wisdom and forbearance, to continue to work on the decentralization and robustness of bitcoin via Bitcoin Core and BIPs review, development and maintainer duties.  My time will be primarily invested in reviewing and context-packing proposals for these projects to help move them forward and potentially catch breaking changes and be able to help maintain them.
+
+“I would like to thank Spiral, Strike, the Indy 500 Bitcoin Racing Car, Compass Mining, and the Human Rights Foundation, along with a few kind individual donors, for their support over the years -- and now XXXXXX, to whom I am very grateful for enabling the mission to continue.”
+
+What piqued your interest in Bitcoin?
+
+“A long time ago, I lived through an intense one-week currency devaluation, during which all the banks shut down. When they reopened a few days later, my savings had dropped very significantly.  It amounted to theft of people’s savings at mass scale.  I’ll never forget that.  The idea of decentralized, peer-to-peer money, resistant to censorship, devaluation and confiscation, is what called to me: money separated from the state and central banks and the legacy banking system.  In short, freedom, independence, and self-sovereignty.  To succeed in this, Bitcoin must above all be decentralized and robust.  Improving those qualities are my fundamental goals.”
+
+Favorite Bitcoin Core contributions?
+
+“Review, as it enables leveraging your impact beyond your own code contributions and helping both your fellow contributors and Bitcoin.  I like to review across the whole codebase and a wide range of contributors.  Sometimes giving a nudge via review or testing to a proposal that has been sitting for a long time without attention can be all that's needed to get the ball rolling on it again and see it completed.  That can be satisfying.”
+
+How do you benchmark your work?
+
+“I benchmark my Bitcoin Core work by the number of reviews/re-reviews (particularly for more important or difficult changes), bugs found and fixed, and people and proposals helped.
+
+“I benchmark my BIPs editor/maintainer work by the number of PRs handled (reviewed, merged, or closed), and making the correct decisions regarding them, while striving to maintain an atmosphere of mutual kindness, wisdom and respect with the goal to help bitcoin.”
+
+How do Bitcoin developers ensure there is enough review of changes to protect Bitcoin from being compromised?
+
+“It depends on the type of change; some proposals are more critical or difficult to review and test than others.  More experienced eyes on the code and more people of all backgrounds and levels testing Bitcoin is vital.”
+
+What do you like to do when not working on Bitcoin?
+
+“I like surfing and off-road motorcycling:  activities out in nature, related to independence and freedom, that keep me humble/sane and that are restorative for body, mind and soul.  I currently find El Salvador compelling and unique because it combines both of these interests with the possibility to live day-to-day using Bitcoin in a relatively independent country with an optimistic outlook.  I am also building an off-grid Bitcoin developer house in the mountains there to hopefully create a calm, conducive place for deep work.”
