@@ -3,7 +3,7 @@ body {
 }
 
 ::selection {
-  background: #a8d1ff
+  background: #a8d1ff;
 }
 
 ul {
@@ -31,10 +31,10 @@ img {
   margin-left: 6%;
 }
 
+/*  //font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  //font-family: Verdana, Geneva, sans-serif; */
 .entry {
   font-weight: 600;
-  //font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  //font-family: Verdana, Geneva, sans-serif;
   padding: 10px;
   padding-bottom: 8em;
 }
@@ -43,7 +43,8 @@ img {
   text-align: right;
 }
 
-.date, .time {
+.date,
+.time {
   font-size: small;
 }
 
@@ -66,39 +67,47 @@ img {
   line-height: 1.65em;
 }
 
-div.body, div.title {
+div.body,
+div.title {
   text-align: left;
 }
 
-.body h1, .body h2, .body h3, .body h4, .body p {
+.body h1,
+.body h2,
+.body h3,
+.body h4,
+.body p {
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-  margin-bottom: .85em;
-  margin-top: .85em;
+  margin-bottom: 0.85em;
+  margin-top: 0.85em;
 }
 
-.body h1, .body h2, .body h3, .body h4 {
+.body h1,
+.body h2,
+.body h3,
+.body h4 {
   font-weight: normal;
   font-variant: small-caps;
   padding-top: 2px;
 }
 
 .body h1 {
-  font-size: 1.50em;
+  font-size: 1.5em;
 }
 
 .body h2 {
-  font-size: 1.40em;
+  font-size: 1.4em;
 }
 
 .body h3 {
-  font-size: 1.30em;
+  font-size: 1.3em;
 }
 
 .body h4 {
-  font-size: 1.20em;
+  font-size: 1.2em;
 }
 
 .body p {
@@ -106,7 +115,8 @@ div.body, div.title {
   overflow-wrap: break-word;
 }
 
-ol, li {
+ol,
+li {
   padding-top: 0px;
   padding-bottom: 8px;
 }
@@ -116,8 +126,9 @@ ul {
   padding-bottom: 2px;
 }
 
-.body ol, .body ul {
-  margin: .75em 0 .75em 0;
+.body ol,
+.body ul {
+  margin: 0.75em 0 0.75em 0;
   padding-left: 40px;
 }
 
@@ -135,7 +146,7 @@ pre {
 }
 
 .body pre {
-  padding-bottom: .5em;
+  padding-bottom: 0.5em;
   overflow-x: scroll;
 }
 
@@ -224,13 +235,13 @@ pre {
     display: inline;
     position: absolute;
     bottom: 4px;
-    width: 70%
+    width: 70%;
   }
   .list li {
     display: inline;
     font-size: x-small;
   }
-  #deets{
+  #deets {
     width: 100%;
     text-align: left;
     position: fixed;
@@ -253,4 +264,29 @@ pre {
     font-size: 1.2em;
     font-weight: 700;
   }
+}
+
+#dark-mode-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+#dark-mode-toggle label {
+  cursor: pointer;
+}
+
+#dark-mode-toggle input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+body.dark-mode a {
+  color: #4da6ff;
 }
