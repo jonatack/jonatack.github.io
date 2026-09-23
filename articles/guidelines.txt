@@ -1,0 +1,100 @@
+Guidelines
+----------
+
+Last updated 2026-09-22. Work in progress. Some redundancy likely.
+
+
+CULTURE
+
+Espouse:
+
+- patience
+- wisdom
+- humbleness, admitting mistakes and fixing them
+- experience
+- fairness
+- kindness
+- staying above the fray, not needlessly arguing online
+- not led by ego or ambition
+- robustness
+- prudent, reluctant, don’t break things (and particularly not intentionally to push users to upgrade)
+- respect backward compatibility more and further than core does, when feasible
+- listen to and respect application devs, businesses, and users, where feasible prioritize users over an easier dev experience
+
+Avoid/culturally discourage/strongly resist:
+
+- double standards/favoritism
+- condescension
+- fights/defensiveness/anger/dunking/punching down
+- ivory tower or big city syndrome
+- cliques/tribal politics
+- DEI/woke social engineering or nepotism
+
+Cultural principles:
+
+- kind, wise, strong, humble, service-oriented leadership, with extensive life and work experience, and reluctant to use power arbitrarily when not necessary
+- culture and leadership by example that minimizes ego, hubris, arrogance
+- a personal, opinionated project, with a leader, akin to Wladimir van der Laan in Bitcoin Core
+- when in doubt, by default assume good intentions and the most generous interpretation
+- encourage a climate free of snark, sneering, dunking, passive aggressive, smug, snide, sarcastic, dunking and dismissive responses
+- fairness: discourage double standards, siloes, and cliques
+- encourage tolerance
+- tough on the code but easy on the people, both with fellow developers (not only a small inner clique) and the outside community
+- clarify to strictly separate sex/love/identity and colleague collaboration, keep the personal out of the professional
+- do your own work and reviewing: don’t abuse AI/LLMs to the point of wasting others' time or being incapacitated if they stop working, don’t use other developers or trainees as a proxy, do not try to game the code/review process
+- encourage wisdom and prudence with the press; be very careful when talking with them, often wisest to avoid, cf the 2023 Wall Street Journal hit piece on core (https://www.wsj.com/finance/currencies/bitcoin-core-maintainers-crypto-7b93804, https://www.wsj.com/podcasts/the-journal/the-five-people-keeping-bitcoin-alive/5d156987-2868-4308-bc1d-adcb55d22468)
+
+FUNDING
+
+- need a significant and long term budget to recruit a few experienced devs without a loss in funding for them, while mentoring new ones and creating a talent pipeline.
+- funding and the code repo admin/management need to be fully separate to avoid corruption or a worse variant than the Brink problem (amongst other funding orgs) in core having outsized influence on the code and the direction
+- remote-only: encourage and support independent developers, no offices, no office politics
+- look for cypherpunk, sovereign, preferably mature/experienced, long-term thinking (family-oriented) developers who understand bitcoin and put it over ego and ambition
+- avoid tightly scoping roles or over-supervising grantees
+- grants need to be without strings attached apart from doing the planned work...with mature senior devs, the more hands off, the better
+- choose the grantees well, give them regular feedback, and don't renew the grant if they aren't doing the work. In extreme cases, stop grant payments during the grant
+
+CODE
+
+- "software for the next 100 years" philosophy
+- follow best security disclosure practices
+- focus on robustness: review, CI, testing, fuzzing, reproducible builds, one day at a scope similar to core if resources allow
+- much of its activity may involve reviewing core merges and deciding whether to merge, adapt, delay, or ignore them
+- most likely a monorepository, no exiling of wallet and other parts to other repositories
+- open bug fix PRs on other implementations when relevant, encourage good will and mutual help
+- when in doubt do nothing, unless emergency
+- minimize breaking the API (more conservatively than core)
+- listen to and carefully respect users’ input on proposed changes
+- contributors that use the software they work on -- dogfooding
+- a minimal diff from core or rebasing on each core release is not a viable goal, over time, as core has some radical changes in the pipeline and will probably (under its current leadership) head in directions that are controversial or divergent (e.g., mempool policy, splitting up the repository further, removing the wallet, removing CJDNS network support, etc.)
+- target branching off permanently from core when the org/devs/review capacity/infra are ready
+- modularizing the codebase can be good, but continue as a single repository, e.g., no exiling of the wallet and other parts to other repositories
+- conservative, but not strictly defined as a protocol ossification client: wise, prudent, careful consensus changes in the future will be needed, this can be more difficult with more implementations, and there is the question of which implementation takes the leadership on these
+- consensus changes would in any case need very careful review, testing, scrutiny, fuzzing --  consensus is the part of the codebase that should normally see the least amount of churn
+- help advance a formally proven spec for consensus code, where feasible
+- stay focused on C++, no rewriting to Rust or some other hip/woke programming language
+- continue with, and possibly contribute to, libsecp256k1 for digital signatures and other cryptographic primitives on the secp256k1 elliptic curve
+
+GOVERNANCE
+
+- minimize the influence of funding on governance; the code repo admin/management need to be fully separate from it
+- fair, evenhanded, strongly avoid/discourage double standards and favoritism, which have been the most demoralizing part of core social culture -- - merit-based, no DEI or woke (or critical race theory or anti-patriarchy) or masking/lockdown/vaccine political ideologies
+- encourage a culture of prioritizing experienced, wise and fair review
+- consistent merge bar for changes of similar criticality, no matter whose name is on it
+- open technical discussions on IRC, not everything moved to private “working group” channels like since several years in core
+- the path to maintainership is quality of review, experience (both life and professional), wisdom/kindness/good judgment/strength, and long term proof of work
+- minimize process
+- don't tell people what to do, what to review, no huffy top-down directives
+- any governance is not to be “collectivist” (keyword in Bitcoin Core during the years when Gloria was a maintainer)
+- rather, an ad-hoc non-formal process comprised of sovereign individual contributors (more like core was when I joined and it was run by Wladimir van der Laan, prior to burnout)
+- maintainership is like jury duty; the work is mostly humble service to review/close/merge others' work (when there are sufficient contributors)
+- no top-down pushing of agendas by PMs or funding orgs
+- keep ego, hubris, and personal ambition out of the work
+
+MODERATION
+
+- lead by humble example and ad-hoc discussion
+- no Code of Conduct; minimize process theater
+- no moderation team, unless they become dramatically needed, but core went without them for more than a decade
+- a reluctant light touch with moderation or banning, particularly bans (they are ineffectual; people return under a new GitHub pseudo), unless behavior is extreme (threats, etc.)
+- instead, where feasible, let people feel heard and respected, and try to bring them around to adding value
