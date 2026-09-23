@@ -1,0 +1,62 @@
+Summary:
+
+A long-term, reluctant, humble, low-drama version of Bitcoin Core maintained as a wise, prudent full node with a "for the next 100 years" philosophy.
+
+Priorities: review, core-level robustness (as resources permit), stronger backward compatibility where feasible, a single repository, no rush to break the API, force user upgrades, or other churn.
+
+Much work will be reviewing Bitcoin Core merges and deciding whether to take, edit/fix (cooperatively sharing review feedback with core), or wait a season or three.
+
+Culture: humble lead maintainer inspired by former core lead maintainer for almost a decade, Wladimir van der Laan, service-oriented (leave out ego/hubris), merit, decentralization, seasoned independent remote developers aided by intelligent use of AI, don't break things (or do so very reluctantly), listen to users, discourage online drama, tribalism, and ideological posturing, prioritize EQ and emotional maturity.
+
+Why/Impact:
+
+Bitcoin’s Core carries most of the network's verification burden. Relying on a single dominant client creates monopoly risks and stifles choices and improvement.
+
+A second, well-led, deeply reviewed C++ version of that software can give users and developers a true alternative, particularly when Bitcoin Core’s direction diverges on e.g. process, developer selection criteria, leadership choices, policy, repository split, wallet or privacy network removal, backward compatibility, centralization, or other issues.
+
+It also adds review of core itself, experienced talent working on the same stack users and industry already run, and reduces single-project social and funding concentration, an important decentralization vector.
+
+Actively supporting and adopting robust, well-resourced, wise/experienced alternatives can decentralize code governance and R&D, incentivize Bitcoin Core to improve, enhance network resilience, reduce single points of failure, and increase available choices for all.
+
+Finally, there appears to be long-term demand by bitcoiners for an alternative like this. I am not proposing this project out of ego or ambition or hubris. I have been thinking about it since several years, writing guidelines and principles in detail (some of which are outlined at the end of the Plan B presentation linked to below), and sharing them with many bitcoin people for feedback. However, it is not an easy project and I propose it here out of a reluctant sense of responsibility.
+
+See https://x.com/jonatack/status/2087968237321331064 for an X poll suggesting to work on a fork of Bitcoin Core.
+
+Further resources:
+
+Plan B keynote, Jan 2026:
+https://drive.google.com/file/d/1xfVYlfbYaGX6dQ-4uZ7I7XgQie6LWG1b/
+
+Podcasts:
+https://youtu.be/4FYdfUTFitc
+https://youtu.be/rsDLI2gLsIQ
+https://youtu.be/OJh8aJCAWBc
+
+Legal/Funding:
+
+This project would need serious and long-term support to succeed. "Hell yes, or no."
+
+It would be helpful to avoid admin/org/legal expenses in the beginning unless strictly needed. If so, likely a non-profit structure would be needed. Advice welcome. I can wear many hats, but multitasking makes focus and deep work difficult.
+
+I imagine that developers could apply to OpenSats and other orgs for funding directly, rather than pass-through, and this would be simpler.
+
+Additional budget would be needed for posts like:
+
+- hardware for open-source AI models (I would need to purchase and transport or import into El Salvador)
+- frontier token use
+- continuous robustness infrastructure costs like running CI at the same level as core hardware for testing, running seed nodes, reproducible Guix builders
+- compute/hardware for continuously running various fuzzers, benchmarking, etc.
+
+Prior support for my Bitcoin open-source work:
+
+Square Crypto/Spiral (2020-2024), Human Rights Foundation (2021, 2024), Strike (first recipient of Indy 500 Bitcoin Racing Car proceeds, 2021), Compass Mining (2022), Maelstrom (2024-2025), OpenSats LTS (2024-2026).
+
+Various people have reached out over the past year to propose funding for an alternative version of Bitcoin Core, for which there seems to be real interest.
+
+Bitcoin Core, Production Ready, Knots, Libbitcoin, and BTC Commons suggested I join their project (or in the case of Bitcoin Core, re-dedicate to working primarily on it). However, I think this project would be the best and most valuable fit.
+
+Related experience:
+
+Bitcoin Core developer since 2019, BIPs editor/maintainer/moderator since 2024.
+
+Years of dev experience: 25+
